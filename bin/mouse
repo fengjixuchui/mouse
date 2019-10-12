@@ -40,6 +40,22 @@
         WHS="\033[0;97m"
 	
 printf '\033]2;Mouse Payload Loader\a'
+
+if [[ "$1" = "--check-directory" ]]
+then
+if [[ -d ~/mouse ]]
+then
+    sleep 0
+    exit
+    else
+        cd ~
+        {
+        git clone https://github.com/entynetproject/mouse.git
+        } &> /dev/null
+        exit
+        fi
+exit
+fi
 	
 if [[ "$1" = "-c" || "$1" = "-c" ]]
 then
@@ -74,6 +90,9 @@ then
 sleep 1
 echo ""$BS"[*] "$WHS"Installing update..."$CE""
 {
+mkdir ~/.mouse
+cp -r ~/mouse/downloads ~/.mouse
+cp -r ~/mouse/payloads ~/.mouse
 rm -r ~/mouse
 rm /bin/mouse
 rm /usr/local/bin/mouse
@@ -82,6 +101,9 @@ git clone https://github.com/entynetproject/mouse.git
 cd mouse
 chmod +x install.sh
 ./install.sh
+cp -r ~/.mouse/downloads ~/mouse
+cp -r ~/.mouse/payloads ~/mouse
+rm -r ~/.mouse
 } &> /dev/null
 echo ""$GNS"[*] "$WHS"Successfully updated..."$CE""
 sleep 1

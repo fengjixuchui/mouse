@@ -26,8 +26,9 @@
 #    Email     : entynetproject@gmail.com
 #
 
+import os
 from modules import helper as h
-import threading, socket, time, sys, os
+import threading, socket, time, sys
 
 DOJ='\033[1;34m[*]\033[0m'
 
@@ -137,13 +138,13 @@ class MultiHandler:
 
 
 	def show_command(self,name,description):
-                print("\nMultiHandler Commands")
+                print("\n\033[0mMultiHandler Commands")
                 print("=====================")
 		os.system("cd && cat mouse/resources/multihandler_cmds.txt")
 		print("")
 
 	def show_commands(self):
-		print("\nMultiHandler Commands")
+		print("\n\033[0mMultiHandler Commands")
                 print("=====================")
 		os.system("cd && cat mouse/resources/multihandler_cmds.txt")
 		print("")

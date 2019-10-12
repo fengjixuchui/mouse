@@ -28,27 +28,30 @@
 #    Email     : entynetproject@gmail.com
 #
 
+import os
+
+os.system("printf '\033]2;Mouse Payload Loader\a'")
+os.system("chmod +x bin/mouse && bin/mouse --check-directory")
+os.chdir(os.path.expanduser("~/mouse"))
+
 from modules import server
 from modules import helper as h
-import sys, os
+import sys
 import platform
 import time
 
-#banner
-
 SAS='dev'
-os.system("printf '\033]2;Mouse Payload Loader\a'")
 
 def show_graphic():
-    print(h.WHITE+"-"*40)
+    print(h.WHITE+"-"*43)
     print("")
-    print(h.GREEN_THIN+"    1"+h.WHITE+") Start Server")
-    print(h.GREEN_THIN+"    2"+h.WHITE+") Start MultiHandler")
-    print(h.GREEN_THIN+"    3"+h.WHITE+") Create Payload")
-    print(h.GREEN_THIN+"    4"+h.WHITE+") Clean Payloads")
-    print(h.GREEN_THIN+"    5"+h.WHITE+") Clean Downloads")
-    print(h.GREEN_THIN+"    6"+h.WHITE+") Update Mouse")
-    print(h.GREEN_THIN+"    0"+h.WHITE+") Exit")
+    print(h.GREEN_THIN+"    1"+h.ENDC+") Start Server")
+    print(h.GREEN_THIN+"    2"+h.ENDC+") Start MultiHandler")
+    print(h.GREEN_THIN+"    3"+h.ENDC+") Create Payload")
+    print(h.GREEN_THIN+"    4"+h.ENDC+") Clean Payloads")
+    print(h.GREEN_THIN+"    5"+h.ENDC+") Clean Downloads")
+    print(h.GREEN_THIN+"    6"+h.ENDC+") Update Mouse")
+    print(h.GREEN_THIN+"    0"+h.ENDC+") Exit")
     print("")
     
 class mouse:
@@ -62,22 +65,21 @@ class mouse:
         self.payloads = self.import_payloads() 
         self.banner_text = h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)\n"+h.ENDC
         
-        
     # Actions
     def print_payload(self,payload,number_option):
-        print (h.GREEN_THIN+" " * 4 + str(number_option) +h.WHITE+") "+ payload.name)
+        print (h.GREEN_THIN+" " * 4 + str(number_option) +h.ENDC+") "+ payload.name)
     
 
 
@@ -85,18 +87,18 @@ class mouse:
         os.system("clear")
         print(h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*40)
+        print(h.WHITE+"-"*43)
         print("")
         if not self.server.set_host_port():
             return
@@ -107,18 +109,18 @@ class mouse:
         os.system("clear")
         print(h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*40)
+        print(h.WHITE+"-"*43)
         print("")
         if not self.server.set_host_port():
             return
@@ -152,18 +154,18 @@ class mouse:
         os.system("clear")
         print(h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*40)
+        print(h.WHITE+"-"*43)
         print("")
         exit()
         
@@ -171,18 +173,18 @@ class mouse:
         os.system("clear")
         print(h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*40)
+        print(h.WHITE+"-"*43)
         print("")
         os.system("cd ~ && cd mouse && chmod +x bin/mouse && bin/mouse -u")
         
@@ -191,18 +193,18 @@ class mouse:
         os.system("clear")
         print(h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*40)
+        print(h.WHITE+"-"*43)
         print("")
         os.system("cd ~ && cd mouse && chmod +x bin/mouse && bin/mouse -c downloads")
         
@@ -210,18 +212,18 @@ class mouse:
         os.system("clear")
         print(h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*40)
+        print(h.WHITE+"-"*43)
         print("")
         os.system("cd ~ && cd mouse && chmod +x bin/mouse && bin/mouse -c payloads")
 
@@ -229,18 +231,18 @@ class mouse:
         os.system("clear")
         print(h.ENDC+"""
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\
+        ,    _/_),-"`             '-.                `\\\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`""""""`_.-'
-             _/;--._, >        |   --.__/ `""""""`
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
                                  (((-'
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*40)
+        print(h.WHITE+"-"*43)
         print("")
         number_option = 1
         for key in self.payloads:

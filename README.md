@@ -1,12 +1,12 @@
 # Mouse Payload Loader (MPL)
 
                _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\
+        ,    _/_),-"`             '-.                `\\
        \|.-"`    -_)                 '.                ||
        /`   a   ,                      \              .'/
        '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _``_.-'
-             _/;--._, >        |   --.__/ ``
+          |\  \      \         /`        _`------`_.-'
+             _/;--._, >        |   --.__/ `------`
            (((-'  __//`'-......-;\      )
                 (((-'       __//  '--. /   mouse/MPL
                           (((-'    __//
@@ -16,7 +16,7 @@
 
 # About mouse (MPL)
 
-<img width="1438" alt="mpl" src="https://user-images.githubusercontent.com/43011806/61304748-f28c2480-a7e9-11e9-98eb-31e0ef33f09e.png">
+![mouse](https://user-images.githubusercontent.com/54115104/66684988-f82bc600-ec83-11e9-8f59-f16a729dc693.png)
 
     INFO: Mouse Payload Loader (MPL) is a post exploitation surveillance tool written 
     in Python, C and Objective-C. It gives you a command line session with extra functionality 
@@ -28,7 +28,7 @@
     
 # Getting started
 
-## macOS/Linux installation
+## mouse (MPL) installation
 
 > cd mouse
 
@@ -36,19 +36,19 @@
 
 > ./install.sh
 
-## iOS (jailbroken) installation
+## mouse (MPL) uninstallation
 
 > cd mouse
 
-> chmod +x install.sh
+> chmod +x uninstall.sh
 
-> ./install.sh
+> ./uninstall.sh
 
 ***
 
 # Building payloads (macOS/iOS)
 
-<img width="1440" alt="payloads" src="https://user-images.githubusercontent.com/43011806/61581483-fe942100-ab1e-11e9-96e9-76a4a3da6b4a.png">
+![payloads](https://user-images.githubusercontent.com/54115104/66684991-f8c45c80-ec83-11e9-9788-265573a79d90.png)
 
     INFO: MPL payloads are executed on the target machine. The payload first sends over 
     instructions for getting and sending back device details to our server and then chooses 
@@ -64,15 +64,11 @@
     INFO: Entynet PI is a development board that can be programmed 
     with the Arduino IDE. It emulates USB keyboard strokes extremely 
     fast and can inject the MPL payload just in a few seconds.
-    
-    Developer: Entynetproject (Ivan Nikolsky)
 
 ## Rubber Duck payload (USB injection)
 
     INFO: USB Rubber Duck is a development USB board that can inject 
     uploaded to duck SD card inject.bin payload in a few seconds!
-    
-    Developer: Hak5 (Darren Kitchen)
     
 ## MacOS Application payload
 
@@ -83,7 +79,7 @@
 
 # Mouse CLI
 
-<img width="1440" alt="cli" src="https://user-images.githubusercontent.com/43011806/62390190-f3e77c00-b561-11e9-926f-c648473222b3.png">
+![mcli](https://user-images.githubusercontent.com/54115104/66684993-f95cf300-ec83-11e9-8b65-f51568fa8e82.png)
 
     INFO: After a session is established, we can execute commands on that device 
     through the Mouse (MPL) CLI. We can show all available commands by typing "help".
@@ -104,7 +100,7 @@
 
 # MultiHandler CLI
 
-<img width="1440" alt="mh" src="https://user-images.githubusercontent.com/43011806/62371637-a0f7cf80-b535-11e9-95cb-d2801225aa78.png">
+![multihandler](https://user-images.githubusercontent.com/54115104/66684989-f82bc600-ec83-11e9-922b-dc784c6af241.png)
 
     INFO: The Multihandler option lets us handler multiple 
     sessions. We can choose to interact with different devices 
@@ -123,7 +119,7 @@
 
 # MPL commands
 
-<img width="1440" alt="s" src="https://user-images.githubusercontent.com/43011806/62371839-1cf21780-b536-11e9-91f9-dfa4d211aa27.png">
+![help](https://user-images.githubusercontent.com/54115104/66684997-f9f58980-ec83-11e9-8557-2a710c15b805.png)
 
     INFO: MPL commands are commands that allow you to control a remote device via 
     Mouse CLI or via MultiHandler CLI. Each operating system of the remote device has 
@@ -131,7 +127,7 @@
     
 ## Local commands
 
-<img width="1434" alt="exec" src="https://user-images.githubusercontent.com/43011806/61304762-f4ee7e80-a7e9-11e9-946b-9c45395fde2c.png">
+![exec](https://user-images.githubusercontent.com/54115104/66684992-f8c45c80-ec83-11e9-8dcd-8063112bd4c9.png)
 
     clear          : Clear terminal input/output.
     help           : Show all available commands.
@@ -140,7 +136,7 @@
 
 ## System commands
 
-<img width="1434" alt="mount" src="https://user-images.githubusercontent.com/43011806/61304757-f3bd5180-a7e9-11e9-90e2-d4c2e14045b8.png">
+![mount](https://user-images.githubusercontent.com/54115104/66684994-f95cf300-ec83-11e9-87c6-12cbeb5d01e0.png)
 
 ### macOS
 
@@ -214,7 +210,7 @@
     
 ## Settings commands
 
-<img width="1440" alt="mc" src="https://user-images.githubusercontent.com/43011806/62374110-80cb0f00-b53b-11e9-9450-e15dffb03d03.png">
+![getvol](https://user-images.githubusercontent.com/54115104/66684990-f8c45c80-ec83-11e9-9df8-b3120b57db8a.png)
 
 ### macOS
 
@@ -242,7 +238,7 @@
 
 ## Development commands
 
-<img width="1435" alt="py" src="https://user-images.githubusercontent.com/43011806/61306735-61b74800-a7ed-11e9-87af-d384a5c71129.png">
+![python](https://user-images.githubusercontent.com/54115104/66685000-f9f58980-ec83-11e9-8a33-38757905e952.png)
 
 ### macOS
 
@@ -259,7 +255,7 @@
 
 ## Trolling commands
 
-<img width="1432" alt="alert" src="https://user-images.githubusercontent.com/43011806/61304761-f455e800-a7e9-11e9-9675-62085387b10d.png">
+![alert](https://user-images.githubusercontent.com/54115104/66685678-dd5a5100-ec85-11e9-9729-f6810bcaf27f.png)
 
 ### macOS
 
@@ -289,7 +285,7 @@
 
 ## Stealing commands
 
-<img width="1440" alt="screen" src="https://user-images.githubusercontent.com/43011806/61304756-f3bd5180-a7e9-11e9-8e6b-5d428e779161.png">
+![screenshot](https://user-images.githubusercontent.com/54115104/66684999-f9f58980-ec83-11e9-8a69-3ea9d17553f6.png)
 
 ### macOS
 
@@ -329,7 +325,7 @@
 
 ## Other commands
 
-<img width="1440" alt="su" src="https://user-images.githubusercontent.com/43011806/61306733-61b74800-a7ed-11e9-8db1-a8550b71ba24.png">
+![su](https://user-images.githubusercontent.com/54115104/66684995-f95cf300-ec83-11e9-8170-8bb1dfed471f.png)
 
 ### macOS
 

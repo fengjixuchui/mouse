@@ -10,6 +10,7 @@ class command:
         self.type = "native"
 
     def run(self,session,cmd_data):
+	h.info_general("Taking screenshot...")
     	result = json.loads(session.send_command(cmd_data))
     	if 'error' in result:
     		h.info_error(result['error'])

@@ -59,43 +59,43 @@ class Session:
   	        elif device_type == "iOS":
 			print("\nSubstrate Commands")
                         print("==================")
-		        os.system("cd && cat mouse/resources/substrate_cmds.txt")
+		        os.system("cat resources/substrate_cmds.txt")
 		
 	def get_boot(self,device_type):
 		if device_type == "macos":
-			os.system("cd && cat mouse/resources/boot_cmds_macos.txt")
+			os.system("cat resources/boot_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cd && cat mouse/resources/boot_cmds_ios.txt")
+		        os.system("cat resources/boot_cmds_ios.txt")
 		
 	def get_steal(self,device_type):
 		if device_type == "macos":
-			os.system("cd && cat mouse/resources/stealing_cmds_macos.txt")
+			os.system("cat resources/stealing_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cd && cat mouse/resources/stealing_cmds_ios.txt")
+		        os.system("cat resources/stealing_cmds_ios.txt")
 		
 	def get_set(self,device_type):
 		if device_type == "macos":
-			os.system("cd && cat mouse/resources/settings_cmds_macos.txt")
+			os.system("cat resources/settings_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cd && cat mouse/resources/settings_cmds_ios.txt")
+		        os.system("cat resources/settings_cmds_ios.txt")
 		
 	def get_dev(self,device_type):
 		if device_type == "macos":
-			os.system("cd && cat mouse/resources/development_cmds_macos.txt")
+			os.system("cat resources/development_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cd && cat mouse/resources/development_cmds_ios.txt")
+		        os.system("cat resources/development_cmds_ios.txt")
 	
 	def get_troll(self,device_type):
 		if device_type == "macos":
-			os.system("cd && cat mouse/resources/trollsploit_cmds_macos.txt")
+			os.system("cat resources/trollsploit_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cd && cat mouse/resources/trollsploit_cmds_ios.txt")
+		        os.system("cat resources/trollsploit_cmds_ios.txt")
 			
 	def get_mpl(self,device_type):
 		if device_type == "macos":
-			os.system("cd && cat mouse/resources/mpl_cmds_macos.txt")
+			os.system("cat resources/mpl_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cd && cat mouse/resources/mpl_cmds_ios.txt")
+		        os.system("cat resources/mpl_cmds_ios.txt")
 
 
 	def interact(self):
@@ -223,11 +223,11 @@ class Session:
 	def show_commands(self):
 		print("\nLocal Commands")
                 print("==============")
-		os.system("cd && cat mouse/resources/local_cmds.txt")
+		os.system("cat resources/local_cmds.txt")
 
 	        print("\nSystem Commands")
                 print("===============")
-		os.system("cd && cat mouse/resources/system_cmds.txt")
+		os.system("cat resources/system_cmds.txt")
 		
 		print("\nSettings Commands")
                 print("=================")

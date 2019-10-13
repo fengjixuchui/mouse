@@ -140,13 +140,13 @@ class MultiHandler:
 	def show_command(self,name,description):
                 print("\n\033[0mMultiHandler Commands")
                 print("=====================")
-		os.system("cd && cat mouse/resources/multihandler_cmds.txt")
+		os.system("cat resources/multihandler_cmds.txt")
 		print("")
 
 	def show_commands(self):
 		print("\n\033[0mMultiHandler Commands")
                 print("=====================")
-		os.system("cd && cat mouse/resources/multihandler_cmds.txt")
+		os.system("cat resources/multihandler_cmds.txt")
 		print("")
 
 

@@ -16,10 +16,7 @@ class command:
             print("")
             split_args = cmd_data['args'].split()
             if split_args[0] == "cd":
-                path = cmd_data['args'][2:].strip()
-                if not path:
-                    path = expanduser("~")
-                os.chdir(path)
+                print(h.RED+"[-]"+h.WHITE+" Mouse CLI: Operation not permitted!")
             else:
             	os.system(cmd_data['args'])
 

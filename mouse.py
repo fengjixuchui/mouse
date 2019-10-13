@@ -31,8 +31,6 @@
 import os
 
 os.system("printf '\033]2;Mouse Payload Loader\a'")
-os.system("chmod +x bin/mouse && bin/mouse --check-directory")
-os.chdir(os.path.expanduser("~/mouse"))
 
 from modules import server
 from modules import helper as h
@@ -186,7 +184,7 @@ class mouse:
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
         print(h.WHITE+"-"*43)
         print("")
-        os.system("cd ~ && cd mouse && chmod +x bin/mouse && bin/mouse -u")
+        os.system("chmod +x bin/mouse && bin/mouse -u")
         
         
     def clean_downloads(self):
@@ -206,7 +204,7 @@ class mouse:
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
         print(h.WHITE+"-"*43)
         print("")
-        os.system("cd ~ && cd mouse && chmod +x bin/mouse && bin/mouse -c downloads")
+        os.system("chmod +x bin/mouse && bin/mouse -c downloads")
         
     def clean_payloads(self):
         os.system("clear")
@@ -225,7 +223,7 @@ class mouse:
 """+h.WHITE+"Public Version: "+h.GREEN_THIN+"mouse-v1.6-"+SAS+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
         print(h.WHITE+"-"*43)
         print("")
-        os.system("cd ~ && cd mouse && chmod +x bin/mouse && bin/mouse -c payloads")
+        os.system("chmod +x bin/mouse && bin/mouse -c payloads")
 
     def choose_payload(self):
         os.system("clear")

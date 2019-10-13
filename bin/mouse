@@ -40,22 +40,6 @@
         WHS="\033[0;97m"
 	
 printf '\033]2;Mouse Payload Loader\a'
-
-if [[ "$1" = "--check-directory" ]]
-then
-if [[ -d ~/mouse ]]
-then
-    sleep 0
-    exit
-    else
-        cd ~
-        {
-        git clone https://github.com/entynetproject/mouse.git
-        } &> /dev/null
-        exit
-        fi
-exit
-fi
 	
 if [[ "$1" = "-c" || "$1" = "-c" ]]
 then

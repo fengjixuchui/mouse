@@ -1,5 +1,3 @@
-# The Mouse Payload Loader (MPL) helper
-
 # 
 #            --------------------------------------------------
 #                           Mouse Payload Loader                

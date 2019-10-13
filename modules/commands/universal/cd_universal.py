@@ -13,4 +13,4 @@ class command:
         elif 'current_directory' in result:
         	session.current_directory = result['current_directory'].encode('utf-8')
         else:
-        	h.info_error('unable to get current directory')
+        	h.info_error('Unable to get current directory!')

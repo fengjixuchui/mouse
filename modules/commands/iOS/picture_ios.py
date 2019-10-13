@@ -36,7 +36,7 @@ class command:
 				if 'error' in response:
 					h.info_error(response['error'])
 				else:
-					h.info_error("Unexpected error")
+					h.info_error("Unexpected error!")
 		except Exception as e:
 			print e
 

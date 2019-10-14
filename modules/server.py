@@ -40,7 +40,7 @@ class Server:
         if not os.path.isdir("downloads"):
             os.makedirs("downloads")
         self.macos_architectures = ["i386"]
-        self.ios_architectures = ["arm64","armv7s"]
+        self.ios_architectures = ["arm64","armv7s", "arm"]
         self.host = None
         self.port = None
         self.debug = False

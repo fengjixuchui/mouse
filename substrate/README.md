@@ -54,6 +54,30 @@
 
 ***
 
+# About msub command
+
+    INFO: If you are using Mouse Payload Loader (MPL) to exploit iOS 
+    device, MPL Substrate will be installed automatically. If MPL Substrate 
+    will not installed automatically, install it using Mouse CLI msub command.
+    
+> msub
+
+    Usage: msub [install|uninstall]
+
+> msub install
+
+    [*] Uploading mpl.dylib (1/2)...
+    [*] Uploading mpl.plist (2/2)...
+    [*] Restarting SpringBoard...
+
+> msub uninstall
+
+    [*] Removing mpl.dylib (1/2)...
+    [*] Removing mpl.plist (2/2)...
+    [*] Restarting SpringBoard...
+
+***
+
 # Substrate commands
 
     INFO: Substrate commands are commands that simulate the keyboard, 
@@ -61,9 +85,11 @@
 
 ## iOS
 
-    home           : Simulate a home button press.
     dhome          : Simulate a double home button press.
-    
+    home           : Simulate a home button press.
+    locat          : Toggle location services.
+    mute           : Update and view mute status.
+
 ***
 
 # Terms of use

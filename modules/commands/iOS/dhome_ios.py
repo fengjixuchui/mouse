@@ -1,3 +1,5 @@
+import modules.helper as h
+
 class command:
     def __init__(self):
         self.name = "dhome"
@@ -7,4 +9,4 @@ class command:
     	cmd_data["cmd"] = "doublehome"
         error = session.send_command(cmd_data)
         if error:
-        	print error
+        	print(h.RED+"[-]"+h.WHITE+" MPL Substrate is not installed!")

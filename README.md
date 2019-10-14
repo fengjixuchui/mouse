@@ -224,8 +224,7 @@
 
     battery        : Get battery level.
     getvol         : Get volume level.
-    location       : Toggle location services.
-    mute           : Update and view mute status.
+    msub           : Install or uninstall MPL Substrate.
     setvol         : Set output volume.
     sysinfo        : View system information.
     
@@ -235,6 +234,8 @@
 
     dhome          : Simulate a double home button press.
     home           : Simulate a home button press.
+    locat          : Toggle location services.
+    mute           : Update and view mute status.
 
 ## Development commands
 

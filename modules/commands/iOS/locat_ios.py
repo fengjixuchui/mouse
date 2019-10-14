@@ -1,8 +1,10 @@
+import modules.helper as h
+
 class command:
     def __init__(self):
-        self.name = "location"
+        self.name = "locat"
         self.description = "Toggle location services."
-        self.usage = "Usage: location [on|off]"
+        self.usage = "Usage: locat [on|off]"
     
     def run(self,session,cmd_data):
        	if not cmd_data['args'] or not cmd_data['args'] in ['on','off']:
@@ -14,4 +16,4 @@ class command:
        		cmd_data = {'cmd':'locationoff','args':''}
         error = session.send_command(cmd_data)
         if error:
-        	print error
+        	print(h.RED+"[-]"+h.WHITE+" MPL Substrate is not installed!")

@@ -33,7 +33,7 @@
 #color end
 	CE="\033[0m"
 #red start
-	RS="-e \033[31m"
+	RS="\033[31m"
 #green start
 	GNS="-e \033[32m"
 #white start
@@ -71,6 +71,13 @@ fi
 
 if [[ "$1" = "-u" || "$1" = "--update" ]]
 then
+if [[ $EUID -ne 0 ]]
+then
+sleep 1
+echo -e ""$RS"[-] "$WHS"Permission denied!"$CE""
+sleep 1
+exit
+fi
 sleep 1
 echo ""$BS"[*] "$WHS"Installing update..."$CE""
 {

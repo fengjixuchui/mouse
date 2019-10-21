@@ -47,7 +47,7 @@ if [[ "$2" = "downloads" ]]
 then
 {
 cd ~/mouse
-rm -r downloads
+rm -rf downloads
 mkdir downloads
 } &> /dev/null
 sleep 1
@@ -59,7 +59,7 @@ elif [[ "$2" = "payloads" ]]
 then
 {
 cd ~/mouse
-rm -r payloads
+rm -rf payloads
 mkdir payloads
 } &> /dev/null
 sleep 1

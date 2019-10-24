@@ -32,6 +32,17 @@ RS="\033[1;31m"
 YS="\033[1;33m"
 CE="\033[0m"
 
+#blue start 
+	BS="\033[1;34m"
+#color end
+	CE="\033[0m"
+#red start
+	RS="\033[31m"
+#green start
+	GNS="-e \033[32m"
+#white start
+   WHS="\033[0;97m"
+
 if [[ $EUID -ne 0 ]]
 then
    sleep 1
@@ -42,21 +53,133 @@ fi
 
 if [[ -d ~/mouse ]]
 then
-cd ~/mouse
+cd ~/mouse/bin
 {
-cp bin/mouse /usr/local/bin
+cp mouse /usr/local/bin
 chmod +x /usr/local/bin/mouse
-cp bin/mouse /bin
+cp mouse /bin
 chmod +x /bin/mouse
 } &> /dev/null
 else
 cd ~
 {
 git clone https://github.com/entynetproject/mouse.git
-cd  ~/mouse
-cp bin/mouse /usr/local/bin
+cd ~/mouse/bin
+cp mouse /usr/local/bin
 chmod +x /usr/local/bin/mouse
-cp bin/mouse /bin
+cp mouse /bin
 chmod +x /bin/mouse
 } &> /dev/null
+fi
+sleep 0.5
+clear
+sleep 0.5
+echo
+cd ~/mouse
+cat banner/banner.txt
+echo
+
+if [[ -f /etc/mouse.conf ]]
+then
+
+CONF="$( cat /etc/mouse.conf )"
+sleep 1
+
+if [[ "$CONF" = "arm" ]]
+then
+if [[ -d /System/Library/CoreServices/SpringBoard.app ]]
+then
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+else 
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+pkg update
+pkg install python
+pkg install python-pip
+fi
+fi
+
+if [[ "$CONF" = "amd" ]]
+then
+if [[ -d /System/Library/CoreServices/Finder.app ]]
+then
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+else 
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+apt-get update
+apt-get install python
+apt-get install python-pip
+fi
+fi
+
+if [[ "$CONF" = "intel" ]]
+then
+if [[ -d /System/Library/CoreServices/Finder.app ]]
+then
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+else 
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+apt-get update
+apt-get install python
+apt-get install python-pip
+fi
+fi
+
+else
+read -e -p $'\033[1;34m[*]\033[0;97m Select your architecture (amd/intel/arm): \033[0m' CONF
+if [[ "$CONF" = "" ]]
+then
+exit
+else
+if [[ "$CONF" = "arm" ]]
+then
+read -e -p $'\033[1;34m[*]\033[0;97m Is this a single board computer (yes/no): \033[0m' PI
+if [[ "$PI" = "yes" ]]
+then
+echo "amd" >> /etc/mouse.conf
+CONF="amd"
+else
+echo "$CONF" >> /etc/mouse.conf
+fi
+fi
+fi
+sleep 1
+
+if [[ "$CONF" = "arm" ]]
+then
+if [[ -d /System/Library/CoreServices/SpringBoard.app ]]
+then
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+else 
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+pkg update
+pkg install python
+pkg install python-pip
+fi
+fi
+
+if [[ "$CONF" = "amd" ]]
+then
+if [[ -d /System/Library/CoreServices/Finder.app ]]
+then
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+else 
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+apt-get update
+apt-get install python
+apt-get install python-pip
+fi
+fi
+
+if [[ "$CONF" = "intel" ]]
+then
+if [[ -d /System/Library/CoreServices/Finder.app ]]
+then
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+else 
+echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+apt-get update
+apt-get install python
+apt-get install python-pip
+fi
+fi
 fi

@@ -59,6 +59,8 @@ cp mouse /usr/local/bin
 chmod +x /usr/local/bin/mouse
 cp mouse /bin
 chmod +x /bin/mouse
+cp mouse /data/data/com.termux/files/usr/bin
+chmod +x /data/data/com.termux/files/usr/bin/mouse
 } &> /dev/null
 else
 cd ~
@@ -69,6 +71,8 @@ cp mouse /usr/local/bin
 chmod +x /usr/local/bin/mouse
 cp mouse /bin
 chmod +x /bin/mouse
+cp mouse /data/data/com.termux/files/usr/bin
+chmod +x /data/data/com.termux/files/usr/bin/mouse
 } &> /dev/null
 fi
 sleep 0.5

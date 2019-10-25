@@ -43,5 +43,6 @@ fi
 {
 rm /bin/mouse
 rm /usr/local/bin/mouse
-rm -r ~/mouse
+rm -rf ~/mouse
+rm /data/data/com.termux/files/usr/bin/mouse
 } &> /dev/null

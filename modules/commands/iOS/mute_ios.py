@@ -3,7 +3,7 @@ import modules.helper as h
 class command:
     def __init__(self):
         self.name = "mute"
-        self.description = "Update and view mute status."
+        self.description = "Update and show mute status."
         self.usage = "Usage: mute [status|on|off]"
     
     def run(self,session,cmd_data):

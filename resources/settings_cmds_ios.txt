@@ -5,4 +5,4 @@
     getvol           Get volume level.
     msub             Install or uninstall MPL Substrate.
     setvol           Set output volume.
-    sysinfo          View system information.
+    sysinfo          Show system information.

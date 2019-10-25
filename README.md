@@ -226,7 +226,7 @@
     getvol         : Get volume level.
     msub           : Install or uninstall MPL Substrate.
     setvol         : Set output volume.
-    sysinfo        : View system information.
+    sysinfo        : Show system information.
     
 ## Substrate commands
 
@@ -235,7 +235,7 @@
     dhome          : Simulate a double home button press.
     home           : Simulate a home button press.
     locat          : Toggle location services.
-    mute           : Update and view mute status.
+    mute           : Update and show mute status.
 
 ## Development commands
 

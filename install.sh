@@ -93,8 +93,8 @@ echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 else 
 echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 pkg update
-pkg install python2
-pkg install python-pip
+pkg -y install python2
+pkg -y install python-pip
 fi
 fi
 
@@ -106,8 +106,8 @@ echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 else 
 echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 apt-get update
-apt-get install python2
-apt-get install python-pip
+apt-get -y install python2
+apt-get -y install python-pip
 fi
 fi
 
@@ -119,9 +119,8 @@ echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 else 
 echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 apt-get update
-apt-get install python2
-apt-get install python-pip
-fi
+apt-get -y install python2
+apt-get -y install python-pip
 fi
 
 else
@@ -152,8 +151,8 @@ echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 else 
 echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 pkg update
-pkg install python2
-pkg install python-pip
+pkg -y install python2
+pkg -y install python-pip
 fi
 fi
 
@@ -165,8 +164,8 @@ echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 else 
 echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 apt-get update
-apt-get install python2
-apt-get install python-pip
+apt-get -y install python2
+apt-get -y install python-pip
 fi
 fi
 
@@ -178,8 +177,8 @@ echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 else 
 echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
 apt-get update
-apt-get install python2
-apt-get install python-pip
+apt-get -y install python2
+apt-get -y install python-pip
 fi
 fi
 fi

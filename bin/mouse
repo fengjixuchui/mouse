@@ -71,6 +71,16 @@ fi
 
 if [[ "$1" = "-u" || "$1" = "--update" ]]
 then
+{
+ASESR="$( curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//' )"
+} &> /dev/null
+if [[ "$ASESR" != "" ]]
+then 
+sleep 1
+echo -e ""$RS"[-] "$WHS"Download failed!"$CE""
+sleep 1
+exit
+fi
 if [[ $EUID -ne 0 ]]
 then
 sleep 1
@@ -97,7 +107,7 @@ cp -r ~/.mouse/downloads ~/mouse
 cp -r ~/.mouse/payloads ~/mouse
 rm -rf ~/.mouse
 } &> /dev/null
-echo ""$GNS"[*] "$WHS"Successfully updated..."$CE""
+echo ""$GNS"[*] "$WHS"Successfully updated!"$CE""
 sleep 1
 exit
 fi

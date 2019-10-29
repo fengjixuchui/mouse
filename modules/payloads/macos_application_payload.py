@@ -3,9 +3,9 @@ import os, time
 
 class payload:
 	def __init__(self):
-		self.name = "MacOS Application"
+		self.name = "Application macOS"
 		self.description = "Convert payload into the macOS Application."
-		self.usage = "Install via application."
+		self.usage = "Run this application."
 
 	def run(self,server):
 		while 1:

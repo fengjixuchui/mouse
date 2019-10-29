@@ -48,32 +48,31 @@
 
 # Building payloads (macOS/iOS)
 
-![payloads](https://user-images.githubusercontent.com/54115104/66684991-f8c45c80-ec83-11e9-9788-265573a79d90.png)
-
     INFO: MPL payloads are executed on the target machine. The payload first sends over 
     instructions for getting and sending back device details to our server and then chooses 
     the appropriate executable to establish a secure remote control session.
 
 ## Bourne-Again Shell payload
 
-    INFO: Selecting bash from the payload menu will give us a 1 liner that 
-    establishes a remote MPL session upon execution on the target machine.
+    INFO: Selecting Bourne-Again Shell payload from the payload 
+    menu will give us a 1 liner that establishes a remote MPL 
+    session upon execution on the target machine.
+
+## Teensy macOS payload (USB injection)
+
+    INFO: Teensy is a development USB board that can be programmed 
+    with the Arduino IDE. It emulates usb keyboard strokes extremely 
+    fast and can inject the MPL payload just in a few seconds!
     
-## Entynet PI payload (USB injection)
-
-    INFO: Entynet PI is a development board that can be programmed 
-    with the Arduino IDE. It emulates USB keyboard strokes extremely 
-    fast and can inject the MPL payload just in a few seconds.
-
 ## Rubber Duck payload (USB injection)
 
     INFO: USB Rubber Duck is a development USB board that can inject 
     uploaded to duck SD card inject.bin payload in a few seconds!
     
-## MacOS Application payload
+## Application macOS payload
 
-    INFO: This is a standart Mouse (MPL) Payload 
-    that converted to the MacOS Application.
+    INFO: Selecting Application macOS from the payload menu will give 
+    us standart MPL payload that converted to the macOS application.
     
 ***
 

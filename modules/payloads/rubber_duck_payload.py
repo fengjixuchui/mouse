@@ -5,7 +5,7 @@ class payload:
 	def __init__(self):
 		self.name = "Rubber Duck (USB injection)"
 		self.description = "Arduino payload that replicates keystrokes for shell script execution."
-		self.usage = "Install via inject.bin."
+		self.usage = "Install via ducktoolkit.com site."
 
 	def run(self,server):
 		while 1:

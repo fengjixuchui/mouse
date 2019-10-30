@@ -28,7 +28,7 @@
 #    Email     : entynetproject@gmail.com
 #
 
-if [[ "$1" = "-b" ]]
+if [[ "$1" = "-b" || "$1" = "--build" ]]
 then
 
 

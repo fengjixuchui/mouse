@@ -143,6 +143,8 @@ CONF="amd"
 else
 echo "$CONF" >> /etc/mouse.conf
 fi
+else
+echo "$CONF" >> /etc/mouse.conf
 fi
 fi
 sleep 1

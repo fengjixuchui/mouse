@@ -44,5 +44,6 @@ fi
 rm /bin/mouse
 rm /usr/local/bin/mouse
 rm -rf ~/mouse
+rm /etc/mouse.conf
 rm /data/data/com.termux/files/usr/bin/mouse
 } &> /dev/null

@@ -12,6 +12,30 @@
                        (((-'    __//
                               (((-'
 
+<p align="center">
+  <a href="http://entynetproject.simplesite.com/">
+    <img src="https://img.shields.io/badge/entynetproject-Ivan%20Nikolsky-blue.svg">
+  </a> 
+  <a href="https://github.com/entynetproject/mouse/releases">
+    <img src="https://img.shields.io/github/release/entynetproject/mouse.svg">
+  </a>
+  <a href="https://wikipedia.org/wiki/Python_(programming_language)">
+    <img src="https://img.shields.io/badge/language-python-blue.svg">
+ </a>
+  <a href="https://github.com/entynetproject/mouse">
+    <img src="https://img.shields.io/badge/payloads-macOS/iOS-red.svg">
+ </a>
+  <a href="https://github.com/entynetproject/mouse/issues?q=is%3Aissue+is%3Aclosed">
+      <img src="https://img.shields.io/github/issues/entynetproject/mouse.svg">
+  </a>
+  <a href="https://github.com/entynetproject/mouse/wiki">
+      <img src="https://img.shields.io/badge/wiki%20-mouse-lightgrey.svg">
+ </a>
+  <a href="https://twitter.com/entynetproject">
+    <img src="https://img.shields.io/badge/twitter-entynetproject-blue.svg">
+ </a>
+</p>
+
 ***
 
 # About mouse (MPL)

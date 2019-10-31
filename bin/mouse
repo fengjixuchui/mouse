@@ -71,6 +71,22 @@ fi
 
 if [[ "$1" = "-u" || "$1" = "--update" ]]
 then
+if [[ -d /data/data/com.termux ]]
+then
+if [[ -f /data/data/com.termux/files/usr/bin/mouse ]]
+then
+UPD="true"
+else
+UPD="false"
+fi
+else
+if [[ -f /usr/local/bin/mouse ]]
+then
+UPD="true"
+else
+UPD="false"
+fi
+fi
 {
 ASESR="$( curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//' )"
 } &> /dev/null
@@ -100,9 +116,14 @@ rm /usr/local/bin/mouse
 rm /data/data/com.termux/files/usr/bin/mouse
 cd ~
 git clone https://github.com/entynetproject/mouse.git
+if [[ "$UPD" != "true" ]]
+then
+sleep 0
+else
 cd ~/mouse
 chmod +x install.sh
 ./install.sh
+fi
 cp -r ~/.mouse/downloads ~/mouse
 cp -r ~/.mouse/payloads ~/mouse
 rm -rf ~/.mouse

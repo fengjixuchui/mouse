@@ -34,7 +34,7 @@ import socket
 WINDOWS = sys.platform.startswith('win')
 #colors
 GREEN = '' if WINDOWS else '\033[0;33m'
-RED = '' if WINDOWS else '\033[31m'
+RED = '' if WINDOWS else '\033[1;31m'
 WHITE = '' if WINDOWS else '\033[0;97m'
 GREEN_THIN = '' if WINDOWS else '\033[0;33m'
 CYAN = '' if WINDOWS else '\033[1;34m'

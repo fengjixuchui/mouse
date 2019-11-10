@@ -72,6 +72,8 @@
 
 # Building payloads (macOS/iOS)
 
+![payloads](https://user-images.githubusercontent.com/54115104/68298895-8f314580-00ab-11ea-8943-a3f237291427.png)
+
     INFO: MPL payloads are executed on the target machine. The payload first sends over 
     instructions for getting and sending back device details to our server and then chooses 
     the appropriate executable to establish a secure remote control session.

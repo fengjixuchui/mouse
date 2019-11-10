@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # 
 #            --------------------------------------------------
@@ -31,11 +31,12 @@
 RS="\033[1;31m"
 YS="\033[1;33m"
 CE="\033[0m"
+WHS="\033[0;97m"
 
 if [[ $EUID -ne 0 ]]
 then
    sleep 1
-   echo -e "["$RS"*"$CE"] "$RS"This script must be run as "$YS"root"$C"" 1>&2
+   echo -e ""$RS"[-]"$WHS" This script must be run as root!"$CE"" 1>&2
    sleep 1
    exit
 fi

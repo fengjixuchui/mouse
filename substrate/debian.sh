@@ -1,8 +1,8 @@
-#! /bin/bash
+#!/bin/bash
 
 # 
 #            --------------------------------------------------
-#                           Mouse Payload Loader                
+#                              Mouse Substrate                
 #            --------------------------------------------------
 #          Copyright (C) <2015>  <Entynetproject (Ivan Nikolsky)>
 #

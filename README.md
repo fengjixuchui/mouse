@@ -36,11 +36,11 @@
  </a>
 </p>
 
+![mouse](https://user-images.githubusercontent.com/54115104/68990597-23e33280-0866-11ea-8644-98a8f01440b9.png)
+
 ***
 
 # About mouse (MPL)
-
-![mouse](https://user-images.githubusercontent.com/54115104/68990597-23e33280-0866-11ea-8644-98a8f01440b9.png)
 
     INFO: Mouse Payload Loader (MPL) is a post exploitation surveillance tool written 
     in Python, C and Objective-C. It gives you a command line session with extra functionality 
@@ -52,7 +52,7 @@
     
 # Getting started
 
-## mouse (MPL) installation
+## Mouse installation
 
 > cd mouse
 
@@ -60,7 +60,7 @@
 
 > ./install.sh
 
-## mouse (MPL) uninstallation
+## Mouse uninstallation
 
 > cd mouse
 
@@ -369,11 +369,11 @@
 
 ***
 
-# Terms of use
+# Mouse (MPL) disclaimer
 
-    This tool is only for educational purposes only.
-    Use this tool wisely and never without permission.
-    I am not responsible for anything you do with this tool.
+    INFO: Usage of the Mouse Payload Loader for attacking targets without prior mutual consent is illegal. 
+    It is the end user's responsibility to obey all applicable local, state, federal, and international laws. 
+    Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 
 ***
 

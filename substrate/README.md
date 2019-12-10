@@ -22,26 +22,30 @@
     
 ***
 
-# Using mouse substrate
+# Getting started
 
-    INFO: If you are using Mouse Payload Loader (MPL) 
-    to remotely access iOS device, you can install Mouse 
-    Substrate (MPL Substrate) using Mouse CLI msub command.
+    INFO: If you are using Mouse Payload Loader (MPL) to 
+    remotely access iOS device, you can install or uninstall 
+    Mouse Substrate (MPL Substrate) using Mouse CLI msub command.
     
 > msub
 
     Usage: msub [install|uninstall]
 
+## Mouse substrate installation
+
 > msub install
 
-    [*] Uploading mpl.dylib (1/2)...
-    [*] Uploading mpl.plist (2/2)...
+    [*] Uploading msub.dylib (1/2)...
+    [*] Uploading msub.plist (2/2)...
     [*] Restarting SpringBoard...
+
+## Mouse substrate uninstallation
 
 > msub uninstall
 
-    [*] Removing mpl.dylib (1/2)...
-    [*] Removing mpl.plist (2/2)...
+    [*] Removing msub.dylib (1/2)...
+    [*] Removing msub.plist (2/2)...
     [*] Restarting SpringBoard...
 
 ***

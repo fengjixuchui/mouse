@@ -16,49 +16,17 @@
 
 # About mouse substrate
 
-    INFO: Mouse Substrate (MPL Substrate) is a package that will 
-    be installed on the victim's iOS device after receiving remote 
-    control. Mouse Substrate allows you to run substrate commands 
-    and services on the victim’s remote iOS device.
+    INFO: Mouse Substrate (MPL Substrate) is a package that 
+    can be installed on the victim's iOS device after receiving 
+    remote control to run substrate commands and services.
     
 ***
 
-# Building substrate (iOS)
+# Using mouse substrate
 
-    INFO: You can build Mouse Substrate as a debian package,
-    as a dynamic library or install it on your iOS device.
-    
-## Debian package
-
-    INFO: Debian package is a binary package for distributing 
-    and installing software in the Debian project system and 
-    others using the dpkg package management system.
-
-> cd mouse/substrate
-
-> chmod +x debian.sh
-
-> ./debian.sh -b
-
-## Dynamic library
-
-    INFO: Dynamic is a collection of functions compiled 
-    and stored in an executable with purpose of being 
-    linked by other programs at run-time.
-
-> cd mouse/substrate
-
-> cd mpl
-
-> make build
-
-***
-
-# About msub command
-
-    INFO: If you are using Mouse Payload Loader (MPL) to exploit iOS 
-    device, MPL Substrate will be installed automatically. If MPL Substrate 
-    will not installed automatically, install it using Mouse CLI msub command.
+    INFO: If you are using Mouse Payload Loader (MPL) 
+    to remotely access iOS device, you can install Mouse 
+    Substrate (MPL Substrate) using Mouse CLI msub command.
     
 > msub
 
@@ -80,23 +48,10 @@
 
 # Substrate commands
 
-    INFO: Substrate commands are commands that simulate the keyboard, 
-    gestures and pressing the various buttons on the remote iOS device.
-
-## iOS
-
     dhome          : Simulate a double home button press.
     home           : Simulate a home button press.
     locat          : Toggle location services.
     mute           : Update and view mute status.
-
-***
-
-# Mouse substrate disclaimer
-
-    INFO: Usage of the Mouse Substrate for attacking targets without prior mutual consent is illegal. 
-    It is the end user's responsibility to obey all applicable local, state, federal, and international laws. 
-    Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 
 ***
 
@@ -105,7 +60,7 @@
         --------------------------------------------------
                           Mouse Substrate          
         --------------------------------------------------
-      Copyright (C) <2015>  <Entynetproject (Ivan Nikolsky)>
+             Copyright (C) <2019>  <Entynetproject>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

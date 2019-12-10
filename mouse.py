@@ -1,10 +1,9 @@
 #!/usr/bin/python
 
-# 
 #            --------------------------------------------------
 #                           Mouse Payload Loader                
 #            --------------------------------------------------
-#          Copyright (C) <2015>  <Entynetproject (Ivan Nikolsky)>
+#                  Copyright (C) <2019>  <Entynetproject>
 #
 #        This program is free software: you can redistribute it and/or modify
 #        it under the terms of the GNU General Public License as published by
@@ -18,15 +17,6 @@
 #
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#
-#    About Author :   
-#    Founder   : Entynetproject (Ivan Nikolsky)
-#    Site      : http://entynetproject.simplesite.com/
-#    Instagram : @entynetproject 
-#    Twitter   : @entynetproject
-#    Email     : entynetproject@gmail.com
-#
 
 import os
 
@@ -41,7 +31,7 @@ import time
 SAS='dev'
 
 def show_graphic():
-    print(h.WHITE+"-"*43)
+    print(h.WHITE+"-"*27)
     print("")
     print(h.GREEN_THIN+"    1"+h.ENDC+") Start Server")
     print(h.GREEN_THIN+"    2"+h.ENDC+") Start MultiHandler")
@@ -62,18 +52,18 @@ class mouse:
             self.server.debug = False
         self.payloads = self.import_payloads() 
         self.banner_text = h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)\n"+h.ENDC
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject\n"+h.ENDC
         
     # Actions
     def print_payload(self,payload,number_option):
@@ -84,19 +74,19 @@ class mouse:
     def start_single_server(self):
         os.system("clear")
         print(h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*43)
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+        print(h.WHITE+"-"*27)
         print("")
         if not self.server.set_host_port():
             return
@@ -106,19 +96,19 @@ class mouse:
     def start_multi_handler(self):
         os.system("clear")
         print(h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*43)
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+        print(h.WHITE+"-"*27)
         print("")
         if not self.server.set_host_port():
             return
@@ -151,38 +141,38 @@ class mouse:
     def exit_menu(self):
         os.system("clear")
         print(h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*43)
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+        print(h.WHITE+"-"*27)
         print("")
         exit()
         
     def update_mouse(self):
         os.system("clear")
         print(h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*43)
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+        print(h.WHITE+"-"*27)
         print("")
         os.system("chmod +x bin/mouse && bin/mouse -u")
         
@@ -190,57 +180,57 @@ class mouse:
     def clean_downloads(self):
         os.system("clear")
         print(h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*43)
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+        print(h.WHITE+"-"*27)
         print("")
         os.system("chmod +x bin/mouse && bin/mouse -c downloads")
         
     def clean_payloads(self):
         os.system("clear")
         print(h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*43)
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+        print(h.WHITE+"-"*27)
         print("")
         os.system("chmod +x bin/mouse && bin/mouse -c payloads")
 
     def choose_payload(self):
         os.system("clear")
         print(h.ENDC+"""
-               _     __,..---""-._                 ';-,
-        ,    _/_),-"`             '-.                `\\\\
-       \|.-"`    -_)                 '.                ||
-       /`   a   ,                      \              .'/
-       '.___,__/                 .-'    \_        _.-'.'
-          |\  \      \         /`        _`------`_.-'
-             _/;--._, >        |   --.__/ `------`
-           (((-'  __//`'-......-;\      )
-                (((-'       __//  '--. /   mouse/MPL
-                          (((-'    __//
-                                 (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject (Ivan Nikolsky)"+h.ENDC)
-        print(h.WHITE+"-"*43)
+         _     __,..---""-._                 ';-,
+  ,    _/_),-"`             '-.                `\\\\
+ \|.-"`    -_)                 '.                ||
+ /`   a   ,                      \              .'/
+ '.___,__/                 .-'    \_        _.-'.'
+    |\  \      \         /`        _`------`_.-'
+       _/;--._, >        |   --.__/ `------`
+     (((-'  __//`'-......-;\      )
+          (((-'       __//  '--. /   mouse/MPL
+                    (((-'    __//
+                           (((-'
+"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+        print(h.WHITE+"-"*27)
         print("")
         number_option = 1
         for key in self.payloads:

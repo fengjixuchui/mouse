@@ -1,9 +1,0 @@
-Package: com.entynetproject.mouse
-Name: Mouse Substrate
-Depends: mobilesubstrate
-Version: 0.0.1
-Architecture: iphoneos-arm
-Description: Mouse Substrate (MPL Substrate)
-Maintainer: Entynetproject
-Author: Entynetproject
-Section: Tweaks

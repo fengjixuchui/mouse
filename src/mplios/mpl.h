@@ -1,5 +1,3 @@
-
-
 #import <Foundation/Foundation.h>
 #import <AppSupport/CPDistributedMessagingCenter.h>
 #import <AVFoundation/AVFoundation.h>

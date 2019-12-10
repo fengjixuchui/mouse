@@ -36,7 +36,7 @@
  </a>
 </p>
 
-![mouse](https://user-images.githubusercontent.com/54115104/68990597-23e33280-0866-11ea-8644-98a8f01440b9.png)
+![mouse](https://user-images.githubusercontent.com/54115104/70463102-4109ca80-1acd-11ea-9dc4-e5e6ff8123eb.png)
 
 ***
 
@@ -135,10 +135,16 @@
 
 # Mouse Substrate (MPL Substrate)
 
-    INFO: Mouse Substrate (MPL Substrate) is a package that will 
-    be installed on the victim's iOS device after receiving remote 
-    control. Mouse Substrate allows you to run substrate commands 
-    and services on the victim’s remote iOS device.
+    INFO: Mouse Substrate (MPL Substrate) is a package that 
+    can be installed on the victim's iOS device after receiving 
+    remote control to run substrate commands and services.
+    
+## Substrate commands
+
+    dhome          : Simulate a double home button press.
+    home           : Simulate a home button press.
+    locat          : Toggle location services.
+    mute           : Update and view mute status.
     
 ***
 
@@ -382,7 +388,7 @@
         --------------------------------------------------
                        Mouse Payload Loader          
         --------------------------------------------------
-      Copyright (C) <2015>  <Entynetproject (Ivan Nikolsky)>
+              Copyright (C) <2019>  <Entynetproject>      
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

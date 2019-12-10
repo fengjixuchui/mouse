@@ -15,8 +15,5 @@ class command:
             print(h.CYAN+"[*]"+h.WHITE+" exec: "+cmd_data['args'])
             print("")
             split_args = cmd_data['args'].split()
-            if split_args[0] == "cd":
-                print(h.RED+"[-]"+h.WHITE+" Operation not permitted!")
-            else:
-            	os.system(cmd_data['args'])
+            os.system(cmd_data['args'])
 

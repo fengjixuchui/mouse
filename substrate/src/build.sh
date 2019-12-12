@@ -34,3 +34,4 @@
          cat control >> .cydia-package/DEBIAN/control
          # building
          dpkg -b .cydia-package msub.deb
+         rm -rf .cydia-package

@@ -136,7 +136,7 @@
 # Mouse Substrate (MPL Substrate)
 
     INFO: Mouse Substrate (MPL Substrate) is a package that 
-    can be installed on the victim's iOS device after receiving 
+    can be installed on the target iOS device after receiving 
     remote control to run substrate commands and services.
     
 ## Substrate commands
@@ -296,7 +296,7 @@
     close          : Close application.
     imessage       : Send message through the messages app.
     itunes         : Control iTunes player.
-    keyboard       : Control target's keyboard.
+    keyboard       : Control keyboard.
     kill           : Terminate or signal a process.
     killall        : Kill process by name.
     open           : Open application.

@@ -86,6 +86,6 @@ cp -r ~/.mouse/downloads ~/mouse
 cp -r ~/.mouse/payloads ~/mouse
 rm -rf ~/.mouse
 } &> /dev/null
-echo ""$GNS"[+] "$WHS"Successfully updated!"$CE""
+echo -e ""$BS"[+] "$WHS"Successfully updated!"$CE""
 sleep 1
 exit

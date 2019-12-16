@@ -14,10 +14,10 @@ class command:
         picture = raw_input(h.CYAN+"[*]"+h.WHITE+" Wallpaper Picture: ")
         one = '"'
         payload = """
-        tell application "Finder" to set desktop picture to POSIX file "/var/picture.jpg"
+        tell application "Finder" to set desktop picture to POSIX file "/usr/local/share/picture.jpg"
         """
-        session.send_command({"cmd":"rm","args":"/var/picture.jpg"})
-        session.upload_file(picture,"/var","picture.jpg")
+        session.send_command({"cmd":"rm","args":"/usr/local/share/picture.jpg"})
+        session.upload_file(picture,"/usr/local/share","picture.jpg")
         cmd_data.update({"cmd":"applescript","args":payload})
         picture = session.send_command(cmd_data).strip()
         return ""

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 #            --------------------------------------------------
 #                           Mouse Payload Loader                
@@ -27,8 +27,6 @@ from modules import helper as h
 import sys
 import platform
 import time
-
-SAS='dev'
 
 def show_graphic():
     print(h.WHITE+"-"*27)
@@ -174,7 +172,7 @@ class mouse:
 """+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
-        os.system("chmod +x bin/mouse && bin/mouse -u")
+        os.system("chmod +x etc/update.sh && etc/update.sh")
         
         
     def clean_downloads(self):
@@ -194,7 +192,7 @@ class mouse:
 """+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
-        os.system("chmod +x bin/mouse && bin/mouse -c downloads")
+        os.system("chmod +x etc/clean.sh && etc/clean.sh -d")
         
     def clean_payloads(self):
         os.system("clear")
@@ -213,7 +211,7 @@ class mouse:
 """+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v1.6"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
-        os.system("chmod +x bin/mouse && bin/mouse -c payloads")
+        os.system("chmod +x etc/clean.sh && etc/clean.sh -p")
 
     def choose_payload(self):
         os.system("clear")

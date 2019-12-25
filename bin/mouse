@@ -26,8 +26,8 @@ then
 cd ~/mouse
 mkdir etc/.disabled
 mv modules/commands/universal/upload_universal.py etc/.disabled
-mv etc/commands/upload_universal.py modules/commands/universal
-cp etc/.disabled/upload_universal.py etc/commands
+mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
+cp etc/.disabled/upload_universal.py etc/modules/commands/universal
 rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
@@ -36,8 +36,8 @@ chmod +x mouse
 cd ~/mouse
 mkdir etc/.disabled
 mv modules/commands/universal/upload_universal.py etc/.disabled
-mv etc/commands/upload_universal.py modules/commands/universal
-cp etc/.disabled/upload_universal.py etc/commands
+mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
+cp etc/.disabled/upload_universal.py etc/modules/commands/universal
 rm -rf etc/.disabled
 } &> /dev/null
 else
@@ -53,8 +53,8 @@ cd $OLDPWD
 cd ~/mouse
 mkdir etc/.disabled
 mv modules/commands/universal/upload_universal.py etc/.disabled
-mv etc/commands/upload_universal.py modules/commands/universal
-cp etc/.disabled/upload_universal.py etc/commands
+mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
+cp etc/.disabled/upload_universal.py etc/modules/commands/universal
 rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
@@ -63,8 +63,8 @@ chmod +x mouse
 cd ~/mouse
 mkdir etc/.disabled
 mv modules/commands/universal/upload_universal.py etc/.disabled
-mv etc/commands/upload_universal.py modules/commands/universal
-cp etc/.disabled/upload_universal.py etc/commands
+mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
+cp etc/.disabled/upload_universal.py etc/modules/commands/universal
 rm -rf etc/.disabled
 } &> /dev/null
 else

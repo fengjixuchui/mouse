@@ -31,6 +31,8 @@ CE="\033[0m"
 	GNS="-e \033[1;32m"
 #white start
    WHS="\033[0;97m"
+   
+printf '\033]2;install.sh\a'
 
 if [[ $EUID -ne 0 ]]
 then

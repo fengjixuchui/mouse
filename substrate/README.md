@@ -14,7 +14,7 @@
 
 ***
 
-# About mouse substrate
+# About Mouse Substrate
 
     INFO: Mouse Substrate (MPL Substrate) is a package that 
     can be installed on the target iOS device after receiving 
@@ -59,7 +59,7 @@
 
 ***
 
-# Mouse substrate license
+# Mouse Substrate license
  
         --------------------------------------------------
                           Mouse Substrate          

@@ -40,7 +40,7 @@
 
 ***
 
-# About mouse (MPL)
+# About Mouse (MPL)
 
     INFO: Mouse Payload Loader (MPL) is an iOS and macOS post exploitation surveillance 
     tool that gives you a command line session with extra functionality between you and 

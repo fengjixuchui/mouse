@@ -99,7 +99,7 @@ xbps-install -S
 xbps-install -y git
 xbps-install -y python
 xbps-install -y openssl
-}
+} &> /dev/null
 
 {
 cd ~/mouse/bin

@@ -101,12 +101,14 @@ class Session:
 				elif cmd in self.server.modules_local.keys():
 					self.server.modules_local[cmd].run(self,cmd_data)
 				else:
-					try:
-						result = self.send_command(cmd_data)
-						if result:
-							print result.rstrip()
-					except KeyboardInterrupt:
-						self.send_command({"cmd":"killtask"})
+					h.info_error("Invalid command: "+cmd)
+				#else:
+				#	try:
+				#		result = self.send_command(cmd_data)
+				#		if result:
+				#			print result.rstrip()
+				#	except KeyboardInterrupt:
+				#		self.send_command({"cmd":"killtask"})
 			except KeyboardInterrupt:
 				try:
 					print ""
@@ -196,9 +198,9 @@ class Session:
 		print("\nLocal Commands")
                 print("==============")
 		os.system("cat resources/local_cmds.txt")
-
-	        print("\nSystem Commands")
-                print("===============")
+		
+		print("\nSystem Commands")
+		print("===============")
 		os.system("cat resources/system_cmds.txt")
 		
 		print("\nSettings Commands")

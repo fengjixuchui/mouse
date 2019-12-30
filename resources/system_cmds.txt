@@ -11,8 +11,7 @@
     du               Display disk usage statistics.
     echo             Write arguments to standard output.
     hash             Display last executed commands.
-    head             Display first new lines of file.
-    ln               Create softlink on oldname.  
+    head             Display first new lines of file.  
     ls               List contents of a directory.
     mkdir            Create directories.
     more             Read contents of a file.
@@ -24,10 +23,6 @@
     read             Read user input.
     rm               Remove files or directories.
     rmdir            Remove directories.
-    sudo             Execute command as root.
-    ssh              OpenSSH SSH client.
-    syscmds          Display all system commands.
     time             Display current time.
     touch            Create files.
     trap             Configure signals.
-    w                List terminal sessions.

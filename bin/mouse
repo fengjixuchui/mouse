@@ -29,6 +29,11 @@ mv modules/commands/universal/upload_universal.py etc/.disabled
 mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
 cp etc/.disabled/upload_universal.py etc/modules/commands/universal
 rm -rf etc/.disabled
+mkdir etc/.disabled
+mv modules/commands/local/exec.py etc/.disabled
+mv etc/modules/commands/local/exec.py modules/commands/local
+cp etc/.disabled/exec.py etc/modules/commands/local
+rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
 ./mouse
@@ -38,6 +43,11 @@ mkdir etc/.disabled
 mv modules/commands/universal/upload_universal.py etc/.disabled
 mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
 cp etc/.disabled/upload_universal.py etc/modules/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv modules/commands/local/exec.py etc/.disabled
+mv etc/modules/commands/local/exec.py modules/commands/local
+cp etc/.disabled/exec.py etc/modules/commands/local
 rm -rf etc/.disabled
 } &> /dev/null
 else
@@ -56,6 +66,11 @@ mv modules/commands/universal/upload_universal.py etc/.disabled
 mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
 cp etc/.disabled/upload_universal.py etc/modules/commands/universal
 rm -rf etc/.disabled
+mkdir etc/.disabled
+mv modules/commands/local/exec.py etc/.disabled
+mv etc/modules/commands/local/exec.py modules/commands/local
+cp etc/.disabled/exec.py etc/modules/commands/local
+rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
 ./mouse
@@ -65,6 +80,11 @@ mkdir etc/.disabled
 mv modules/commands/universal/upload_universal.py etc/.disabled
 mv etc/modules/commands/universal/upload_universal.py modules/commands/universal
 cp etc/.disabled/upload_universal.py etc/modules/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv modules/commands/local/exec.py etc/.disabled
+mv etc/modules/commands/local/exec.py modules/commands/local
+cp etc/.disabled/exec.py etc/modules/commands/local
 rm -rf etc/.disabled
 } &> /dev/null
 else

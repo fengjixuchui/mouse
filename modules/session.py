@@ -50,12 +50,6 @@ class Session:
 			os.system("cat resources/settings_cmds_macos.txt")
   	        elif device_type == "iOS":
 		        os.system("cat resources/settings_cmds_ios.txt")
-		
-	def get_dev(self,device_type):
-		if device_type == "macos":
-			os.system("cat resources/development_cmds_macos.txt")
-  	        elif device_type == "iOS":
-		        os.system("cat resources/development_cmds_ios.txt")
 	
 	def get_troll(self,device_type):
 		if device_type == "macos":
@@ -101,14 +95,7 @@ class Session:
 				elif cmd in self.server.modules_local.keys():
 					self.server.modules_local[cmd].run(self,cmd_data)
 				else:
-					h.info_error("Invalid command: "+cmd)
-				#else:
-				#	try:
-				#		result = self.send_command(cmd_data)
-				#		if result:
-				#			print result.rstrip()
-				#	except KeyboardInterrupt:
-				#		self.send_command({"cmd":"killtask"})
+					h.info_error("Invalid Command: "+cmd)
 			except KeyboardInterrupt:
 				try:
 					print ""
@@ -120,16 +107,14 @@ class Session:
 				return
 			except Exception as e:
 				print e
-
-
+				
 	def get_handle(self):
 		"""Interact with an active session"""
 		if self.needs_refresh:
-			return h.info_general_raw("Waiting for connection...")
+		    return h.info_general_raw("Waiting for connection...")
 		os.system("printf '\033]2;Mouse CLI\a'")
-		return h.GREEN+ "[" + self.hostname + h.WHITE + "@" + h.GREEN + self.username + h.ENDC + " " + WHITE_C + self.current_directory + h.GREEN + "]" + h.WHITE + "$ " + h.ENDC
-
-        
+		mousel = "\033[4;77m"
+		return h.WHITE+"("+h.GREEN+self.hostname+h.WHITE+"@"+h.GREEN+self.username+h.WHITE+")> "
 
 	def tab_complete(self, text, state):
 		# TODO: tab complete 'ls ', use get_completer_delims
@@ -195,13 +180,9 @@ class Session:
 
 
 	def show_commands(self):
-		print("\nLocal Commands")
+		print(h.ENDC+"\nLocal Commands")
                 print("==============")
 		os.system("cat resources/local_cmds.txt")
-		
-		print("\nSystem Commands")
-		print("===============")
-		os.system("cat resources/system_cmds.txt")
 		
 		print("\nSettings Commands")
                 print("=================")
@@ -209,11 +190,6 @@ class Session:
 		self.get_set(self.type)
 		
 		self.get_sub(self.type)
-		
-		print("\nDevelopment Commands")
-                print("====================")
-		
-		self.get_dev(self.type)
 			
 		print("\nTrolling Commands")
                 print("=================")

@@ -8,4 +8,4 @@ class command:
     def run(self,session,cmd_data):
         payload = "output volume of (get volume settings)"
         cmd_data.update({"cmd":"applescript","args":payload})
-        print("Current volume: "+session.send_command(cmd_data))
+        print("Current Volume: "+session.send_command(cmd_data))

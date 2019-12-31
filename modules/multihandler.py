@@ -2,7 +2,7 @@ import os
 from modules import helper as h
 import threading, socket, time, sys
 
-DOJ='\033[1;34m[*]\033[0m'
+DOJ='\033[1;34m[*]\033[0;97m'
 
 class MultiHandler:
 	def __init__(self,server):
@@ -10,7 +10,7 @@ class MultiHandler:
 		self.thread = None
 		self.sessions_id = dict()
 		self.sessions_uid = dict()
-		self.handle = h.WHITE+"("+h.GREEN_THIN + "MultiHandler" + h.WHITE + ")> "
+		self.handle = h.WHITE+"("+h.GREEN + "MultiHandler" + h.WHITE + ")> "
 		self.is_running = False
 
 
@@ -41,7 +41,7 @@ class MultiHandler:
 						self.sessions_id[id_number] = session
 						session.id = id_number
 						id_number += 1
-						sys.stdout.write("\n{0} Session {1} opened{2}\n{3}".format(DOJ,str(session.id),h.WHITE,self.handle))
+						sys.stdout.write("\n{0} Session {1} opened.{2}\n{3}".format(DOJ,str(session.id),h.WHITE,self.handle))
 						sys.stdout.flush()
 			else:
 				return
@@ -71,7 +71,7 @@ class MultiHandler:
 
 	def list_sessions(self):
 		if not self.sessions_id:
-			h.info_general("No active sessions")
+			h.info_general("No active sessions.")
 		else:
 			for key in self.sessions_id:
 				self.show_session(self.sessions_id[key])
@@ -84,7 +84,7 @@ class MultiHandler:
 		try:
 			self.sessions_id[int(session_number)].interact()
 		except:
-			h.info_error("Invalid Session")
+			h.info_error("Session "+session_number+" is not found!")
 
 
 	def close_session(self,session_number):
@@ -97,7 +97,7 @@ class MultiHandler:
 			h.info_general('Closing session ' + session_number)
 		except Exception as e:
 			print e
-			h.info_error("Invalid Session")
+			h.info_error("Session "+session_number+" is not found!")
 
 
 	def stop_server(self):
@@ -124,7 +124,7 @@ class MultiHandler:
 
 	def interact(self):
 		h.info_general("Listening on port {0}...".format(self.server.port))
-		h.info_general("Type \"help\" for commands")
+		h.info_general("Type \"help\" for commands.")
 		while 1:
 			try:
 				input_data = raw_input(self.handle)

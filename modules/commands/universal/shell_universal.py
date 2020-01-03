@@ -10,12 +10,10 @@ class command:
     def run(self,session,cmd_data):
 	while 1:
 	    uid = session.send_command({"cmd":"echo","args":"$UID"})
-	    whoami = ""
-	    if whoami == "":
-		if uid[:-1] == "0":
-	            whoami = "# "
-	        else:
-		    whoami = "$ "
+	    if uid[:-1] == "0":
+	        whoami = "# "
+	    else:
+		whoami = "$ "
 	    shell = raw_input(h.WHITE+session.hostname+":"+session.current_directory+" "+session.username+whoami)
 	    if not shell or shell.replace(" ","") == "":
 	        continue

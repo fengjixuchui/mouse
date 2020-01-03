@@ -57,11 +57,11 @@ class Session:
   	        elif device_type == "iOS":
 		        os.system("cat resources/trollsploit_cmds_ios.txt")
 			
-	def get_mpl(self,device_type):
+	def get_other(self,device_type):
 		if device_type == "macos":
-			os.system("cat resources/mpl_cmds_macos.txt")
+			os.system("cat resources/other_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cat resources/mpl_cmds_ios.txt")
+		        os.system("cat resources/other_cmds_ios.txt")
 
 
 	def interact(self):
@@ -95,7 +95,7 @@ class Session:
 				elif cmd in self.server.modules_local.keys():
 					self.server.modules_local[cmd].run(self,cmd_data)
 				else:
-					h.info_error("Invalid Command: "+cmd)
+					h.info_error("Unrecognized command!")
 			except KeyboardInterrupt:
 				try:
 					print ""
@@ -209,7 +209,7 @@ class Session:
 	        print("\nOther Commands")
                 print("==============")
 		
-		self.get_mpl(self.type)
+		self.get_other(self.type)
 
                 print("")
 		

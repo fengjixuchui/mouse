@@ -18,4 +18,4 @@ class command:
             cmd_data = {'cmd':'mute','args':''}
         error = session.send_command(cmd_data)
         if error:
-        	print(h.RED+"[-]"+h.WHITE+" MPL Substrate is not installed!")
+        	print(h.RED+"[-]"+h.WHITE+" Mouse Substrate is not installed!")

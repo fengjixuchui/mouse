@@ -10,7 +10,7 @@ class MultiHandler:
 		self.thread = None
 		self.sessions_id = dict()
 		self.sessions_uid = dict()
-		self.handle = h.WHITE+"("+h.GREEN + "MultiHandler" + h.WHITE + ")> "
+		self.handle = h.WHITE+"("+h.GREEN + "MultiHandler" + h.WHITE +")> "
 		self.is_running = False
 
 
@@ -84,20 +84,20 @@ class MultiHandler:
 		try:
 			self.sessions_id[int(session_number)].interact()
 		except:
-			h.info_error("Session "+session_number+" is not found!")
+			h.info_error("Invalid session number!")
 
 
 	def close_session(self,session_number):
 		if not session_number:
-			print "Usage: close <session>"
+			print "Usage: close <session_number>"
 			return
 		try:
 			session = self.sessions_id[int(session_number)]
 			session.disconnect(False)
-			h.info_general('Closing session ' + session_number)
+			h.info_general('Closing session ' + session_number + '...')
 		except Exception as e:
 			print e
-			h.info_error("Session "+session_number+" is not found!")
+			h.info_error("Invalid session number!")
 
 
 	def stop_server(self):
@@ -144,7 +144,7 @@ class MultiHandler:
 					self.stop_server()
 					return
 				else:
-					h.info_error("Invalid Command: " + cmd)
+					h.info_error("Unrecognized command!")
 
 			except KeyboardInterrupt:
 				sys.stdout.write("\n")

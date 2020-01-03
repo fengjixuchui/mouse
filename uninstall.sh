@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #            --------------------------------------------------
-#                           Mouse Payload Loader                
+#                              Mouse Framework                                 
 #            --------------------------------------------------
 #                  Copyright (C) <2019>  <Entynetproject>
 #

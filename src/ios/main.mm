@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "mpl.h"
+#import "mouse.h"
 
 int sockfd, newsockfd;
 SSL_CTX *ssl_client_ctx;
@@ -108,7 +108,7 @@ void connectToServer(NSDictionary *arguments) {
 
 
 void interact(NSDictionary *arguments) {
-    mpl *esCommand = [[mpl alloc] init];
+    mouse *esCommand = [[mouse alloc] init];
     esCommand->client_ssl = client_ssl;
     
     //listen for input data

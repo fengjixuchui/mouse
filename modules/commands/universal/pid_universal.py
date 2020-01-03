@@ -1,7 +1,7 @@
 class command:
     def __init__(self):
         self.name = "pid"
-        self.description = "Get MPL process ID."
+        self.description = "Get Mouse process ID."
         self.type = "native"
 
     def run(self,session,cmd_data):

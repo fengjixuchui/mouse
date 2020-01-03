@@ -3,6 +3,6 @@
     -------          -----------
     battery          Get battery level.
     getvol           Get volume level.
-    msub             Install or uninstall MPL Substrate.
+    msub             Mouse Substrate.
     setvol           Set output volume.
     sysinfo          Show system information.

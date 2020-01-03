@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 #            --------------------------------------------------
-#                           Mouse Payload Loader                
+#                              Mouse Framework                                 
 #            --------------------------------------------------
 #                  Copyright (C) <2019>  <Entynetproject>
 #
@@ -20,7 +20,7 @@
 
 import os
 
-os.system("printf '\033]2;Mouse Payload Loader\a'")
+os.system("printf '\033]2;Mouse Framework\a'")
 
 from modules import server
 from modules import helper as h
@@ -32,12 +32,12 @@ def show_graphic():
     print(h.WHITE+"-"*27)
     print("")
     print(h.GREEN_THIN+"    1"+h.ENDC+") Start Server")
-    print(h.GREEN_THIN+"    2"+h.ENDC+") Start MultiHandler")
+    print(h.GREEN_THIN+"    2"+h.ENDC+") MultiHandler")
     print(h.GREEN_THIN+"    3"+h.ENDC+") Create Payload")
     print(h.GREEN_THIN+"    4"+h.ENDC+") Clean Payloads")
     print(h.GREEN_THIN+"    5"+h.ENDC+") Clean Downloads")
     print(h.GREEN_THIN+"    6"+h.ENDC+") Update Mouse")
-    print(h.GREEN_THIN+"    0"+h.ENDC+") Exit")
+    print(h.GREEN_THIN+"    7"+h.ENDC+") Exit Mouse")
     print("")
     
 class mouse:
@@ -58,10 +58,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /   
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject\n"+h.ENDC
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject\n"+h.ENDC
         
     # Actions
     def print_payload(self,payload,number_option):
@@ -80,10 +80,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /  
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
         if not self.server.set_host_port():
@@ -102,10 +102,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /  
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
         if not self.server.set_host_port():
@@ -147,10 +147,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /   
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
         exit()
@@ -166,10 +166,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /   
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
         os.system("chmod +x etc/update.sh && etc/update.sh")
@@ -186,10 +186,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /   
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
         os.system("chmod +x etc/clean.sh && etc/clean.sh -d")
@@ -205,10 +205,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /   
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
         os.system("chmod +x etc/clean.sh && etc/clean.sh -p")
@@ -224,10 +224,10 @@ class mouse:
     |\  \      \         /`        _`------`_.-'
        _/;--._, >        |   --.__/ `------`
      (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   mouse/MPL
+          (((-'       __//  '--. /   
                     (((-'    __//
                            (((-'
-"""+h.WHITE+"Mouse Payload Loader"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
+"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+"\nDeveloped by Entynetproject"+h.ENDC)
         print(h.WHITE+"-"*27)
         print("")
         number_option = 1
@@ -275,7 +275,7 @@ class mouse:
                     "4" : self.clean_payloads,
                     "5" : self.clean_downloads,
                     "6" : self.update_mouse,
-                    "0" : self.exit_menu
+                    "7" : self.exit_menu
                 }
                 try:
                     choose[option]()

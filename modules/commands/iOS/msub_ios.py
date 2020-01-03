@@ -4,7 +4,7 @@ import re, os, time
 class command:
     def __init__(self):
         self.name = "msub"
-        self.description = "Install or uninstall MPL Substrate."
+        self.description = "Mouse Substrate."
         self.usage = "Usage: msub [install|uninstall]"
     
     def run(self,session,cmd_data):
@@ -23,7 +23,7 @@ class command:
             session.send_command({"cmd":"killall","args":"SpringBoard"})
         if cmd_data['args'] == "uninstall":
             h.info_general("Removing msub.dylib (1/2)...")
-            session.send_command({"cmd":"rm","args":"/Library/MobileSubstrate/DynamicLibraries/.msub.plist"})
+            session.send_command({"cmd":"rm","args":"/Library/MobileSubstrate/DynamicLibraries/.msub.dylib"})
             time.sleep(0.3)
     	    h.info_general("Removing msub.plist (2/2)...")
             session.send_command({"cmd":"rm","args":"/Library/MobileSubstrate/DynamicLibraries/.msub.plist"})

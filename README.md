@@ -1,4 +1,4 @@
-# Mouse Payload Loader (MPL)
+# Mouse Framework
 
                                       _     __,..---""-._                 ';-,
                                ,    _/_),-"`             '-.                `\\
@@ -8,7 +8,7 @@
                                  |\  \      \         /`        _`------`_.-'
                                     _/;--._, >        |   --.__/ `------`
                                   (((-'  __//`'-......-;\      )
-                                       (((-'       __//  '--. /   mouse/MPL
+                                       (((-'       __//  '--. /  
                                                  (((-'    __//
                                                         (((-'
 
@@ -36,15 +36,15 @@
  </a>
 </p>
 
-![mouse](https://user-images.githubusercontent.com/54115104/71603759-b6ae0700-2b5e-11ea-91d2-ce59d4eef66d.png)
+![mouse](https://user-images.githubusercontent.com/54115104/71723678-d890dd80-2e2d-11ea-8262-818480c40e87.png)
 
 ***
 
-# About Mouse (MPL)
+# About Mouse Framework
 
-    Mouse Payload Loader (MPL) is an iOS and macOS post exploitation surveillance 
-    tool that gives you a command line session with extra functionality between you and 
-    a target machine with simple MPL payload. MPL gives you the power and convenience of 
+    Mouse Framework is an iOS and macOS post exploitation surveillance framework 
+    that gives you a command line session with extra functionality between you and a 
+    target machine with simple Mouse payload. Mouse gives you the power and convenience of 
     uploading and downloading files, tab completion, taking pictures, location tracking,
     shell command execution, escalating privileges, password retrieval, and much more.
   
@@ -74,15 +74,15 @@
 
 ![payloads](https://user-images.githubusercontent.com/54115104/71603753-b6157080-2b5e-11ea-8d21-cbb5f2aad399.png)
 
-    MPL payloads are executed on the target machine. The payload first sends over 
+    Mouse payloads are executed on the target machine. The payload first sends over 
     instructions for getting and sending back device details to our server and then chooses 
     the appropriate executable to establish a secure remote control session.
 
 ## Bourne-Again Shell payload
 
     Selecting Bourne-Again Shell payload from the payload 
-    menu will give us a 1 liner that establishes a remote MPL 
-    session upon execution on the target machine.
+    menu will give us a 1 liner that establishes a remote 
+    Mouse session upon execution on the target machine.
 
     Platform: iOS/macOS
 
@@ -90,7 +90,7 @@
 
     Teensy is a development USB board that can be programmed 
     with the Arduino IDE. It emulates usb keyboard strokes extremely 
-    fast and can inject the MPL payload just in a few seconds!
+    fast and can inject the Mouse payload just in a few seconds!
 
     Platform: macOS
     
@@ -104,7 +104,7 @@
 ## Application macOS payload
 
     Selecting Application macOS from the payload menu will give you
-    standart MPL payload that converted to the macOS application.
+    standart Mouse payload that converted to the macOS application.
     
     Platform: macOS
     
@@ -128,11 +128,11 @@
     
 ***
 
-# Mouse Substrate (MPL Substrate)
+# Mouse Substrate
 
-    Mouse Substrate (MPL Substrate) is a package that can 
-    be installed on the target iOS device after receiving 
-    remote control to run substrate commands and services.
+    Mouse Substrate is a package that can be installed 
+    on the target iOS device after receiving remote control 
+    to run substrate commands and services.
     
 ## Substrate commands
 
@@ -143,14 +143,14 @@
     
 ***
 
-# Mouse (MPL) CLI
+# Mouse CLI
 
 ![help](https://user-images.githubusercontent.com/54115104/71603758-b6ae0700-2b5e-11ea-9a88-1b87deee7a1c.png)
 
-    After a session is established, we can execute commands on that device through the
-    Mouse (MPL) CLI. We can show all available commands by typing "help". Mouse (MPL) CLI 
-    allows you to control a remote device. Remote device can be controlled by Mouse (MPL)
-    CLI commands. You can explore list of available Mouse (MPL) CLI commands bellow.
+    After a session is established, we can execute commands on that device through 
+    the Mouse CLI. We can show all available commands by typing "help". Mouse CLI 
+    allows you to control a remote device. Remote device can be controlled by Mouse
+    CLI commands. You can explore list of available Mouse CLI commands bellow.
 
 ## Local commands
 
@@ -177,7 +177,7 @@
 
     battery        : Get battery level.
     getvol         : Get volume level.
-    msub           : Install or uninstall MPL Substrate.
+    msub           : Mouse Substrate.
     setvol         : Set output volume.
     sysinfo        : Show system information.
 
@@ -238,7 +238,6 @@
 ### macOS
 
     reboot         : Reboot device.
-    shutdown       : Shutdown device.
     sleep          : Put device into sleep mode.
     suspend        : Suspend current session.
     
@@ -247,7 +246,6 @@
     reboot         : Reboot device.
     respring       : Restart SpringBoard.
     safemode       : Put device into SafeMode.
-    shutdown       : Shutdown device.
 
 ## Other commands
 
@@ -256,7 +254,7 @@
 ### macOS
 
     icons          : List system alert icons.
-    pid            : Get MPL process ID.
+    pid            : Get Mouse process ID.
     shell          : Open target device shell.
     su             : Login as root.
     upload         : Upload local file.
@@ -265,24 +263,24 @@
 
     bundleids      : List bundle identifiers.
     islocked       : Check if the device is locked.
-    pid            : Get MPL process ID.
+    pid            : Get Mouse process ID.
     shell          : Open target device shell.
     upload         : Upload local file.
 
 ***
 
-# Mouse (MPL) disclaimer
+# Mouse Framework disclaimer
 
-    Usage of the Mouse Payload Loader for attacking targets without prior mutual consent is illegal. 
+    Usage of the Mouse Framework for attacking targets without prior mutual consent is illegal. 
     It is the end user's responsibility to obey all applicable local, state, federal, and international laws. 
     Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 
 ***
 
-# Mouse (MPL) license
+# Mouse Framework license
  
         --------------------------------------------------
-                       Mouse Payload Loader          
+                       Mouse Framework          
         --------------------------------------------------
               Copyright (C) <2019>  <Entynetproject>      
 

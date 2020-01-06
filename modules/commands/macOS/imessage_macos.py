@@ -9,8 +9,8 @@ class command:
     def run(self,session,cmd_data):
         #do something with session if you want
         #we can prompt for input
-        phone = raw_input(h.CYAN+"[*]"+h.WHITE+" Enter iMessage recipient: ")
-        message = raw_input(h.CYAN+"[*]"+h.WHITE+" Enter message: ")
+        phone = raw_input(h.WW+"[>]"+h.WHITE+" iMessage Recipient: "+h.ENDC)
+        message = raw_input(h.WW+"[>]"+h.WHITE+" iMessage Message: "+h.ENDC)
         #send applescript payload
         payload = """tell application "Messages"
         set targetService to 1st service whose service type = iMessage

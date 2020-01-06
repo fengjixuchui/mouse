@@ -9,7 +9,7 @@ class command:
         self.type = "native"
 
     def run(self,session,cmd_data):
-        title = raw_input(h.CYAN+"[*]"+h.WHITE+" Alert Title: ")
-        message = raw_input(h.CYAN+"[*]"+h.WHITE+" Alert Message: ")
+        title = raw_input(h.WW+"[>]"+h.WHITE+" Alert Title: "+h.ENDC)
+        message = raw_input(h.WW+"[>]"+h.WHITE+" Alert Message: "+h.ENDC)
         session.send_command({"cmd":"alert","args":json.dumps({"title":title,"message":message})})
         return ""

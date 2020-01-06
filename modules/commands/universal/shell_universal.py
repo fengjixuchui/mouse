@@ -14,7 +14,7 @@ class command:
 	        whoami = "# "
 	    else:
 		whoami = "$ "
-	    shell = raw_input(h.WHITE+session.hostname+":"+session.current_directory+" "+session.username+whoami)
+	    shell = raw_input(h.ENDC+session.hostname+":"+session.current_directory+" "+session.username+whoami)
 	    if not shell or shell.replace(" ","") == "":
 	        continue
 	    shelld = shell.split()[0]

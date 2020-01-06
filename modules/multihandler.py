@@ -10,7 +10,7 @@ class MultiHandler:
 		self.thread = None
 		self.sessions_id = dict()
 		self.sessions_uid = dict()
-		self.handle = h.WHITE+"("+h.GREEN + "MultiHandler" + h.WHITE +")> "
+		self.handle = h.WHITE+"("+h.GREEN + "MultiHandler" + h.WHITE +")> " + h.ENDC
 		self.is_running = False
 
 
@@ -79,7 +79,7 @@ class MultiHandler:
 
 	def interact_with_session(self,session_number):
 		if not session_number:
-			print "Usage: interact <session>"
+			print "Usage: interact <session_number>"
 			return
 		try:
 			self.sessions_id[int(session_number)].interact()
@@ -95,8 +95,7 @@ class MultiHandler:
 			session = self.sessions_id[int(session_number)]
 			session.disconnect(False)
 			h.info_general('Closing session ' + session_number + '...')
-		except Exception as e:
-			print e
+		except:
 			h.info_error("Invalid session number!")
 
 

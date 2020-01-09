@@ -49,12 +49,11 @@ class Server:
         try:
             lhost = h.getip()
             lport = None
-            choice = raw_input(h.info_general_raw("Set Local Host: "))
+            choice = raw_input(h.info_general_raw("Local Host: "))
             if choice != "":
                 lhost = choice
-            h.info_general("LHOST ==> " + lhost)
             while True:
-                lport = raw_input(h.info_general_raw("Set Local Port: "))
+                lport = raw_input(h.info_general_raw("Local Port: "))
                 if not lport:
                     lport = 4444
                 try:
@@ -66,7 +65,7 @@ class Server:
                     h.info_error("Invalid port, please enter a value >= 1024.")
                     continue
                 break
-            h.info_general("LPORT ==> " + str(lport))
+            h.info_general("Using "+lhost+":"+str(lport)+"...")
             self.host = socket.gethostbyname(lhost)
             self.port = lport
             return True

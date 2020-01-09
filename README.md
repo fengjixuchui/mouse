@@ -70,9 +70,18 @@
 
 ***
 
+# Mouse Framework execution
+
+    To execute Mouse Framework you 
+    should execute the following command.
+
+> mouse
+
+***
+
 # Mouse Payloads (macOS/iOS)
 
-![payloads](https://user-images.githubusercontent.com/54115104/71771319-483fbf00-2f39-11ea-8ab5-0f64551b9455.png)
+![payloads](https://user-images.githubusercontent.com/54115104/71848194-2415e680-30cf-11ea-9dbe-9c0d2d028dd4.png)
 
     Mouse Payloads are executed on the target machine. The payload first sends over 
     instructions for getting and sending back device details to our server and then chooses 
@@ -183,7 +192,7 @@
 
 ## Trolling commands
 
-![alert](https://user-images.githubusercontent.com/54115104/71771318-47a72880-2f39-11ea-8d18-28866e7e9977.png)
+![alert](https://user-images.githubusercontent.com/54115104/71848193-237d5000-30cf-11ea-9f43-ae65ff288a78.png)
 
 ### macOS
 

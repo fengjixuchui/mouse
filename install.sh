@@ -30,7 +30,7 @@ CE="\033[0m"
 #green start
 	GNS="-e \033[1;32m"
 #white start
-   WHS="\033[0;97m"
+   WHS="\033[0m"
    
 printf '\033]2;install.sh\a'
 

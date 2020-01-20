@@ -36,7 +36,7 @@
  </a>
 </p>
 
-![mouse](https://user-images.githubusercontent.com/54115104/71723678-d890dd80-2e2d-11ea-8262-818480c40e87.png)
+![mouse](https://user-images.githubusercontent.com/54115104/72089611-6af91b80-331d-11ea-8e3f-588917f29213.png)
 
 ***
 
@@ -45,7 +45,7 @@
     Mouse Framework is an iOS and macOS post exploitation surveillance framework 
     that gives you a command line session with extra functionality between you and a 
     target machine with simple Mouse payload. Mouse gives you the power and convenience of 
-    uploading and downloading files, tab completion, taking pictures, location tracking,
+    uploading and downloading files, tab completion, taking pictures, location tracking, 
     shell command execution, escalating privileges, password retrieval, and much more.
   
 ***
@@ -81,7 +81,7 @@
 
 # Mouse Payloads (macOS/iOS)
 
-![payloads](https://user-images.githubusercontent.com/54115104/71848194-2415e680-30cf-11ea-9dbe-9c0d2d028dd4.png)
+![payloads](https://user-images.githubusercontent.com/54115104/72089626-6e8ca280-331d-11ea-8f67-bd8b3660d538.png)
 
     Mouse Payloads are executed on the target machine. The payload first sends over 
     instructions for getting and sending back device details to our server and then chooses 
@@ -121,7 +121,7 @@
 
 # MultiHandler CLI
 
-![multihandler](https://user-images.githubusercontent.com/54115104/71770527-d4e48000-2f2d-11ea-98ff-f4e6a9b8ce62.png)
+![multihandler](https://user-images.githubusercontent.com/54115104/72089620-6d5b7580-331d-11ea-8f67-2af6adcf82d1.png)
 
     The Multihandler option lets us handler multiple sessions. 
     You can choose to interact with different devices while 
@@ -154,7 +154,7 @@
 
 # Mouse CLI
 
-![help](https://user-images.githubusercontent.com/54115104/71770526-d4e48000-2f2d-11ea-9240-1a1f749c8460.png)
+![help](https://user-images.githubusercontent.com/54115104/72089612-6c2a4880-331d-11ea-9a48-12d15e037269.png)
 
     After a session is established, we can execute commands on that device through 
     the Mouse CLI. We can show all available commands by typing "help". Mouse CLI 
@@ -163,16 +163,16 @@
 
 ## Local commands
 
-![exec](https://user-images.githubusercontent.com/54115104/71770525-d4e48000-2f2d-11ea-9c63-bdea00f781b7.png)
+![exec](https://user-images.githubusercontent.com/54115104/72089625-6e8ca280-331d-11ea-982e-c4470c79141d.png)
 
-    clear          : Clear terminal input/output.
+    clear          : Clear terminal window.
     help           : Show all available commands.
     exec           : Execute local shell commands.
     exit           : Close current session and exit.
     
 ## Settings commands
 
-![setvol](https://user-images.githubusercontent.com/54115104/71770530-d57d1680-2f2d-11ea-9e4b-3d4f5b3007ab.png)
+![setvol](https://user-images.githubusercontent.com/54115104/72089610-6af91b80-331d-11ea-80f2-868276561afe.png)
 
 ### macOS
 
@@ -192,7 +192,7 @@
 
 ## Trolling commands
 
-![alert](https://user-images.githubusercontent.com/54115104/71848193-237d5000-30cf-11ea-9f43-ae65ff288a78.png)
+![alert](https://user-images.githubusercontent.com/54115104/72089624-6df40c00-331d-11ea-9baa-2f4049032ae9.png)
 
 ### macOS
 
@@ -220,7 +220,7 @@
 
 ## Stealing commands
 
-![screenshot](https://user-images.githubusercontent.com/54115104/71770529-d57d1680-2f2d-11ea-901b-ab9703c0bd0c.png)
+![screenshot](https://user-images.githubusercontent.com/54115104/72089616-6cc2df00-331d-11ea-9ffd-d9ec68c86d56.png)
 
 ### macOS
 
@@ -258,7 +258,7 @@
 
 ## Other commands
 
-![shell](https://user-images.githubusercontent.com/54115104/71770673-a9fb2b80-2f2f-11ea-974f-99017752960c.png)
+![shell](https://user-images.githubusercontent.com/54115104/72089623-6df40c00-331d-11ea-95b9-b93f9bf3d3c5.png)
 
 ### macOS
 

@@ -27,7 +27,7 @@
 #green start
 	GNS="-e \033[1;32m"
 #white start
-        WHS="\033[0;97m"
+        WHS="\033[0m"
 
 if [[ "$1" = "-h" || "$1" = "--help" ]]
 then

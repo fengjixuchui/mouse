@@ -12,8 +12,6 @@ class command:
             print "Usage: exec <command>"
             return
         else:
-            print(h.CYAN+"[*]"+h.WHITE+" exec: "+cmd_data['args'])
-            print("")
             split_args = cmd_data['args'].split()
             os.system(cmd_data['args'])
 

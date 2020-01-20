@@ -12,8 +12,6 @@ class command:
             print "Usage: exec <command>"
             return
         else:
-            print(h.CYAN+"[*]"+h.WHITE+" exec: "+cmd_data['args'])
-            print("")
             w = os.environ['OLDPWD']
             os.chdir(w)
             

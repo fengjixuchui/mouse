@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#            --------------------------------------------------
+#            ---------------------------------------------------
 #                              Mouse Framework                                 
-#            --------------------------------------------------
-#                  Copyright (C) <2019>  <Entynetproject>
+#            ---------------------------------------------------
+#                Copyright (C) <2019-2020>  <Entynetproject>
 #
 #        This program is free software: you can redistribute it and/or modify
 #        it under the terms of the GNU General Public License as published by
@@ -87,5 +87,7 @@ cp -r ~/.mouse/payloads ~/mouse
 rm -rf ~/.mouse
 } &> /dev/null
 echo -e ""$GNS"[+] "$WHS"Successfully updated!"$CE""
+cd .
+touch .updated
 sleep 1
 exit

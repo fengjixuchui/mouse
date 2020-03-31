@@ -4,5 +4,5 @@
     bundleids        List bundle identifiers.
     islocked         Check if the device is locked.
     pid              Get Mouse process ID.
-    shell            Open target device shell.
+    shell            Open device shell.
     upload           Upload local file.

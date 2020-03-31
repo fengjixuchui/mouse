@@ -3,4 +3,4 @@
     -------          -----------
     reboot           Reboot device.
     respring         Restart SpringBoard.
-    safemode         Put device into SafeMode.
+    safemode         Launch SafeMode.

@@ -18,12 +18,17 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+import time
+
 class command:
     def __init__(self):
         self.name = "safemode"
         self.description = "Put device into SafeMode."
 
     def run(self,session,cmd_data):
+        h.info_general("Launching SafeMode...")
+        time.sleep(1)
     	cmd_data["cmd"] = ";"
     	cmd_data["args"] = "touch /var/mobile/Library/Preferences/com.saurik.mobilesubstrate.dat; killall SpringBoard"
         result = session.send_command(cmd_data)

@@ -23,7 +23,7 @@
  </a>
 </p>
 
-![mouse](https://user-images.githubusercontent.com/54115104/76701208-1b91eb80-66d0-11ea-9c4b-92067925e653.png)
+![mouse](https://user-images.githubusercontent.com/54115104/77857605-28056080-7207-11ea-9bb3-c167ddc0df6b.png)
 
 ***
 
@@ -86,7 +86,7 @@ There are a lot of different payloads in Mouse Framework
 such as Bourne-Again Shell and Rubber Duck payloads.
 ```
 
-![payloads](https://user-images.githubusercontent.com/54115104/76701211-20569f80-66d0-11ea-8aaf-deeab47b2d94.png)
+![payloads](https://user-images.githubusercontent.com/54115104/77857602-26d43380-7207-11ea-9150-77fedc428cc9.png)
 
 ***
 

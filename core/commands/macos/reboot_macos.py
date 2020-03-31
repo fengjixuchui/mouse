@@ -23,10 +23,10 @@ import time
 
 class command:
 	def __init__(self):
-		self.name = "respring"
-		self.description = "Restart SpringBoard."
+		self.name = "reboot"
+		self.description = "Reboot device."
 
 	def run(self,session,cmd_data):
-		h.info_general("Restarting SpringBoard...")
+		h.info_general("Rebooting device...")
 		time.sleep(1)
-		session.send_command({"cmd":"killall","args":"SpringBoard"})
+		session.send_command({"cmd":"reboot","args":""})

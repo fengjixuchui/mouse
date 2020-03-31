@@ -18,10 +18,15 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+import time
+
 class command:
 	def __init__(self):
 		self.name = "reboot"
 		self.description = "Reboot device."
 
 	def run(self,session,cmd_data):
+		h.info_general("Rebooting device...")
+		time.sleep(1)
 		session.send_command({"cmd":"reboot","args":""})

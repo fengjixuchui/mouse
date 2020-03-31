@@ -19,15 +19,20 @@
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import core.helper as h
+import time
 import json
 import os
 
 class command:
     def __init__(self):
         self.name = "shell"
-        self.description = "Open target device shell."
+        self.description = "Open device shell."
     
     def run(self,session,cmd_data):
+	h.info_general("Connecting to device...")
+	time.sleep(0.5)
+	h.info_general("Openning device shell...")
+	time.sleep(1)
 	while 1:
 	    uid = session.send_command({"cmd":"echo","args":"$UID"})
 	    if uid[:-1] == "0":

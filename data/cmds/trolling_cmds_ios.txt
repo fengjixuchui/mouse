@@ -1,0 +1,11 @@
+
+    Command        Description
+    -------        -----------
+    alert          Make alert show up on device.
+    dial           Dial a phone number.
+    ipod           Control music player.
+    lastapp        Open last opened application.
+    open           Open application.
+    openurl        Open URL on device.
+    say            Convert text to speach.
+    vibrate        Vibrate device.

@@ -33,6 +33,8 @@ class command:
             		print self.usage
             		return
 		
+		w = os.environ['OLDPWD']
+                os.chdir(w)
 		dest = cmd_data['args'][0]
                 if os.path.isdir(dest):
                     if os.path.exists(dest):
@@ -71,3 +73,5 @@ class command:
                             h.info_error("Error: "+rp+": not a directory!")
                     else:
                         h.info_error("Local directory: "+rp+": does not exist!")
+                g = os.environ['HOME']
+                os.chdir(g + "/mouse")

@@ -18,6 +18,7 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
 import time
 import base64
 import json
@@ -39,14 +40,14 @@ except ImportError:
 class command:
     def __init__(self):
         self.name = "keyboard"
-        self.description = "Control target's keyboard."
+        self.description = "Control device keyboard."
         self.type = "applescript"
         self.id = 115
 
     def run(self,session,cmd_data):
         #do something with conn if you want
-        print "Type CTRL + C to quit..."
-        print "Start typing..."
+        h.info_general("Press Ctrl-C to stop.")
+        h.info_general("Device keyboard:")
         while 1:
             key = getch()
             if key == chr(03):

@@ -1,6 +1,6 @@
 
-    Command          Description 
-    -------          -----------
-    reboot           Reboot device.
-    respring         Restart SpringBoard.
-    safemode         Launch SafeMode.
+    Command        Description
+    -------        -----------
+    reboot         Reboot device.
+    respring       Restart SpringBoard.
+    safemode       Launch SafeMode.

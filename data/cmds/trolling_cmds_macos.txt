@@ -1,0 +1,11 @@
+
+    Command        Description
+    -------        -----------
+    alert          Make alert show up on device.
+    chwall         Change desktop wallpaper.
+    close          Close application.
+    imessage       Send message via iMessage.
+    itunes         Control iTunes player.
+    keyboard       Control device keyboard.
+    open           Open application.
+    say            Convert text to speach.

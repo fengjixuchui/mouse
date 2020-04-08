@@ -1,7 +1,7 @@
 
-    Command          Description 
-    -------          -----------
-    dhome            Simulate a double home button press.
-    home             Simulate a home button press.
-    locat            Toggle location services.
-    mute             Update and show mute status.
+    Command        Description
+    -------        -----------
+    dhome          Simulate a double home button press.
+    home           Simulate a home button press.
+    locat          Toggle location services.
+    mute           Update and show mute status.

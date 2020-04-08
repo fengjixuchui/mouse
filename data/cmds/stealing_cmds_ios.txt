@@ -1,11 +1,11 @@
 
-    Command          Description 
-    -------          -----------
-    download         Download remote file.
-    getcontacts      Download addressbook.
-    getnotes         Download notes.
-    getpasscode      Retreive the device passcode.
-    getsms           Download SMS data.
-    locate           Get device location coordinates.
-    mic              Record mic sound.
-    picture          Take picture through the camera.
+    Command        Description
+    -------        -----------
+    download       Download remote file.
+    getcontacts    Download addressbook.
+    getnotes       Download notes.
+    getpasscode    Retreive the device passcode.
+    getsms         Download SMS data.
+    locate         Get device location coordinates.
+    mic            Record mic sound.
+    picture        Take picture through the camera.

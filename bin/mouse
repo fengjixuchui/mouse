@@ -30,6 +30,51 @@ mv etc/core/commands/universal/upload_universal.py core/commands/universal
 cp etc/.disabled/upload_universal.py etc/core/commands/universal
 rm -rf etc/.disabled
 mkdir etc/.disabled
+mv core/commands/universal/download_universal.py etc/.disabled
+mv etc/core/commands/universal/download_universal.py core/commands/universal
+cp etc/.disabled/download_universal.py etc/core/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getcontacts_ios.py etc/.disabled
+mv etc/core/commands/ios/getcontacts_ios.py core/commands/ios
+cp etc/.disabled/getcontacts_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getnotes_ios.py etc/.disabled
+mv etc/core/commands/ios/getnotes_ios.py core/commands/ios
+cp etc/.disabled/getnotes_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getsms_ios.py etc/.disabled
+mv etc/core/commands/ios/getsms_ios.py core/commands/ios
+cp etc/.disabled/getsms_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/mic_ios.py etc/.disabled
+mv etc/core/commands/ios/mic_ios.py core/commands/ios
+cp etc/.disabled/mic_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/picture_ios.py etc/.disabled
+mv etc/core/commands/ios/picture_ios.py core/commands/ios
+cp etc/.disabled/picture_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/mic_macos.py etc/.disabled
+mv etc/core/commands/macos/mic_macos.py core/commands/macos
+cp etc/.disabled/mic_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/picture_macos.py etc/.disabled
+mv etc/core/commands/macos/picture_macos.py core/commands/macos
+cp etc/.disabled/picture_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/screenshot_macos.py etc/.disabled
+mv etc/core/commands/macos/screenshot_macos.py core/commands/macos
+cp etc/.disabled/screenshot_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
 mv core/commands/local/exec.py etc/.disabled
 mv etc/core/commands/local/exec.py core/commands/local
 cp etc/.disabled/exec.py etc/core/commands/local
@@ -47,6 +92,51 @@ mkdir etc/.disabled
 mv core/commands/universal/upload_universal.py etc/.disabled
 mv etc/core/commands/universal/upload_universal.py core/commands/universal
 cp etc/.disabled/upload_universal.py etc/core/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/universal/download_universal.py etc/.disabled
+mv etc/core/commands/universal/download_universal.py core/commands/universal
+cp etc/.disabled/download_universal.py etc/core/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getcontacts_ios.py etc/.disabled
+mv etc/core/commands/ios/getcontacts_ios.py core/commands/ios
+cp etc/.disabled/getcontacts_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getnotes_ios.py etc/.disabled
+mv etc/core/commands/ios/getnotes_ios.py core/commands/ios
+cp etc/.disabled/getnotes_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getsms_ios.py etc/.disabled
+mv etc/core/commands/ios/getsms_ios.py core/commands/ios
+cp etc/.disabled/getsms_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/mic_ios.py etc/.disabled
+mv etc/core/commands/ios/mic_ios.py core/commands/ios
+cp etc/.disabled/mic_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/picture_ios.py etc/.disabled
+mv etc/core/commands/ios/picture_ios.py core/commands/ios
+cp etc/.disabled/picture_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/mic_macos.py etc/.disabled
+mv etc/core/commands/macos/mic_macos.py core/commands/macos
+cp etc/.disabled/mic_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/picture_macos.py etc/.disabled
+mv etc/core/commands/macos/picture_macos.py core/commands/macos
+cp etc/.disabled/picture_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/screenshot_macos.py etc/.disabled
+mv etc/core/commands/macos/screenshot_macos.py core/commands/macos
+cp etc/.disabled/screenshot_macos.py etc/core/commands/macos
 rm -rf etc/.disabled
 mkdir etc/.disabled
 mv core/commands/local/exec.py etc/.disabled
@@ -72,6 +162,51 @@ mv etc/core/commands/universal/upload_universal.py core/commands/universal
 cp etc/.disabled/upload_universal.py etc/core/commands/universal
 rm -rf etc/.disabled
 mkdir etc/.disabled
+mv core/commands/universal/download_universal.py etc/.disabled
+mv etc/core/commands/universal/download_universal.py core/commands/universal
+cp etc/.disabled/download_universal.py etc/core/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getcontacts_ios.py etc/.disabled
+mv etc/core/commands/ios/getcontacts_ios.py core/commands/ios
+cp etc/.disabled/getcontacts_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getnotes_ios.py etc/.disabled
+mv etc/core/commands/ios/getnotes_ios.py core/commands/ios
+cp etc/.disabled/getnotes_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getsms_ios.py etc/.disabled
+mv etc/core/commands/ios/getsms_ios.py core/commands/ios
+cp etc/.disabled/getsms_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/mic_ios.py etc/.disabled
+mv etc/core/commands/ios/mic_ios.py core/commands/ios
+cp etc/.disabled/mic_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/picture_ios.py etc/.disabled
+mv etc/core/commands/ios/picture_ios.py core/commands/ios
+cp etc/.disabled/picture_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/mic_macos.py etc/.disabled
+mv etc/core/commands/macos/mic_macos.py core/commands/macos
+cp etc/.disabled/mic_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/picture_macos.py etc/.disabled
+mv etc/core/commands/macos/picture_macos.py core/commands/macos
+cp etc/.disabled/picture_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/screenshot_macos.py etc/.disabled
+mv etc/core/commands/macos/screenshot_macos.py core/commands/macos
+cp etc/.disabled/screenshot_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
 mv core/commands/local/exec.py etc/.disabled
 mv etc/core/commands/local/exec.py core/commands/local
 cp etc/.disabled/exec.py etc/core/commands/local
@@ -89,6 +224,51 @@ mkdir etc/.disabled
 mv core/commands/universal/upload_universal.py etc/.disabled
 mv etc/core/commands/universal/upload_universal.py core/commands/universal
 cp etc/.disabled/upload_universal.py etc/core/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/universal/download_universal.py etc/.disabled
+mv etc/core/commands/universal/download_universal.py core/commands/universal
+cp etc/.disabled/download_universal.py etc/core/commands/universal
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getcontacts_ios.py etc/.disabled
+mv etc/core/commands/ios/getcontacts_ios.py core/commands/ios
+cp etc/.disabled/getcontacts_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getnotes_ios.py etc/.disabled
+mv etc/core/commands/ios/getnotes_ios.py core/commands/ios
+cp etc/.disabled/getnotes_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/getsms_ios.py etc/.disabled
+mv etc/core/commands/ios/getsms_ios.py core/commands/ios
+cp etc/.disabled/getsms_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/mic_ios.py etc/.disabled
+mv etc/core/commands/ios/mic_ios.py core/commands/ios
+cp etc/.disabled/mic_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/ios/picture_ios.py etc/.disabled
+mv etc/core/commands/ios/picture_ios.py core/commands/ios
+cp etc/.disabled/picture_ios.py etc/core/commands/ios
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/mic_macos.py etc/.disabled
+mv etc/core/commands/macos/mic_macos.py core/commands/macos
+cp etc/.disabled/mic_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/picture_macos.py etc/.disabled
+mv etc/core/commands/macos/picture_macos.py core/commands/macos
+cp etc/.disabled/picture_macos.py etc/core/commands/macos
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/commands/macos/screenshot_macos.py etc/.disabled
+mv etc/core/commands/macos/screenshot_macos.py core/commands/macos
+cp etc/.disabled/screenshot_macos.py etc/core/commands/macos
 rm -rf etc/.disabled
 mkdir etc/.disabled
 mv core/commands/local/exec.py etc/.disabled

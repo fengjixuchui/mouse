@@ -72,11 +72,11 @@ class Server:
         try:
             lhost = h.getip()
             lport = None
-            choice = raw_input(h.info_general_raw("Local Host: "))
+            choice = raw_input(h.info_general_raw("Local Host: ")).strip(" ")
             if choice != "":
                 lhost = choice
             while True:
-                lport = raw_input(h.info_general_raw("Local Port: "))
+                lport = raw_input(h.info_general_raw("Local Port: ")).strip(" ")
                 if not lport:
                     lport = 4444
                 try:
@@ -184,7 +184,7 @@ class Server:
         try:
             bash_stager, executable = self.craft_payload(device_arch)
         except Exception as e:
-            raw_input("Press enter to continue...")
+            raw_input("Press enter to continue...").strip(" ")
             return
         self.debug_print(bash_stager.strip())
         conn.send(bash_stager)

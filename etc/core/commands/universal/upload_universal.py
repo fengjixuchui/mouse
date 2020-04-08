@@ -47,10 +47,15 @@ class command:
             remote_dir = os.path.split(paths[1])[0]
             remote_file = os.path.split(paths[1])[1]
                 
+            w = os.environ['OLDPWD']
+            os.chdir(w)
+                
             if os.path.exists(paths[0]):
                 pass
             else:
                 h.info_error("Local file: "+paths[0]+": does not exist!")
+                g = os.environ['HOME']
+                os.chdir(g + "/mouse")
                 return
             
             raw = paths[1]
@@ -92,3 +97,5 @@ class command:
                         h.info_success("Saved to "+raw+"...")
                 else:
                     h.info_error("Remote directory: "+remote_dir+": does not exist!")
+            g = os.environ['HOME']
+            os.chdir(g + "/mouse")

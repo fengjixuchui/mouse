@@ -73,9 +73,9 @@ class Session:
 	
 	def get_troll(self,device_type):
 		if device_type == "macos":
-			os.system("cat data/cmds/trollsploit_cmds_macos.txt")
+			os.system("cat data/cmds/trolling_cmds_macos.txt")
   	        elif device_type == "iOS":
-		        os.system("cat data/cmds/trollsploit_cmds_ios.txt")
+		        os.system("cat data/cmds/trolling_cmds_ios.txt")
 			
 	def get_other(self,device_type):
 		if device_type == "macos":
@@ -94,7 +94,7 @@ class Session:
 		while 1:
 			try:
 				#prepare command
-				raw = raw_input(self.get_handle())
+				raw = raw_input(self.get_handle()).strip(" ")
 				if not raw or raw.replace(" ","") == "":
 					continue
 				cmd = raw.split()[0]
@@ -245,9 +245,9 @@ class Session:
 				size = int(result['size'])
 				return self.sock_receive_data(size)
 		elif status == 0:
-			print path + ": No such file or directory!"
+			h.info_error("Remote file: " + path + ": does not exist!")
 		elif status == 2:
-			print path + " is a directory!"
+			h.info_error("Remote file: " + path + ": does not exist!")
 
 
 	def upload_file(self,file_path,remote_dir,remote_file_name):
@@ -265,7 +265,7 @@ class Session:
 				self.sock_send(chunk)
 			self.sock_send(term)
 		else:
-			h.info_error("Local file: " + file_path + " does not exist!")
+			h.info_error("Local file: " + file_path + ": does not exist!")
 
 
 	def sock_send(self,data):

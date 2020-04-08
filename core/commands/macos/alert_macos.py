@@ -29,12 +29,12 @@ class command:
         self.type = "applescript"
 
     def run(self,session,cmd_data):
-        title = raw_input(h.WW+"[>]"+h.WHITE+" Alert Title: "+h.ENDC)
-        message = raw_input(h.WW+"[>]"+h.WHITE+" Alert Message: "+h.ENDC)
-        icon = raw_input(h.WW+"[>]"+h.WHITE+" Alert Icon: "+h.ENDC)
-        application = raw_input(h.WW+"[>]"+h.WHITE+" Alert Application: "+h.ENDC)
-        fbutton = raw_input(h.WW+"[>]"+h.WHITE+" First Button: "+h.ENDC)
-        sbutton = raw_input(h.WW+"[>]"+h.WHITE+" Second Button: "+h.ENDC)
+        title = raw_input(h.WW+"[>]"+h.WHITE+" Alert Title: "+h.ENDC).strip(" ")
+        message = raw_input(h.WW+"[>]"+h.WHITE+" Alert Message: "+h.ENDC).strip(" ")
+        icon = raw_input(h.WW+"[>]"+h.WHITE+" Alert Icon: "+h.ENDC).strip(" ")
+        application = raw_input(h.WW+"[>]"+h.WHITE+" Alert Application: "+h.ENDC).strip(" ")
+        fbutton = raw_input(h.WW+"[>]"+h.WHITE+" First Button: "+h.ENDC).strip(" ")
+        sbutton = raw_input(h.WW+"[>]"+h.WHITE+" Second Button: "+h.ENDC).strip(" ")
         one = '"'
         payload = """
         tell application """+one+""""""+application+""""""+one+"""

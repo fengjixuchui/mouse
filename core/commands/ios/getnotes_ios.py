@@ -26,15 +26,48 @@ class command:
 	def __init__(self):
 		self.name = "getnotes"
 		self.description = "Download notes."
+		self.usage = "Usage: getnotes <local_path>"
 
 	def run(self,session,cmd_data):
-		file_name = "notes.sqlite"
-		h.info_general("Downloading {0}".format(file_name))
-		data = session.download_file('/var/mobile/Library/Notes/'+file_name)
-		if data:
-			# save to downloads
-			h.info_general("Saving {0}".format(file_name))
-			f = open(os.path.join('downloads',file_name),'w')
-			f.write(data)
-			f.close()
-			h.info_success("Saved to downloads/{0}!".format(file_name))
+		if len(cmd_data['args'].split()) < 1:
+            		print self.usage
+            		return
+		
+		dest = cmd_data['args'][0]
+                if os.path.isdir(dest):
+                    if os.path.exists(dest):
+			 h.info_general("Downloading notes...")
+			 data = session.download_file('/var/mobile/Library/Notes/notes.sqlite')
+			 if data:
+			     f = open(os.path.join(dest,'notes.sqlite'),'w')
+			     f.write(data)
+			     f.close()
+                         if dest[-1:] == "/":
+                             h.info_general("Saving to "+dest+"notes.sqlite...")
+                             time.sleep(1)
+                             h.info_success("Saved to "+dest+"notes.sqlite!")
+                         else:
+                             h.info_general("Saving to "+dest+"/notes.sqlite...")
+                             time.sleep(1)
+                             h.info_success("Saved to "+dest+"/notes.sqlite!")
+                    else:
+                        h.info_error("Local directory: "+dest+": does not exist!")
+                else:
+                    rp = os.path.split(dest)[0]
+                    if os.path.exists(rp):
+			if os.path.isdir(rp):
+			    pr = os.path.split(dest)[0]
+                            rp = os.path.split(dest)[1]
+                            h.info_general("Downloading notes...")
+			    data = session.download_file('/var/mobile/Library/Notes/notes.sqlite')
+			    if data:
+			        f = open(os.path.join(pr,rp),'w')
+			        f.write(data)
+			        f.close()
+                            h.info_general("Saving to "+dest+"...")
+                            time.sleep(1)
+                            h.info_success("Saved to "+dest+"!")
+                        else:
+                            h.info_error("Error: "+rp+": not a directory!")
+                    else:
+                        h.info_error("Local directory: "+rp+": does not exist!")

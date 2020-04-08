@@ -39,7 +39,7 @@ class command:
 	        whoami = "# "
 	    else:
 		whoami = "$ "
-	    shell = raw_input(h.ENDC+session.hostname+":"+session.current_directory+" "+session.username+whoami)
+	    shell = raw_input(h.ENDC+session.hostname+":"+session.current_directory+" "+session.username+whoami).strip(" ")
 	    if not shell or shell.replace(" ","") == "":
 	        continue
 	    shelld = shell.split()[0]
@@ -60,7 +60,6 @@ class command:
                     contents = json.loads(data)
                 except:
                     print data
-                    return
                 keys = contents.keys()
                 keys.sort()
                 for k in keys:

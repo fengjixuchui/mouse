@@ -1,8 +1,8 @@
     
-    Command          Description 
-    -------          -----------
-    close            Close active session.
-    exit             Close all sessions and exit.
-    help             Show all available commands.
-    interact         Interact with a session.
-    sessions         List active sessions.
+    Command        Description
+    -------        -----------
+    close          Close active session.
+    exit           Close all sessions and exit.
+    help           Show all available commands.
+    interact       Interact with a session.
+    sessions       List active sessions.

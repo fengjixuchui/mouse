@@ -114,10 +114,10 @@ class mouse:
 
 
     def prompt_run_server(self):
-        if raw_input(h.WW+"[?]"+h.WHITE+" Start Server? (Y/n): "+h.ENDC) == "n":
+        if raw_input(h.WW+"[?]"+h.WHITE+" Start Server? (Y/n): "+h.ENDC).strip(" ") == "n":
             return
         else:
-            if raw_input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/N): "+h.ENDC) == "y":
+            if raw_input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/N): "+h.ENDC).strip(" ") == "y":
                 self.server.start_multi_handler()
             else:
                 self.server.start_single_handler()
@@ -239,7 +239,7 @@ class mouse:
         while 1:
             try:
                 # choose payload
-                option = raw_input(h.info_general_raw("Mouse Payload: "))
+                option = raw_input(h.info_general_raw("Mouse Payload: ")).strip(" ")
                 if not option:
                   continue
                 selected_payload = self.payloads[self.payloads.keys()[int(option) - 1]]
@@ -267,7 +267,7 @@ class mouse:
                     print "Debug Mode: on"
                 sys.stdout.write(self.banner_text)
                 show_graphic()
-                option = raw_input(h.NES)
+                option = raw_input(h.NES).strip(" ")
                 choose = {
                     "1" : self.start_single_server,
                     "2" : self.start_multi_handler,

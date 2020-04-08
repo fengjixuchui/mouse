@@ -33,6 +33,8 @@ class command:
 	    print self.usage
             return
 		
+	w = os.environ['OLDPWD']
+        os.chdir(w)
 	dest = cmd_data['args'].split()[0]
         if os.path.isdir(dest):
             if os.path.exists(dest):
@@ -48,6 +50,8 @@ class command:
 			f.close()
 		except:
 		    h.info_error("Failed to take picture!")
+		    g = os.environ['HOME']
+        	    os.chdir(g + "/mouse")
 		    return
                 if dest[-1:] == "/":
                     h.info_general("Saving to "+dest+"picture.jpg...")
@@ -77,6 +81,8 @@ class command:
 			    f.close()
 		    except:
 		        h.info_error("Failed to take picture!")
+			g = os.environ['HOME']
+        		os.chdir(g + "/mouse")
 			return
                     h.info_general("Saving to "+dest+"...")
                     time.sleep(1)
@@ -85,3 +91,5 @@ class command:
                     h.info_error("Error: "+rp+": not a directory!")
             else:
                 h.info_error("Local directory: "+rp+": does not exist!")
+	g = os.environ['HOME']
+        os.chdir(g + "/mouse")

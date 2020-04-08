@@ -35,7 +35,7 @@ class command:
             		print self.usage
             		return
 		
-		payload = """if [[ -d """+cmd_data['args'].split()[0]+"""
+		payload = """if [[ -d """+cmd_data['args'].split()[0]+""" ]]
 		then
 		echo 0
 		fi"""

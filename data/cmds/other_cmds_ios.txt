@@ -1,7 +1,6 @@
 
     Command        Description
     -------        -----------
-    bundleids      List bundle identifiers.
     islocked       Check if the device is locked.
     pid            Get Mouse process ID.
     shell          Open device shell.

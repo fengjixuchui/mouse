@@ -2,10 +2,10 @@
     Command        Description
     -------        -----------
     download       Download remote file.
-    getcontacts    Download addressbook.
-    getnotes       Download notes.
+    getcontacts    Get device contacts.
+    getnotes       Get device notes.
     getpasscode    Retreive the device passcode.
-    getsms         Download SMS data.
+    getsms         Get device SMS.
     locate         Get device location coordinates.
     mic            Record mic sound.
     picture        Take picture through the camera.

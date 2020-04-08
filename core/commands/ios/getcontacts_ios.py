@@ -25,7 +25,7 @@ import core.helper as h
 class command:
 	def __init__(self):
 		self.name = "getcontacts"
-		self.description = "Download addressbook."
+		self.description = "Get device contacts."
 		self.usage = "Usage: getcontacts <local_path>"
 
 	def run(self,session,cmd_data):
@@ -36,20 +36,20 @@ class command:
 		dest = cmd_data['args'].split()[0]
                 if os.path.isdir(dest):
                     if os.path.exists(dest):
-			 h.info_general("Downloading addressbook...")
+			 h.info_general("Getting contacts...")
 			 data = session.download_file('/var/mobile/Library/AddressBook/AddressBook.sqlitedb')
 			 if data:
-			     f = open(os.path.join(dest,'AddressBook.sqlitedb'),'w')
+			     f = open(os.path.join(dest,'contacts.sqlitedb'),'w')
 			     f.write(data)
 			     f.close()
                          if dest[-1:] == "/":
-                             h.info_general("Saving to "+dest+"AddressBook.sqlitedb...")
+                             h.info_general("Saving to "+dest+"contacts.sqlitedb...")
                              time.sleep(1)
-                             h.info_success("Saved to "+dest+"AddressBook.sqlitedb!")
+                             h.info_success("Saved to "+dest+"contacts.sqlitedb!")
                          else:
-                             h.info_general("Saving to "+dest+"/AddressBook.sqlitedb...")
+                             h.info_general("Saving to "+dest+"/contacts.sqlitedb...")
                              time.sleep(1)
-                             h.info_success("Saved to "+dest+"/AddressBook.sqlitedb!")
+                             h.info_success("Saved to "+dest+"/contacts.sqlitedb!")
                     else:
                         h.info_error("Local directory: "+dest+": does not exist!")
                 else:
@@ -58,7 +58,7 @@ class command:
 			if os.path.isdir(rp):
 			    pr = os.path.split(dest)[0]
                             rp = os.path.split(dest)[1]
-                            h.info_general("Downloading addressbook...")
+                            h.info_general("Getting contacts...")
 			    data = session.download_file('/var/mobile/Library/AddressBook/AddressBook.sqlitedb')
 			    if data:
 			        f = open(os.path.join(pr,rp),'w')

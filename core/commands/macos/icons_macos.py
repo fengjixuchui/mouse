@@ -29,8 +29,4 @@ class command:
         self.description = "List system alert icons."
 
     def run(self,session,cmd_data):
-        print("\nAlert Icons")
-        print("===========")
-        print("")
         os.system("sort data/icons/icons.txt")
-        print("")

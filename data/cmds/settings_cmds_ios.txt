@@ -1,6 +1,7 @@
 
     Command        Description
     -------        -----------
+    apps           List all applications.
     battery        Get battery level.
     getvol         Get volume level.
     msub           Mouse Substrate.

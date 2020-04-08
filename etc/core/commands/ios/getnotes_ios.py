@@ -25,7 +25,7 @@ import core.helper as h
 class command:
 	def __init__(self):
 		self.name = "getnotes"
-		self.description = "Download notes."
+		self.description = "Get device notes."
 		self.usage = "Usage: getnotes <local_path>"
 
 	def run(self,session,cmd_data):
@@ -38,7 +38,7 @@ class command:
 		dest = cmd_data['args'].split()[0]
                 if os.path.isdir(dest):
                     if os.path.exists(dest):
-			 h.info_general("Downloading notes...")
+			 h.info_general("Getting notes...")
 			 data = session.download_file('/var/mobile/Library/Notes/notes.sqlite')
 			 if data:
 			     f = open(os.path.join(dest,'notes.sqlite'),'w')
@@ -60,7 +60,7 @@ class command:
 			if os.path.isdir(rp):
 			    pr = os.path.split(dest)[0]
                             rp = os.path.split(dest)[1]
-                            h.info_general("Downloading notes...")
+                            h.info_general("Getting notes...")
 			    data = session.download_file('/var/mobile/Library/Notes/notes.sqlite')
 			    if data:
 			        f = open(os.path.join(pr,rp),'w')

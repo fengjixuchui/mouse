@@ -1,7 +1,6 @@
 
     Command        Description
     -------        -----------
-    icons          List system alert icons.
     pid            Get Mouse process ID.
     shell          Open device shell.
     su             Login as root.

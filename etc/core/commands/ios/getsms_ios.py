@@ -35,7 +35,7 @@ class command:
 		
 		w = os.environ['OLDPWD']
                 os.chdir(w)
-		dest = cmd_data['args'][0]
+		dest = cmd_data['args'].split()[0]
                 if os.path.isdir(dest):
                     if os.path.exists(dest):
 			 h.info_general("Downloading SMS...")

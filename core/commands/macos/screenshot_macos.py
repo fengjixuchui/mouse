@@ -35,7 +35,7 @@ class command:
 	    print self.usage
             return
 		
-	dest = cmd_data['args'][0]
+	dest = cmd_data['args'].split()[0]
         if os.path.isdir(dest):
             if os.path.exists(dest):
 		h.info_general("Taking screenshot...")

@@ -43,7 +43,7 @@ class command:
 	w = os.environ['OLDPWD']
         os.chdir(w)
         if cmd_data['args'] == "stop":
-	    dest = cmd_data['args'][1]
+	    dest = cmd_data['args'].split()[1]
             if os.path.isdir(dest):
                 if os.path.exists(dest):
 		    h.info_general("Recording mic...")
@@ -95,6 +95,6 @@ class command:
         
         elif cmd_data['args'].split()[0] == "start":
             h.info_general("Recording mic...")
-            h.info_general(session.send_command(cmd_data))
+            session.send_command(cmd_data)
 	g = os.environ['HOME']
         os.chdir(g + "/mouse")

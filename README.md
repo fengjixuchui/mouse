@@ -23,7 +23,7 @@
  </a>
 </p>
 
-![mouse](https://user-images.githubusercontent.com/54115104/77857605-28056080-7207-11ea-9bb3-c167ddc0df6b.png)
+![mouse](https://user-images.githubusercontent.com/54115104/79686466-3b757b80-8249-11ea-8de1-64d79a5f4d32.png)
 
 ***
 
@@ -92,10 +92,10 @@ and taking pictures on remote iOS/macOS device.
 
 ```
 There are a lot of different payloads in Mouse Framework 
-such as Bourne-Again Shell and Rubber Duck payloads.
+such as Target Shell and Duck or Arduino payloads.
 ```
 
-![payloads](https://user-images.githubusercontent.com/54115104/77857602-26d43380-7207-11ea-9150-77fedc428cc9.png)
+![payloads](https://user-images.githubusercontent.com/54115104/79686472-403a2f80-8249-11ea-880c-68c7562a0763.png)
 
 ***
 

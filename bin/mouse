@@ -79,6 +79,21 @@ mv core/commands/local/exec.py etc/.disabled
 mv etc/core/commands/local/exec.py core/commands/local
 cp etc/.disabled/exec.py etc/core/commands/local
 rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/arduino_macos_payload.py etc/.disabled
+mv core/payloads/arduino_macos_payload.py core/payloads
+cp etc/.disabled/arduino_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/duck_macos_payload.py etc/.disabled
+mv core/payloads/duck_macos_payload.py core/payloads
+cp etc/.disabled/duck_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/app_macos_payload.py etc/.disabled
+mv core/payloads/app_macos_payload.py core/payloads
+cp etc/.disabled/app_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
 ./mouse
@@ -142,6 +157,21 @@ mkdir etc/.disabled
 mv core/commands/local/exec.py etc/.disabled
 mv etc/core/commands/local/exec.py core/commands/local
 cp etc/.disabled/exec.py etc/core/commands/local
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/arduino_macos_payload.py etc/.disabled
+mv core/payloads/arduino_macos_payload.py core/payloads
+cp etc/.disabled/arduino_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/duck_macos_payload.py etc/.disabled
+mv core/payloads/duck_macos_payload.py core/payloads
+cp etc/.disabled/duck_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/app_macos_payload.py etc/.disabled
+mv core/payloads/app_macos_payload.py core/payloads
+cp etc/.disabled/app_macos_payload.py etc/core/payloads
 rm -rf etc/.disabled
 fi
 } &> /dev/null
@@ -211,6 +241,21 @@ mv core/commands/local/exec.py etc/.disabled
 mv etc/core/commands/local/exec.py core/commands/local
 cp etc/.disabled/exec.py etc/core/commands/local
 rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/arduino_macos_payload.py etc/.disabled
+mv core/payloads/arduino_macos_payload.py core/payloads
+cp etc/.disabled/arduino_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/duck_macos_payload.py etc/.disabled
+mv core/payloads/duck_macos_payload.py core/payloads
+cp etc/.disabled/duck_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/app_macos_payload.py etc/.disabled
+mv core/payloads/app_macos_payload.py core/payloads
+cp etc/.disabled/app_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
 ./mouse
@@ -274,6 +319,21 @@ mkdir etc/.disabled
 mv core/commands/local/exec.py etc/.disabled
 mv etc/core/commands/local/exec.py core/commands/local
 cp etc/.disabled/exec.py etc/core/commands/local
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/arduino_macos_payload.py etc/.disabled
+mv core/payloads/arduino_macos_payload.py core/payloads
+cp etc/.disabled/arduino_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/duck_macos_payload.py etc/.disabled
+mv core/payloads/duck_macos_payload.py core/payloads
+cp etc/.disabled/duck_macos_payload.py etc/core/payloads
+rm -rf etc/.disabled
+mkdir etc/.disabled
+mv core/payloads/app_macos_payload.py etc/.disabled
+mv core/payloads/app_macos_payload.py core/payloads
+cp etc/.disabled/app_macos_payload.py etc/core/payloads
 rm -rf etc/.disabled
 fi
 } &> /dev/null

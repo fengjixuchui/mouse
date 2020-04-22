@@ -65,9 +65,6 @@ fi
 sleep 1
 echo -e ""$BS"[*] "$WHS"Installing update..."$CE""
 {
-mkdir ~/.mouse
-cp -r ~/mouse/downloads ~/.mouse
-cp -r ~/mouse/payloads ~/.mouse
 rm -rf ~/mouse
 rm /bin/mouse
 rm /usr/local/bin/mouse
@@ -82,9 +79,6 @@ cd ~/mouse
 chmod +x install.sh
 ./install.sh
 fi
-cp -r ~/.mouse/downloads ~/mouse
-cp -r ~/.mouse/payloads ~/mouse
-rm -rf ~/.mouse
 } &> /dev/null
 echo -e ""$GNS"[+] "$WHS"Successfully updated!"$CE""
 cd .

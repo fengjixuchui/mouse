@@ -25,7 +25,7 @@ import core.helper as h
 class command:
     def __init__(self):
         self.name = "exec"
-        self.description = "Execute local shell commands."
+        self.description = "Execute local shell command."
     
     def run(self,session,cmd_data):
         if not cmd_data['args']:

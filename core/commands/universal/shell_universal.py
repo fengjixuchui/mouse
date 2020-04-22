@@ -31,7 +31,7 @@ class command:
     def run(self,session,cmd_data):
 	h.info_general("Connecting to device...")
 	time.sleep(0.5)
-	h.info_general("Openning device shell...")
+	h.info_general("Opening device shell...")
 	time.sleep(1)
 	while 1:
 	    uid = session.send_command({"cmd":"echo","args":"$UID"})

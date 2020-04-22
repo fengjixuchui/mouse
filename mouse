@@ -34,10 +34,8 @@ def show_graphic():
     print(h.GREEN_THIN+" 1"+h.ENDC+") Start Server")
     print(h.GREEN_THIN+" 2"+h.ENDC+") MultiHandler")
     print(h.GREEN_THIN+" 3"+h.ENDC+") Create Payload")
-    print(h.GREEN_THIN+" 4"+h.ENDC+") Clean Payloads")
-    print(h.GREEN_THIN+" 5"+h.ENDC+") Clean Downloads")
-    print(h.GREEN_THIN+" 6"+h.ENDC+") Update Mouse")
-    print(h.GREEN_THIN+" 7"+h.ENDC+") Exit Mouse")
+    print(h.GREEN_THIN+" 4"+h.ENDC+") Update Mouse")
+    print(h.GREEN_THIN+" 5"+h.ENDC+") Exit Mouse")
     print("")
     
 class mouse:
@@ -114,13 +112,13 @@ class mouse:
 
 
     def prompt_run_server(self):
-        if raw_input(h.WW+"[?]"+h.WHITE+" Start Server? (Y/n): "+h.ENDC).strip(" ") == "n":
-            return
-        else:
-            if raw_input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/N): "+h.ENDC).strip(" ") == "y":
+        if raw_input(h.WW+"[?]"+h.WHITE+" Start Server? (y/n): "+h.ENDC).strip(" ") == "y":
+            if raw_input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/n): "+h.ENDC).strip(" ") == "y":
                 self.server.start_multi_handler()
             else:
                 self.server.start_single_handler()
+        else:
+            return
 
 
     def import_payloads(self):
@@ -173,45 +171,6 @@ class mouse:
         print(h.WHITE+"-"*20)
         print("")
         os.system("chmod +x etc/update.sh && etc/update.sh")
-        
-        
-    def clean_downloads(self):
-        os.system("clear")
-        print(h.ENDC+"""
-         _     __,..---""-._                 ';-,
-  ,    _/_),-"`             '-.                `\\\\
- \|.-"`    -_)                 '.                ||
- /`   a   ,                      \              .'/
- '.___,__/                 .-'    \_        _.-'.'
-    |\  \      \         /`        _`------`_.-'
-       _/;--._, >        |   --.__/ `------`
-     (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   
-                    (((-'    __//
-                           (((-'
-"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+""+h.ENDC)
-        print(h.WHITE+"-"*20)
-        print("")
-        os.system("chmod +x etc/clean.sh && etc/clean.sh -d")
-        
-    def clean_payloads(self):
-        os.system("clear")
-        print(h.ENDC+"""
-         _     __,..---""-._                 ';-,
-  ,    _/_),-"`             '-.                `\\\\
- \|.-"`    -_)                 '.                ||
- /`   a   ,                      \              .'/
- '.___,__/                 .-'    \_        _.-'.'
-    |\  \      \         /`        _`------`_.-'
-       _/;--._, >        |   --.__/ `------`
-     (((-'  __//`'-......-;\      )
-          (((-'       __//  '--. /   
-                    (((-'    __//
-                           (((-'
-"""+h.WHITE+"Mouse Framework"+h.GREEN_THIN+" v6.0"+h.WHITE+""+h.ENDC)
-        print(h.WHITE+"-"*20)
-        print("")
-        os.system("chmod +x etc/clean.sh && etc/clean.sh -p")
 
     def choose_payload(self):
         os.system("clear")
@@ -272,10 +231,8 @@ class mouse:
                     "1" : self.start_single_server,
                     "2" : self.start_multi_handler,
                     "3" : self.choose_payload,
-                    "4" : self.clean_payloads,
-                    "5" : self.clean_downloads,
-                    "6" : self.update_mouse,
-                    "7" : self.exit_menu
+                    "4" : self.update_mouse,
+                    "5" : self.exit_menu
                 }
                 try:
                     choose[option]()

@@ -4,4 +4,4 @@
     clear          Clear terminal window.
     help           Show all available commands.
     exec           Execute local shell commands.
-    exit           Close current session and exit.
+    exit           Close current session.

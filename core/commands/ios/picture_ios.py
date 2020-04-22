@@ -34,12 +34,13 @@ class command:
 			return
 		
 		dest = cmd_data['args'].split()[1]
+		cmd_data['args'] = cmd_data['args'].split()[0]
                 if os.path.isdir(dest):
                     if os.path.exists(dest):
-			 if cmd_data['args'].split()[0] == "back":
-		             cmd_data['args'].split()[0] = False
+			 if cmd_data['args'] == "back":
+		             cmd_data['args'] = False
 		         else:
-			     cmd_data['args'].split()[0] = True
+			     cmd_data['args'] = True
 		         h.info_general("Taking picture...")
 			 try:
 			     response = json.loads(session.send_command(cmd_data))
@@ -75,10 +76,10 @@ class command:
 			if os.path.isdir(rp):
 			    pr = os.path.split(dest)[0]
                             rp = os.path.split(dest)[1]
-                            if cmd_data['args'].split()[0] == "back":
-		                cmd_data['args'].split()[0] = False
+                            if cmd_data['args'] == "back":
+		                cmd_data['args'] = False
 		            else:
-			        cmd_data['args'].split()[0] = True
+			        cmd_data['args'] = True
 		            h.info_general("Taking picture...")
 			    try:
 			        response = json.loads(session.send_command(cmd_data))

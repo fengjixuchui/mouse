@@ -56,7 +56,7 @@ class command:
         #display response
         print h.COLOR_INFO+"[*] "+h.WHITE+"Response: "+h.GREEN+password+h.WHITE
         #prompt for root
-        tryroot = raw_input("Would you like to try for root? (Y/n) ").strip(" ")
+        tryroot = raw_input("Would you like to try for root? (y/n) ").strip(" ")
         tryroot = tryroot if tryroot else "y"
         if tryroot.lower() != "y":
             return ""

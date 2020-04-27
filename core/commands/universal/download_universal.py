@@ -63,6 +63,10 @@ class command:
                                 h.info_error("Local directory: "+cmd_data['args'].split()[1]+": does not exist!")
 			else:
 			    rp = os.path.split(cmd_data['args'].split()[1])[0]
+			    if rp == "":
+		    		rp = "."
+			    else:
+		    		pass
                             if os.path.exists(rp):
 			        if os.path.isdir(rp):
 				    prr = os.path.split(cmd_data['args'].split()[1])[0]

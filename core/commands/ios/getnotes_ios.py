@@ -54,6 +54,10 @@ class command:
                         h.info_error("Local directory: "+dest+": does not exist!")
                 else:
                     rp = os.path.split(dest)[0]
+		    if rp == "":
+			rp = "."
+		    else:
+			pass
                     if os.path.exists(rp):
 			if os.path.isdir(rp):
 			    pr = os.path.split(dest)[0]

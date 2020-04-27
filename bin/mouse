@@ -90,9 +90,9 @@ mv core/payloads/duck_macos_payload.py core/payloads
 cp etc/.disabled/duck_macos_payload.py etc/core/payloads
 rm -rf etc/.disabled
 mkdir etc/.disabled
-mv core/payloads/app_macos_payload.py etc/.disabled
-mv core/payloads/app_macos_payload.py core/payloads
-cp etc/.disabled/app_macos_payload.py etc/core/payloads
+mv core/payloads/macos_app_payload.py etc/.disabled
+mv core/payloads/macos_app_payload.py core/payloads
+cp etc/.disabled/macos_app_payload.py etc/core/payloads
 rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
@@ -169,9 +169,9 @@ mv core/payloads/duck_macos_payload.py core/payloads
 cp etc/.disabled/duck_macos_payload.py etc/core/payloads
 rm -rf etc/.disabled
 mkdir etc/.disabled
-mv core/payloads/app_macos_payload.py etc/.disabled
-mv core/payloads/app_macos_payload.py core/payloads
-cp etc/.disabled/app_macos_payload.py etc/core/payloads
+mv core/payloads/macos_app_payload.py etc/.disabled
+mv core/payloads/macos_app_payload.py core/payloads
+cp etc/.disabled/macos_app_payload.py etc/core/payloads
 rm -rf etc/.disabled
 fi
 } &> /dev/null
@@ -252,9 +252,9 @@ mv core/payloads/duck_macos_payload.py core/payloads
 cp etc/.disabled/duck_macos_payload.py etc/core/payloads
 rm -rf etc/.disabled
 mkdir etc/.disabled
-mv core/payloads/app_macos_payload.py etc/.disabled
-mv core/payloads/app_macos_payload.py core/payloads
-cp etc/.disabled/app_macos_payload.py etc/core/payloads
+mv core/payloads/macos_app_payload.py etc/.disabled
+mv core/payloads/macos_app_payload.py core/payloads
+cp etc/.disabled/macos_app_payload.py etc/core/payloads
 rm -rf etc/.disabled
 } &> /dev/null
 chmod +x mouse
@@ -331,9 +331,9 @@ mv core/payloads/duck_macos_payload.py core/payloads
 cp etc/.disabled/duck_macos_payload.py etc/core/payloads
 rm -rf etc/.disabled
 mkdir etc/.disabled
-mv core/payloads/app_macos_payload.py etc/.disabled
-mv core/payloads/app_macos_payload.py core/payloads
-cp etc/.disabled/app_macos_payload.py etc/core/payloads
+mv core/payloads/macos_app_payload.py etc/.disabled
+mv core/payloads/macos_app_payload.py core/payloads
+cp etc/.disabled/macos_app_payload.py etc/core/payloads
 rm -rf etc/.disabled
 fi
 } &> /dev/null

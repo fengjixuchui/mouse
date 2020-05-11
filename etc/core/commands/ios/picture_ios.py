@@ -68,7 +68,7 @@ class command:
 			     g = os.environ['HOME']
                              os.chdir(g + "/mouse")
 			     return
-                         if dest[-1:] == "/":
+                         if dest[-1] == "/":
                              h.info_general("Saving to "+dest+"picture.jpg...")
                              time.sleep(1)
                              h.info_success("Saved to "+dest+"picture.jpg!")

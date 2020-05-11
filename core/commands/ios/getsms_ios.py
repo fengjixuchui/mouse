@@ -41,7 +41,7 @@ class command:
 			     f = open(os.path.join(dest,'sms.db'),'w')
 			     f.write(data)
 			     f.close()
-                         if dest[-1:] == "/":
+                         if dest[-1] == "/":
                              h.info_general("Saving to "+dest+"sms.db...")
                              time.sleep(1)
                              h.info_success("Saved to "+dest+"sms.db!")

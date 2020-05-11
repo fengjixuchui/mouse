@@ -26,10 +26,15 @@ class command:
     def __init__(self):
         self.name = "alert"
         self.description = "Make alert show up on device."
+        self.usage = "Usage: alert <title> <message>"
         self.type = "native"
 
     def run(self,session,cmd_data):
-        title = raw_input(h.WW+"[>]"+h.WHITE+" Alert Title: "+h.ENDC).strip(" ")
-        message = raw_input(h.WW+"[>]"+h.WHITE+" Alert Message: "+h.ENDC).strip(" ")
-        session.send_command({"cmd":"alert","args":json.dumps({"title":title,"message":message})})
-        return ""
+        cmds = cmd_data['args'].split()
+        if len(cmds) < 2:
+            print self.usage
+        else:
+            title = cmds[0]
+            message = cmds[1]
+            session.send_command({"cmd":"alert","args":json.dumps({"title":title,"message":message})})
+            return ""

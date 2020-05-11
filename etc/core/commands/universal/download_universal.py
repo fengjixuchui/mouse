@@ -27,7 +27,7 @@ class command:
 	def __init__(self):
 		self.name = "download"
 		self.description = "Download remote file."
-		self.usage = "Usage: download <remote_path> <local_path>"
+		self.usage = "Usage: download <remote_file> <local_path>"
 		self.type = "native"
 
 	def run(self,session,cmd_data):
@@ -57,7 +57,7 @@ class command:
 			            f = open(os.path.join(cmd_data['args'].split()[1],rp),'w')
 			            f.write(data)
 			            f.close()
-                                    if cmd_data['args'].split()[1][-1:] == "/":
+                                    if cmd_data['args'].split()[1][-1] == "/":
                                         h.info_success("Saved to "+cmd_data['args'].split()[1]+""+rp+"!")
                                     else:
 			                h.info_success("Saved to "+cmd_data['args'].split()[1]+"/"+rp+"!")

@@ -28,7 +28,7 @@ CE="\033[0m"
 #red start
 	RS="\033[1;31m"
 #green start
-	GNS="-e \033[1;32m"
+	GNS="\033[1;32m"
 #white start
    WHS="\033[0m"
    
@@ -36,9 +36,7 @@ printf '\033]2;install.sh\a'
 
 if [[ $EUID -ne 0 ]]
 then
-   sleep 1
-   echo -e ""$RS"[-]"$WHS" This script must be run as root!"$CE"" 1>&2
-   sleep 1
+   echo -e ""$RS"[-]"$WHS" This script must be run as root!"$CE""
    exit
 fi
 
@@ -46,28 +44,15 @@ fi
 ASESR="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 } &> /dev/null
 if [[ "$ASESR" != 0 ]]
-then 
-   sleep 1
-   echo -e ""$RS"[-] "$WHS"No Internet connection!"$CE""
-   sleep 1
-   exit
-fi
-
-if [[ -d ~/mouse ]]
 then
-sleep 0
-else
-cd ~
-{
-git clone https://github.com/entynetproject/mouse.git
-} &> /dev/null
+   echo -e ""$RS"[-] "$WHS"No Internet connection!"$CE""
+   exit
 fi
 
 sleep 0.5
 clear
 sleep 0.5
 echo
-cd ~/mouse
 cat banner/banner.txt
 echo
 
@@ -112,8 +97,26 @@ xbps-install -y python
 xbps-install -y openssl
 } &> /dev/null
 
+if [[ -d ~/mouse ]]
+then
+sleep 0
+else
+cd ~
 {
-cd ~/mouse/bin
+git clone https://github.com/entynetproject/mouse.git
+} &> /dev/null
+fi
+
+if [[ -d ~/mouse ]]
+then
+cd ~/mouse
+else
+echo -e ""$RS"[-]"$WHS" Installation failed!"$CE""
+exit
+fi
+
+{
+cd bin
 cp mouse /usr/local/bin
 chmod +x /usr/local/bin/mouse
 cp mouse /bin

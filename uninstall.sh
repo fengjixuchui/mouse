@@ -27,9 +27,7 @@ printf '\033]2;uninstall.sh\a'
 
 if [[ $EUID -ne 0 ]]
 then
-   sleep 1
-   echo -e ""$RS"[-]"$WHS" This script must be run as root!"$CE"" 1>&2
-   sleep 1
+   echo -e ""$RS"[-]"$WHS" This script must be run as root!"$CE""
    exit
 fi
 

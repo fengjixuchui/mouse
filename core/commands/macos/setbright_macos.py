@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -29,6 +29,6 @@ class command:
         try:
             float(cmd_data["args"])
         except:
-            print self.usage
+            print(self.usage)
             return
         session.send_command(cmd_data)

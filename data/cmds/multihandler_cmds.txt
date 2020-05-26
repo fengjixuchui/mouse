@@ -3,6 +3,6 @@
     -------        -----------
     close          Close active session.
     exit           Close all sessions and exit.
-    help           Show all available commands.
+    help           Show available commands.
     interact       Interact with a session.
-    sessions       List active sessions.
+    sessions       Show active sessions.

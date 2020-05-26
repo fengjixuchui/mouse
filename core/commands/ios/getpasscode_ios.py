@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -28,4 +28,4 @@ class command:
     def run(self,session,cmd_data):
         error = session.send_command(cmd_data)
         if error:
-        	print(h.RED+"[-]"+h.WHITE+" Failed to retreive the device passcode!")
+            h.info_error("Failed to retreive the device passcode!")

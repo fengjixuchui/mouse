@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -25,6 +25,6 @@ class command:
         self.usage = "Usage: say <text>"
     
     def run(self,session,cmd_data):
-    	if not cmd_data['args']:
-    		print self.usage
+        if not cmd_data['args']:
+            print(self.usage)
         session.send_command(cmd_data)

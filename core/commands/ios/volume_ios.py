@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -18,30 +18,11 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import core.helper as h
-
 class command:
     def __init__(self):
-        self.name = "imessage"
-        self.description = "Send message through the messages app."
-        self.usage = "Usage: imessage <phone> <message>"
-        self.type = "applescript"
-
+        self.name = "volume"
+        self.description = "Show volume level."
+    
     def run(self,session,cmd_data):
-        cmds = cmd_data['args'].split()
-        if len(cmds) < 2:
-            print self.usage
-        else:
-            phone = cmds[0]
-            message = cmds[1]
-            h.info_general("Sending message to "+phone+"...")
-            payload = """tell application "Messages"
-            set targetService to 1st service whose service type = iMessage
-            set targetBuddy to buddy \""""+phone+"""\" of targetService
-            send \""""+message+"""\" to targetBuddy
-            end tell"""
-            cmd_data.update({"args":payload})
-            cmd_data.update({"cmd":self.type})
-            result = session.send_command(cmd_data)
-            if result and result != "(null)":
-                print result
+        cmd_data = {'cmd': 'getvol', 'args': ''}
+        print("Volume level: "+session.send_command(cmd_data).decode())

@@ -2,8 +2,8 @@
     Command        Description
     -------        -----------
     apps           List all applications.
-    battery        Get battery level.
-    getvol         Get volume level.
+    battery        Show battery level.
     msub           Mouse Substrate.
     setvol         Set output volume.
     sysinfo        Show system information.
+    volume         Show volume level.

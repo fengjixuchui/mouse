@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -20,6 +20,7 @@
 
 import core.helper as h
 import re, os
+import time
 
 class command:
     def __init__(self):
@@ -29,16 +30,16 @@ class command:
     
     def run(self,session,cmd_data):
         if not cmd_data['args']:
-            print self.usage
+            print(self.usage)
             return
         else:
             paths = re.split(r'(?<!\\) ', cmd_data['args'].rstrip())
             if len(paths) < 2:
-                print "Usage: upload <local_path> <remote_path>"
+                print("Usage: upload <local_path> <remote_path>")
                 return
             
             if len(paths) > 2:
-                print "Usage: upload <local_path> <remote_path>"
+                print("Usage: upload <local_path> <remote_path>")
                 return
             
             local_dir = os.path.split(paths[0])[0]
@@ -66,16 +67,16 @@ class command:
             chk = session.send_command({"cmd":"stat","args":raw})
             if dchk == "0\n":
                 if chk[:4] != "stat":
-                        h.info_general("Uploading "+local_file+"...")
-                        session.upload_file(paths[0],raw,local_file)
-                        if raw[-1] == "/":
-                            h.info_general("Saving to "+raw+""+local_file+"...")
-                            time.sleep(1)
-                            h.info_success("Saved to "+raw+""+local_file+"...")
-                        else:
-                            h.info_general("Saving to "+raw+"/"+local_file+"...")
-                            time.sleep(1)
-                            h.info_success("Saved to "+raw+"/"+local_file+"...")
+                    h.info_general("Uploading "+local_file+"...")
+                    session.upload_file(paths[0],raw,local_file)
+                    if raw[-1] == "/":
+                        h.info_general("Saving to "+raw+""+local_file+"...")
+                        time.sleep(1)
+                        h.info_success("Saved to "+raw+""+local_file+"...")
+                    else:
+                        h.info_general("Saving to "+raw+"/"+local_file+"...")
+                        time.sleep(1)
+                        h.info_success("Saved to "+raw+"/"+local_file+"...")
                 else:
                     h.info_error("Remote directory: "+raw+": does not exist!")
             else:

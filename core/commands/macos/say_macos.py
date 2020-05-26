@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -18,10 +18,17 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+import time
+
 class command:
-    def __init__(self):
-        self.name = "getvol"
-        self.description = "Get volume level."
-    
-    def run(self,session,cmd_data):
-        print("Current volume: "+session.send_command(cmd_data))
+	def __init__(self):
+		self.name = "say"
+		self.description = "Convert text to speach."
+		self.usage = "Usage: say <text>"
+
+	def run(self,session,cmd_data):
+		if not cmd_data['args']:
+			print(self.usage)
+		else:
+			session.send_command({"cmd":"say","args":cmd_data['args']})

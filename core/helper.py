@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -49,10 +49,10 @@ def clear():
     os.system(CMD_CLEAR)
 
 def info_success(string):
-    print "{0}[+] {1}{2}{3}".format(GG,WHITE,string,ENDC)
+    print("{0}[+] {1}{2}{3}".format(GG,WHITE,string,ENDC))
 
 def info_general(string):
-    print "{0}[*] {1}{2}{3}".format(CYAN,WHITE,string,ENDC)
+    print("{0}[*] {1}{2}{3}".format(CYAN,WHITE,string,ENDC))
 
 
 def info_general_raw(string):
@@ -63,19 +63,19 @@ def info_question_raw(string):
     
 
 def info_error(string):
-    print "{0}[-] {1}{2}{3}".format(RED,WHITE,string,ENDC)
+    print("{0}[-] {1}{2}{3}".format(RED,WHITE,string,ENDC))
 
 
 def info_warning(string):
-    print "{0}[!] {1}{2}{3}".format(YELLOW,WHITE,string,ENDC)
+    print("{0}[!] {1}{2}{3}".format(YELLOW,WHITE,string,ENDC))
 
 
 def show_command(mod):
-    print mod.name + " " * (15 - len(mod.name)) + ": " + mod.description
+    print(mod.name + " " * (15 - len(mod.name)) + ": " + mod.description)
 
 
 def b64(s):
-    return base64.b64encode(s)
+    return base64.b64encode(s.encode())
 
 
 def getip():
@@ -104,7 +104,7 @@ def find_longest_common_prefix(values):
 
 
 def generate_keys():
-    print (CYAN+"[*]"+WHITE+" Initializing server...")
+    print(CYAN+"[*]"+WHITE+" Initializing server...")
     if not os.path.exists(".keys"):
         os.makedirs(".keys")
     os.system(

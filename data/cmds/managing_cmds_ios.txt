@@ -5,7 +5,12 @@
     dial           Dial a phone number.
     ipod           Control music player.
     lastapp        Open last opened application.
+    locate         Locate device.
+    mic            Record microphone sound.
     open           Open application.
     openurl        Open URL on device.
+    picture        Take picture through the camera.
     say            Convert text to speach.
     vibrate        Vibrate device.
+    shell          Open device shell.
+    upload         Upload local file.

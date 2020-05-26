@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -26,7 +26,7 @@ class command:
         self.description = "Simulate a double home button press."
     
     def run(self,session,cmd_data):
-    	cmd_data["cmd"] = "doublehome"
+        cmd_data["cmd"] = "doublehome"
         error = session.send_command(cmd_data)
         if error:
-        	print(h.RED+"[-]"+h.WHITE+" Mouse Substrate is not installed!")
+            h.info_error("Mouse Substrate is not installed!")

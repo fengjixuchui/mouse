@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -25,7 +25,7 @@ import sys
 import time
 import binascii
 import os
-import helper as h
+import core.helper as h
 try:
 	import readline
 except:
@@ -37,51 +37,51 @@ class Session:
 	def __init__(self,server,conn,device_info):
 		self.server = server
 		self.conn = conn
-		self.username = device_info['username'].encode("utf-8")
-		self.hostname = device_info['hostname'].encode("utf-8")
+		self.username = device_info['username']
+		self.hostname = device_info['hostname']
 		self.type = device_info['type']
 		self.uid = device_info['uid']
-		self.current_directory = device_info['current_directory'].encode("utf-8")
+		self.current_directory = device_info['current_directory']
 		self.last_tab = None
 		self.needs_refresh = False
 		
 	def get_sub(self,device_type):
 		if device_type == "macos":
 			time.sleep(0)
-  	        elif device_type == "iOS":
+		elif device_type == "iOS":
 			print("\nSubstrate Commands")
-                        print("==================")
-		        os.system("cat data/cmds/substrate_cmds.txt")
+			print("==================")
+			os.system("cat data/cmds/substrate_cmds.txt")
 		
 	def get_boot(self,device_type):
 		if device_type == "macos":
 			os.system("cat data/cmds/boot_cmds_macos.txt")
-  	        elif device_type == "iOS":
-		        os.system("cat data/cmds/boot_cmds_ios.txt")
+		elif device_type == "iOS":
+			os.system("cat data/cmds/boot_cmds_ios.txt")
 		
 	def get_steal(self,device_type):
 		if device_type == "macos":
 			os.system("cat data/cmds/stealing_cmds_macos.txt")
-  	        elif device_type == "iOS":
-		        os.system("cat data/cmds/stealing_cmds_ios.txt")
+		elif device_type == "iOS":
+			os.system("cat data/cmds/stealing_cmds_ios.txt")
 		
 	def get_set(self,device_type):
 		if device_type == "macos":
 			os.system("cat data/cmds/settings_cmds_macos.txt")
-  	        elif device_type == "iOS":
-		        os.system("cat data/cmds/settings_cmds_ios.txt")
+		elif device_type == "iOS":
+			os.system("cat data/cmds/settings_cmds_ios.txt")
 	
-	def get_troll(self,device_type):
+	def get_manage(self,device_type):
 		if device_type == "macos":
-			os.system("cat data/cmds/trolling_cmds_macos.txt")
-  	        elif device_type == "iOS":
-		        os.system("cat data/cmds/trolling_cmds_ios.txt")
+			os.system("cat data/cmds/managing_cmds_macos.txt")
+		elif device_type == "iOS":
+			os.system("cat data/cmds/managing_cmds_ios.txt")
 			
 	def get_other(self,device_type):
 		if device_type == "macos":
 			os.system("cat data/cmds/other_cmds_macos.txt")
-  	        elif device_type == "iOS":
-		        os.system("cat data/cmds/other_cmds_ios.txt")
+		elif device_type == "iOS":
+			os.system("cat data/cmds/other_cmds_ios.txt")
 
 
 	def interact(self):
@@ -94,7 +94,7 @@ class Session:
 		while 1:
 			try:
 				#prepare command
-				raw = raw_input(self.get_handle()).strip(" ")
+				raw = input(self.get_handle()).strip(" ")
 				if not raw or raw.replace(" ","") == "":
 					continue
 				cmd = raw.split()[0]
@@ -118,7 +118,7 @@ class Session:
 					h.info_error("Unrecognized command!")
 			except KeyboardInterrupt:
 				try:
-					print ""
+					print("")
 					if readline.get_line_buffer():
 						continue
 				except:
@@ -126,14 +126,13 @@ class Session:
 				self.disconnect(True)
 				return
 			except Exception as e:
-				print e
+				print(e)
 				
 	def get_handle(self):
 		"""Interact with an active session"""
 		return h.WHITE+"("+h.GREEN+self.hostname+h.WHITE+"@"+h.GREEN+self.username+h.WHITE+")> " + h.ENDC
 
 	def tab_complete(self, text, state):
-		# TODO: tab complete 'ls ', use get_completer_delims
 		try:
 			is_double_tab = False
 			current_text = readline.get_line_buffer()
@@ -181,57 +180,52 @@ class Session:
 				readline.redisplay()
 				return
 
-			print ""
+			print("")
 			for k in matched_keys:
 				if results[k] == 4:
-					print h.COLOR_INFO + k + h.ENDC
+					print(h.COLOR_INFO + k + h.ENDC)
 				elif results[k] == 10:
-					print h.COLOR_INFO + k + h.ENDC
+					print(h.COLOR_INFO + k + h.ENDC)
 				else:
-					print k
+					print(k)
 				# back to where we are
 			sys.stdout.write(self.get_handle() + current_text)		
 		except Exception as e:
-			print "\n error - " + str(e)
+			print("\n error - " + str(e))
 
 
 	def show_commands(self):
 		print(h.ENDC+"\nLocal Commands")
-                print("==============")
+		print("==============")
 		os.system("cat data/cmds/local_cmds.txt")
 		
 		print("\nSettings Commands")
-                print("=================")
-		
+		print("=================")
 		self.get_set(self.type)
-		
-		self.get_sub(self.type)
 			
-		print("\nTrolling Commands")
-                print("=================")
-		
-		self.get_troll(self.type)
+		print("\nManaging Commands")
+		print("=================")
+		self.get_manage(self.type)
 		
 		print("\nStealing Commands")
-                print("=================")
-		
+		print("=================")
 		self.get_steal(self.type)
 		
-		print("\nBoot Commands")
-                print("=============")
+		self.get_sub(self.type)
 		
+		print("\nBoot Commands")
+		print("=============")
 		self.get_boot(self.type)
 		
-	        print("\nOther Commands")
-                print("==============")
-		
+		print("\nOther Commands")
+		print("==============")
 		self.get_other(self.type)
 
-                print("")
+		print("")
 		
 
 	def send_command(self,cmd_data):
-		cmd_data["term"] = binascii.hexlify(os.urandom(8))
+		cmd_data["term"] = binascii.hexlify(os.urandom(8)).decode()
 		self.sock_send(json.dumps(cmd_data))
 		return self.sock_receive(cmd_data["term"])
 
@@ -257,27 +251,28 @@ class Session:
 			data = f.read()
 			size = len(data)
 			name = os.path.split(file_path)[-1]
-			cmd_data = json.dumps({"cmd":"upload","args":json.dumps({"size":size,"path":remote_dir,"filename":remote_file_name}),"term":term})
+			cmd_data = json.dumps({"cmd":"upload","args":json.dumps({"size":size,"path":remote_dir,"filename":remote_file_name}),"term":term.decode()})
 			self.sock_send(cmd_data)
-			for i in range((size / 1024) + 1):
+			for i in range((int(size / 1024)) + 1):
 				deltax = i * 1024
 				chunk = data[deltax:deltax + 1024]
-				self.sock_send(chunk)
-			self.sock_send(term)
+				self.conn.send(chunk)
+			self.sock_send(term.decode())
 		else:
 			h.info_error("Local file: " + file_path + ": does not exist!")
 
 
 	def sock_send(self,data):
-		self.conn.send(data)
+		self.conn.send(data.encode())
 
 
 	def sock_receive(self,term):
-		result = ""
+		result = b''
+		term = term.encode()
 		while 1:
-			data = self.conn.recv(100).strip("\x00")
+			data = self.conn.recv(100)
 			has_term = term in data
-			data = data.replace(term,"")
+			data = data.replace(term,b'')
 			if data != "":
 				result += data
 			if has_term:
@@ -286,14 +281,12 @@ class Session:
 
 	def sock_receive_data(self,size):
 		term = binascii.hexlify(os.urandom(5))
-		# here is the string son, hope you'll give it back
-		self.sock_send(term)
-		fdata = ""
+		self.sock_send(term.decode())
+		fdata = b''
 		while 1:
 			chunk = self.conn.recv(1024)
 			if term in chunk:
-				# thank you son
-				chunk = chunk.replace(term,'')
+				chunk = chunk.replace(term,b'')
 				fdata += chunk
 				return fdata[:size]
 			fdata += chunk

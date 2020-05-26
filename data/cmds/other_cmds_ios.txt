@@ -1,7 +1,4 @@
 
     Command        Description
     -------        -----------
-    islocked       Check if the device is locked.
     pid            Get Mouse process ID.
-    shell          Open device shell.
-    upload         Upload local file.

@@ -2,8 +2,5 @@
     Command        Description
     -------        -----------
     download       Download remote file.
-    getfacebook    Retrieve facebook session cookies.
-    mic            Record mic sound.
-    picture        Take picture through iSight.
+    getpaste       Get pasteboard contents.
     prompt         Prompt user to type password.
-    screenshot     Take screenshot.

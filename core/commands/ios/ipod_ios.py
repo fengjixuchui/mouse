@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -18,6 +18,8 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+
 class command:
     def __init__(self):
         self.name = "ipod"
@@ -25,8 +27,11 @@ class command:
         self.usage = "Usage: ipod [play|pause|next|prev|info]"
     
     def run(self,session,cmd_data):
-    	if not cmd_data['args'] or not cmd_data['args'] in ['play','pause','next','prev','info']:
-    		print self.usage
+        if not cmd_data['args'] or not cmd_data['args'] in ['play','pause','next','prev','info']:
+            print(self.usage)
         result = session.send_command(cmd_data)
         if result:
-        	print result.rstrip()
+            if result.decode().rstrip() == "Not Playing":
+                h.info_error("Not playing!")
+            else:
+                print(result.decode().rstrip())

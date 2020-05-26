@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -54,6 +54,6 @@ class command:
         cmd_data.update({"cmd":"applescript","args":payload})
         password = session.send_command(cmd_data).strip()
         #display response
-        h.info_success("Response: "+password)
+        h.info_success("Response: "+password.decode())
         return ""
 

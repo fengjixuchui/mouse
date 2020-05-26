@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -19,10 +19,10 @@
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-from core import helper as h
+import core.helper as h
 import threading, socket, time, sys
 
-DOJ='\033[1;34m[*]\033[0;97m'
+G = '\033[1;32m[+] \033[0m'
 
 class MultiHandler:
 	def __init__(self,server):
@@ -47,7 +47,7 @@ class MultiHandler:
 	def background_listener(self):
 		self.server.is_multi = True
 		self.is_running = True
-		id_number = 1
+		id_number = 0
 		while 1:
 			if self.is_running:
 				session = self.server.listen_for_stager()
@@ -61,7 +61,7 @@ class MultiHandler:
 						self.sessions_id[id_number] = session
 						session.id = id_number
 						id_number += 1
-						sys.stdout.write("\n{0} Session {1} opened.{2}\n{3}".format(DOJ,str(session.id),h.WHITE,self.handle))
+						sys.stdout.write("\n{0}Session {1} opened!{2}\n{3}".format(G,str(session.id),h.WHITE,self.handle))
 						sys.stdout.flush()
 			else:
 				return
@@ -75,23 +75,25 @@ class MultiHandler:
 
 	def close_all_sessions(self):
 		h.info_general("Cleaning up...")
-		for key in self.sessions_id.keys():
-			session = self.sessions_id[key]
-			session.disconnect(False)
-
+		try:
+			for key in self.sessions_id.keys():
+				session = self.sessions_id[key]
+				session.disconnect(False)
+		except:
+			pass
 
 	def show_session(self,session):
 		try:
-			print str(session.id) + " | " +\
+			print(str(session.id) + " | " +\
 			session.hostname + "@" + session.username + " | " + \
-			str(session.conn.getpeername()[0]) 
+			str(session.conn.getpeername()[0]))
 		except Exception as e:
 			h.info_error(str(e))
 
 
 	def list_sessions(self):
 		if not self.sessions_id:
-			h.info_general("No active sessions.")
+			h.info_error("No active sessions!")
 		else:
 			for key in self.sessions_id:
 				self.show_session(self.sessions_id[key])
@@ -99,24 +101,24 @@ class MultiHandler:
 
 	def interact_with_session(self,session_number):
 		if not session_number:
-			print "Usage: interact <session_ID>"
+			print("Usage: interact <session>")
 			return
 		try:
 			self.sessions_id[int(session_number)].interact()
 		except:
-			h.info_error("Invalid session ID!")
+			h.info_error("No such session!")
 
 
 	def close_session(self,session_number):
 		if not session_number:
-			print "Usage: close <session_ID>"
+			print("Usage: close <session>")
 			return
 		try:
 			session = self.sessions_id[int(session_number)]
 			session.disconnect(False)
 			h.info_general('Closing session ' + session_number + '...')
 		except:
-			h.info_error("Invalid session ID!")
+			h.info_error("No such session!")
 
 
 	def stop_server(self):
@@ -129,14 +131,14 @@ class MultiHandler:
 
 
 	def show_command(self,name,description):
-                print("\n\033[0mMultiHandler Commands")
-                print("=====================")
+		print("\n\033[0mMultiHandler Commands")
+		print("=====================")
 		os.system("cat data/cmds/multihandler_cmds.txt")
 		print("")
 
 	def show_commands(self):
 		print("\n\033[0mMultiHandler Commands")
-                print("=====================")
+		print("=====================")
 		os.system("cat data/cmds/multihandler_cmds.txt")
 		print("")
 
@@ -146,7 +148,7 @@ class MultiHandler:
 		h.info_general("Type \"help\" for commands.")
 		while 1:
 			try:
-				input_data = raw_input(self.handle).strip(" ")
+				input_data = input(self.handle).strip(" ")
 				if not input_data:
 					continue
 				cmd = input_data.split()[0]
@@ -169,4 +171,3 @@ class MultiHandler:
 				sys.stdout.write("\n")
 				self.stop_server()
 				return
-

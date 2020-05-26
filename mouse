@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -22,8 +22,8 @@ import os
 
 os.system("printf '\033]2;Mouse Framework\a'")
 
-from core import server
-from core import helper as h
+import core.server as server
+import core.helper as h
 import sys
 import platform
 import time
@@ -63,7 +63,7 @@ class mouse:
         
     # Actions
     def print_payload(self,payload,number_option):
-        print (h.GREEN_THIN+" " + str(number_option) +h.ENDC+") "+ payload.name)
+        print(h.GREEN_THIN+" " + str(number_option) +h.ENDC+") "+ payload.name)
     
 
 
@@ -112,8 +112,8 @@ class mouse:
 
 
     def prompt_run_server(self):
-        if raw_input(h.WW+"[?]"+h.WHITE+" Start server? (y/n): "+h.ENDC).strip(" ") == "y":
-            if raw_input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/n): "+h.ENDC).strip(" ") == "y":
+        if input(h.WW+"[?]"+h.WHITE+" Start server? (y/n): "+h.ENDC).strip(" ") == "y":
+            if input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/n): "+h.ENDC).strip(" ") == "y":
                 self.server.start_multi_handler()
             else:
                 self.server.start_single_handler()
@@ -194,14 +194,14 @@ class mouse:
             payload = self.payloads[key]
             self.print_payload(payload,number_option)
             number_option += 1
-        print ""
+        print("")
         while 1:
             try:
                 # choose payload
-                option = raw_input(h.info_general_raw("Mouse payload: ")).strip(" ")
+                option = input(h.info_general_raw("Mouse payload: ")).strip(" ")
                 if not option:
                   continue
-                selected_payload = self.payloads[self.payloads.keys()[int(option) - 1]]
+                selected_payload = self.payloads[list(self.payloads.keys())[int(option) - 1]]
                 # set host and port
                 self.server.set_host_port()
                 # generate payload
@@ -212,7 +212,7 @@ class mouse:
             except KeyboardInterrupt:
                 break
             except Exception as e:
-                print e
+                print(e)
                 break
 
 
@@ -221,12 +221,12 @@ class mouse:
             try:
                 h.clear()
                 if err:
-                    print err
+                    print(err)
                 if self.server.debug:
-                    print "Debug Mode: on"
+                    print("Debug Mode: on")
                 sys.stdout.write(self.banner_text)
                 show_graphic()
-                option = raw_input(h.NES).strip(" ")
+                option = input(h.NES).strip(" ")
                 choose = {
                     "1" : self.start_single_server,
                     "2" : self.start_multi_handler,

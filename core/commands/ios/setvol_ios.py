@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -25,7 +25,7 @@ class command:
         self.usage = "Usage: setvol <level: 0-1>"
     
     def run(self,session,cmd_data):
-    	if not cmd_data['args']:
-    		print self.usage
-    		return
+        if not cmd_data['args']:
+            print(self.usage)
+            return
         session.send_command(cmd_data)

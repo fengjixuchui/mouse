@@ -2,6 +2,3 @@
     Command        Description
     -------        -----------
     pid            Get Mouse process ID.
-    shell          Open device shell.
-    su             Login as root.
-    upload         Upload local file.

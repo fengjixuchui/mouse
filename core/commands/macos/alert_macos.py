@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -32,7 +32,7 @@ class command:
     def run(self,session,cmd_data):
         cmds = cmd_data['args'].split()
         if len(cmds) < 6:
-            print self.usage
+            print(self.usage)
         else:
             title = cmds[0]
             message = cmds[1]

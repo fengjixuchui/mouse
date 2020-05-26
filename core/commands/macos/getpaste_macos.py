@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -25,6 +25,5 @@ class command:
         self.type = "native"
 
     def run(self,session,cmd_data):
-        print("===================")
-        print session.send_command(cmd_data)
-        print("===================")
+        print("Pasteboard contents:")
+        print(session.send_command(cmd_data).decode())

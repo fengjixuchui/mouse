@@ -18,16 +18,9 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#blue start 
-	BS="\033[1;34m"
-#color end
-	CE="\033[0m"
-#red start
-	RS="\033[1;31m"
-#green start
-	GNS="\033[1;32m"
-#white start
-        WHS="\033[0m"
+G="\033[1;34m[*] \033[0m"
+S="\033[1;32m[+] \033[0m"
+E="\033[1;31m[-] \033[0m"
         
 if [[ -d /data/data/com.termux ]]
 then
@@ -50,16 +43,16 @@ ASESR="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 } &> /dev/null
 if [[ "$ASESR" != 0 ]]
 then
-   echo -e ""$RS"[-] "$WHS"No Internet connection!"$CE""
+   echo -e ""$E"No Internet connection!"
    exit
 fi
 if [[ $EUID -ne 0 ]]
 then
-echo -e ""$RS"[-] "$WHS"Permission denied!"$CE""
+echo -e ""$E"Permission denied!"
 exit
 fi
 sleep 1
-echo -e ""$BS"[*] "$WHS"Installing update..."$CE""
+echo -e ""$G"Installing update..."
 {
 rm -rf ~/mouse
 rm /bin/mouse
@@ -76,7 +69,7 @@ chmod +x install.sh
 ./install.sh
 fi
 } &> /dev/null
-echo -e ""$GNS"[+] "$WHS"Successfully updated!"$CE""
+echo -e ""$S"Successfully updated!"
 cd .
 touch .updated
 sleep 1

@@ -4,8 +4,13 @@
     alert          Make alert show up on device.
     chwall         Change desktop wallpaper.
     close          Close application.
-    imessage       Send message via iMessage.
     itunes         Control iTunes player.
     keyboard       Control device keyboard.
+    mic            Record microphone sound.
     open           Open application.
+    picture        Take picture through iSight.
     say            Convert text to speach.
+    screenshot     Take device screenshot.
+    shell          Open device shell.
+    su             Login as root.
+    upload         Upload local file.

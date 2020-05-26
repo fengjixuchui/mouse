@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -18,6 +18,8 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+
 class command:
     def __init__(self):
         self.name = "setvol"
@@ -25,10 +27,10 @@ class command:
      
     def run(self,session,cmd_data):
         if not cmd_data['args']:
-            print "Usage: setvol <level: 0-100>"
+            print("Usage: setvol <level: 0-100>")
             return -1
         payload = "set volume output volume "+cmd_data['args']
         cmd_data.update({"cmd":"applescript","args":payload})
-        result = session.send_command(cmd_data)
-        if result:
-            print result
+        error = session.send_command(cmd_data)
+        if error:
+            h.info_error("Failed to set output volume!")

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 #            ---------------------------------------------------
 #                              Mouse Framework                                 
@@ -34,6 +34,7 @@ class command:
         password = password.replace("\\","\\\\").replace("'","\\'")
         cmd_data['cmd'] = "eggsu"
         result = session.send_command(cmd_data)
+        result = result.decode()
         if "root" in result:
             h.info_general("Root Granted!")
             time.sleep(0.2)

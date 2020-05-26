@@ -17,26 +17,16 @@
 #
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-YS="\033[1;33m"
-CE="\033[0m"
-
-#blue start 
-	BS="\033[1;34m"
-#color end
-	CE="\033[0m"
-#red start
-	RS="\033[1;31m"
-#green start
-	GNS="\033[1;32m"
-#white start
-   WHS="\033[0m"
    
 printf '\033]2;install.sh\a'
 
+G="\033[1;34m[*] \033[0m"
+S="\033[1;32m[+] \033[0m"
+E="\033[1;31m[-] \033[0m"
+
 if [[ $EUID -ne 0 ]]
 then
-   echo -e ""$RS"[-]"$WHS" This script must be run as root!"$CE""
+   echo -e ""$E"This script must be run as root!"
    exit
 fi
 
@@ -45,7 +35,7 @@ ASESR="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
 } &> /dev/null
 if [[ "$ASESR" != 0 ]]
 then
-   echo -e ""$RS"[-] "$WHS"No Internet connection!"$CE""
+   echo -e ""$E"No Internet connection!"
    exit
 fi
 
@@ -57,7 +47,7 @@ cat banner/banner.txt
 echo
 
 sleep 1
-echo -e ""$BS"[*]"$WHS" Installing dependencies..."$CE""
+echo -e ""$G"Installing dependencies..."
 sleep 1
 
 {
@@ -67,33 +57,33 @@ pkg -y install python
 pkg -y install openssl
 apt-get update
 apt-get -y install git
-apt-get -y install python
+apt-get -y install python3
 apt-get -y install openssl
 apk update
 apk add git
-apk add python
+apk add python3
 apk add openssl
 pacman -Sy
 pacman -S --noconfirm git
-pacman -S --noconfirm python
+pacman -S --noconfirm python3
 pacman -S --noconfirm openssl
 zypper refresh
 zypper install -y git
-zypper install -y python
+zypper install -y python3
 zypper install -y openssl
 yum -y install git
-yum -y install python
+yum -y install python3
 yum -y install openssl
 dnf -y install git
-dnf -y install python
+dnf -y install python3
 dnf -y install openssl
 eopkg update-repo
 eopkg -y install git
-eopkg -y install python
+eopkg -y install python3
 eopkg -y install openssl
 xbps-install -S
 xbps-install -y git
-xbps-install -y python
+xbps-install -y python3
 xbps-install -y openssl
 } &> /dev/null
 
@@ -111,7 +101,7 @@ if [[ -d ~/mouse ]]
 then
 cd ~/mouse
 else
-echo -e ""$RS"[-]"$WHS" Installation failed!"$CE""
+echo -e ""$E"Installation failed!"
 exit
 fi
 
@@ -126,5 +116,5 @@ chmod +x /data/data/com.termux/files/usr/bin/mouse
 } &> /dev/null
 
 sleep 1
-echo -e ""$GNS"[+]"$WHS" Successfully installed!"$CE""
+echo -e ""$S"Successfully installed!"
 sleep 1

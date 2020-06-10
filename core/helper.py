@@ -68,7 +68,12 @@ def info_error(string):
 
 def info_warning(string):
     print("{0}[!] {1}{2}{3}".format(YELLOW,WHITE,string,ENDC))
+    
+def info_command(string):
+    print("{0}[#] {1}{2}{3}".format(WW,WHITE,string,ENDC)) 
 
+def info_info(string):
+    print("{0}[i] {1}{2}{3}".format(WW,WHITE,string,ENDC))
 
 def show_command(mod):
     print(mod.name + " " * (15 - len(mod.name)) + ": " + mod.description)

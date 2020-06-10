@@ -76,13 +76,6 @@ class Session:
 			os.system("cat data/cmds/managing_cmds_macos.txt")
 		elif device_type == "iOS":
 			os.system("cat data/cmds/managing_cmds_ios.txt")
-			
-	def get_other(self,device_type):
-		if device_type == "macos":
-			os.system("cat data/cmds/other_cmds_macos.txt")
-		elif device_type == "iOS":
-			os.system("cat data/cmds/other_cmds_ios.txt")
-
 
 	def interact(self):
 		"""Interact with an active session"""
@@ -216,10 +209,6 @@ class Session:
 		print("\nBoot Commands")
 		print("=============")
 		self.get_boot(self.type)
-		
-		print("\nOther Commands")
-		print("==============")
-		self.get_other(self.type)
 
 		print("")
 		

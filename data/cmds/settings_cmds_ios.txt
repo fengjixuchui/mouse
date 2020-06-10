@@ -3,7 +3,9 @@
     -------        -----------
     apps           List all applications.
     battery        Show battery level.
+    lastapp        Show last opened application.
     msub           Mouse Substrate.
+    pid            Show Mouse process ID.
     setvol         Set output volume.
     sysinfo        Show system information.
     volume         Show volume level.

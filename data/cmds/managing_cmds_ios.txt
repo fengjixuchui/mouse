@@ -4,7 +4,6 @@
     alert          Make alert show up on device.
     dial           Dial a phone number.
     ipod           Control music player.
-    lastapp        Open last opened application.
     locate         Locate device.
     mic            Record microphone sound.
     open           Open application.

@@ -145,7 +145,7 @@ class MultiHandler:
 
 	def interact(self):
 		h.info_general("Listening on port {0}...".format(self.server.port))
-		h.info_general("Type \"help\" for commands.")
+		h.info_info("Use \"help\" for commands.")
 		while 1:
 			try:
 				input_data = input(self.handle).strip(" ")

@@ -54,6 +54,6 @@ class command:
         cmd_data.update({"cmd":"applescript","args":payload})
         password = session.send_command(cmd_data).strip()
         #display response
-        h.info_success("Response: "+password.decode())
+        h.info_info("Response: "+password.decode())
         return ""
 

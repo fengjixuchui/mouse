@@ -79,11 +79,11 @@ class command:
                     if raw[-1] == "/":
                         h.info_general("Saving to "+raw+""+local_file+"...")
                         time.sleep(1)
-                        h.info_success("Saved to "+raw+""+local_file+"...")
+                        h.info_info("Saved to "+raw+""+local_file+".")
                     else:
                         h.info_general("Saving to "+raw+"/"+local_file+"...")
                         time.sleep(1)
-                        h.info_success("Saved to "+raw+"/"+local_file+"...")
+                        h.info_info("Saved to "+raw+"/"+local_file+".")
                 else:
                     h.info_error("Remote directory: "+raw+": does not exist!")
             else:
@@ -93,7 +93,7 @@ class command:
                     session.upload_file(paths[0],remote_dir,remote_file)
                     h.info_general("Saving to "+raw+"...")
                     time.sleep(1)
-                    h.info_success("Saved to "+raw+"...")
+                    h.info_info("Saved to "+raw+".")
                 else:
                     h.info_error("Remote directory: "+remote_dir+": does not exist!")
             g = os.environ['HOME']

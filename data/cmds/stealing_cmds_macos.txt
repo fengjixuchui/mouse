@@ -2,5 +2,4 @@
     Command        Description
     -------        -----------
     download       Download remote file.
-    getpaste       Get pasteboard contents.
     prompt         Prompt user to type password.

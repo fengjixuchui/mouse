@@ -3,6 +3,8 @@
     -------        -----------
     icons          List system alert icons.
     idletime       Show user activity time.
+    pasteboard     Show pasteboard contents.
+    pid            Show Mouse process ID.
     setbright      Set screen brightness.
     setvol         Set output volume.
     volume         Show volume level.

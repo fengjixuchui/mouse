@@ -47,11 +47,11 @@ class command:
 					if dest[-1] == "/":
 						h.info_general("Saving to "+dest+"contacts.sqlitedb...")
 						time.sleep(1)
-						h.info_success("Saved to "+dest+"contacts.sqlitedb!")
+						h.info_info("Saved to "+dest+"contacts.sqlitedb.")
 					else:
 						h.info_general("Saving to "+dest+"/contacts.sqlitedb...")
 						time.sleep(1)
-						h.info_success("Saved to "+dest+"/contacts.sqlitedb!")
+						h.info_info("Saved to "+dest+"/contacts.sqlitedb.")
 				else:
 					h.info_error("Failed to get contacts!")
 			else:
@@ -74,7 +74,7 @@ class command:
 						f.close()
 						h.info_general("Saving to "+dest+"...")
 						time.sleep(1)
-						h.info_success("Saved to "+dest+"!")
+						h.info_info("Saved to "+dest+".")
 					else:
 						h.info_error("Failed to get contacts!")
 				else:

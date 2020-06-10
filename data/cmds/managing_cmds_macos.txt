@@ -2,7 +2,6 @@
     Command        Description
     -------        -----------
     alert          Make alert show up on device.
-    chwall         Change desktop wallpaper.
     close          Close application.
     itunes         Control iTunes player.
     keyboard       Control device keyboard.

@@ -31,7 +31,7 @@ import time
 def show_graphic():
     print(h.WHITE+"-"*20)
     print("")
-    print(h.GREEN_THIN+" 1"+h.ENDC+") Start server")
+    print(h.GREEN_THIN+" 1"+h.ENDC+") Start listener")
     print(h.GREEN_THIN+" 2"+h.ENDC+") MultiHandler")
     print(h.GREEN_THIN+" 3"+h.ENDC+") Create payload")
     print(h.GREEN_THIN+" 4"+h.ENDC+") Update Mouse")
@@ -112,14 +112,17 @@ class mouse:
 
 
     def prompt_run_server(self):
-        if input(h.WW+"[?]"+h.WHITE+" Start server? (y/n): "+h.ENDC).strip(" ") == "y":
-            if input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/n): "+h.ENDC).strip(" ") == "y":
-                self.server.start_multi_handler()
-            else:
-                self.server.start_single_handler()
-        else:
+        if os.path.exists(".nopayload"):
+            os.system("rm .nopayload")
             return
-
+        else:
+            if input(h.WW+"[?]"+h.WHITE+" Start listener? (y/n): "+h.ENDC).strip(" ") == "y":
+                if input(h.WW+"[?]"+h.WHITE+" MultiHandler? (y/n): "+h.ENDC).strip(" ") == "y":
+                    self.server.start_multi_handler()
+                else:
+                    self.server.start_single_handler()
+            else:
+                return
 
     def import_payloads(self):
         path = "core/payloads"
@@ -171,6 +174,7 @@ class mouse:
         print(h.WHITE+"-"*20)
         print("")
         os.system("chmod +x etc/update.sh && etc/update.sh")
+        input("Press enter to continue...").strip(" ")
 
     def choose_payload(self):
         os.system("clear")
@@ -212,7 +216,8 @@ class mouse:
             except KeyboardInterrupt:
                 break
             except Exception as e:
-                print(e)
+                h.info_error(e)
+                input("Press enter to continue...").strip(" ")
                 break
 
 
@@ -221,7 +226,7 @@ class mouse:
             try:
                 h.clear()
                 if err:
-                    print(err)
+                    h.info_error(err)
                 if self.server.debug:
                     print("Debug Mode: on")
                 sys.stdout.write(self.banner_text)
@@ -246,7 +251,6 @@ class mouse:
                     continue
                     # TODO: quit socket listener
             except KeyboardInterrupt:
-                
                 exit()
 
 

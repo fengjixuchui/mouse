@@ -59,11 +59,11 @@ class command:
                     if dest[-1] == "/":
                         h.info_general("Saving to "+dest+"mic.caf...")
                         time.sleep(1)
-                        h.info_success("Saved to "+dest+"mic.caf!")
+                        h.info_info("Saved to "+dest+"mic.caf.")
                     else:
                         h.info_general("Saving to "+dest+"/mic.caf...")
                         time.sleep(1)
-                        h.info_success("Saved to "+dest+"/mic.caf!")
+                        h.info_info("Saved to "+dest+"/mic.caf.")
                 else:
                     h.info_error("Local directory: "+dest+": does not exist!")
             else:
@@ -88,7 +88,7 @@ class command:
                             f.close()
                         h.info_general("Saving to "+dest+"...")
                         time.sleep(1)
-                        h.info_success("Saved to "+dest+"!")
+                        h.info_info("Saved to "+dest+".")
                     else:
                         h.info_error("Error: "+rp+": not a directory!")
                 else:

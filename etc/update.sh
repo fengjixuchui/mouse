@@ -46,10 +46,10 @@ then
    echo -e ""$E"No Internet connection!"
    exit
 fi
-if [[ $EUID -ne 0 ]]
+if [[ $(id -u) != 0 ]]
 then
-echo -e ""$E"Permission denied!"
-exit
+   echo -e ""$E"Permission denied!"
+   exit
 fi
 sleep 1
 echo -e ""$G"Installing update..."

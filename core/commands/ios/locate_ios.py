@@ -31,5 +31,5 @@ class command:
         else:
             latitude = session.send_command(cmd_data).decode().split("\n")[0].strip("Latitude : ")
             longitude = session.send_command(cmd_data).decode().split("\n")[1].strip("Longitude : ")
-            print("Latitude: "+latitude)
-            print("Longitude: "+longitude)
+            h.info_info("Latitude: "+latitude)
+            h.info_info("Longitude: "+longitude)

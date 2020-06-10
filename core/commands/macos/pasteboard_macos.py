@@ -18,29 +18,14 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import time
-import json
 import core.helper as h
 
 class command:
     def __init__(self):
-        self.name = "chwall"
-        self.description = "Change desktop wallpaper."
-        self.usage = "Usage: chwall <picture>"
-        self.type = "applescript"
+        self.name = "pasteboard"
+        self.description = "Show pasteboard contents."
+        self.type = "native"
 
     def run(self,session,cmd_data):
-        cmds = cmd_data['args'].split()
-        if len(cmds) < 1:
-            print(self.usage)
-        else:
-            picture = cmds[0]
-            one = '"'
-            payload = """
-            tell application "Finder" to set desktop picture to POSIX file "/usr/local/share/picture.jpg"
-            """
-            session.send_command({"cmd":"rm","args":"/usr/local/share/picture.jpg"})
-            session.upload_file(picture,"/usr/local/share","picture.jpg")
-            cmd_data.update({"cmd":"applescript","args":payload})
-            picture = session.send_command(cmd_data).strip()
-            return ""
+        h.info_info("Pasteboard contents:")
+        print(session.send_command(cmd_data).decode())

@@ -18,6 +18,8 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+
 class command:
     def __init__(self):
         self.name = "volume"
@@ -25,4 +27,4 @@ class command:
     
     def run(self,session,cmd_data):
         cmd_data = {'cmd': 'getvol', 'args': ''}
-        print("Volume level: "+session.send_command(cmd_data).decode())
+        h.info_info("Volume level: "+session.send_command(cmd_data).decode())

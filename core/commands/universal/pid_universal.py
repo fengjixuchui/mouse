@@ -18,11 +18,13 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+
 class command:
     def __init__(self):
         self.name = "pid"
-        self.description = "Get Mouse process ID."
+        self.description = "Show Mouse process ID."
         self.type = "native"
 
     def run(self,session,cmd_data):
-        print("PID: "+session.send_command(cmd_data).decode())
+        h.info_info("PID: "+session.send_command(cmd_data).decode())

@@ -18,10 +18,12 @@
 #        You should have received a copy of the GNU General Public License
 #        along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import core.helper as h
+
 class command:
     def __init__(self):
         self.name = "battery"
         self.description = "Show battery level."
     
     def run(self,session,cmd_data):
-        print("Battery level: " + session.send_command(cmd_data).decode()[15:])
+        h.info_info("Battery level: " + session.send_command(cmd_data).decode()[15:])

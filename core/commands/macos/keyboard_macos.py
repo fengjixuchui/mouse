@@ -45,9 +45,8 @@ class command:
         self.id = 115
 
     def run(self,session,cmd_data):
-        #do something with conn if you want
-        h.info_general("Press Ctrl-C to stop.")
-        h.info_general("Device keyboard:")
+        h.info_info("Press Ctrl-C to stop.")
+        h.info_info("Device keyboard:")
         while 1:
             key = getch()
             if key == chr(3):

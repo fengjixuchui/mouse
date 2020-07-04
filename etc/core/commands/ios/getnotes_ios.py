@@ -47,11 +47,11 @@ class command:
 					if dest[-1] == "/":
 						h.info_general("Saving to "+dest+"notes.sqlite...")
 						time.sleep(1)
-						h.info_info("Saved to "+dest+"notes.sqlite.")
+						h.info_success("Saved to "+dest+"notes.sqlite!")
 					else:
 						h.info_general("Saving to "+dest+"/notes.sqlite...")
 						time.sleep(1)
-						h.info_info("Saved to "+dest+"/notes.sqlite.")
+						h.info_success("Saved to "+dest+"/notes.sqlite!")
 				else:
 					h.info_error("Failed to get notes!")
 			else:
@@ -74,7 +74,7 @@ class command:
 						f.close()
 						h.info_general("Saving to "+dest+"...")
 						time.sleep(1)
-						h.info_info("Saved to "+dest+".")
+						h.info_success("Saved to "+dest+"!")
 					else:
 						h.info_error("Failed to get notes!")
 				else:

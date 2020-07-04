@@ -23,7 +23,7 @@
  </a>
 </p>
 
-![mouse](https://user-images.githubusercontent.com/54115104/83969283-d6004b80-a8d7-11ea-9754-58fc32977eed.png)
+![mouse](https://user-images.githubusercontent.com/54115104/86508316-d6610900-bde7-11ea-8e6f-ce95ef15b5db.png)
 
 ***
 
@@ -95,7 +95,7 @@ There are a lot of different iOS and macOS payloads in Mouse
 Framework such as Target shell and Arduino macOS payloads.
 ```
 
-![payloads](https://user-images.githubusercontent.com/54115104/83969286-d7ca0f00-a8d7-11ea-9e4e-2f3a7a5193a2.png)
+![payload](https://user-images.githubusercontent.com/54115104/86508320-de20ad80-bde7-11ea-9d5f-5291cfa85f73.png)
 
 ***
 

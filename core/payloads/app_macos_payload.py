@@ -96,5 +96,5 @@ class payload:
 		f = open(payload_save_path,"w")
 		f.write(payload)
 		f.close()
-		h.info_info("Saved to " + path + ".")
+		h.info_success("Saved to " + path + "!")
 		os.system("chmod +x "+path+"/Contents/MacOS/payload.sh")

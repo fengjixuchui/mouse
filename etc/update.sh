@@ -69,6 +69,11 @@ chmod +x install.sh
 ./install.sh
 fi
 } &> /dev/null
+if [[ ! -d ~/mouse ]]
+then
+   echo -e ""$E"Installation failed!"
+   exit
+fi
 echo -e ""$S"Successfully updated!"
 cd .
 touch .updated

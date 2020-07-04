@@ -90,4 +90,4 @@ DELAY 500"""
 		f = open(payload_save_path,"w")
 		f.write(payload)
 		f.close()
-		h.info_info("Saved to " + payload_save_path + ".")
+		h.info_success("Saved to " + payload_save_path + "!")

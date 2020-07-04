@@ -60,11 +60,11 @@ class command:
 							if cmd_data['args'].split()[1][-1] == "/":
 								h.info_general("Saving to " + cmd_data['args'].split()[1] + "" + rp + "...")
 								time.sleep(1)
-								h.info_info("Saved to " + cmd_data['args'].split()[1] + "" + rp + ".")
+								h.info_success("Saved to " + cmd_data['args'].split()[1] + "" + rp + "!")
 							else:
 								h.info_general("Saving to " + cmd_data['args'].split()[1] + "/" + rp + "...")
 								time.sleep(1)
-								h.info_info("Saved to " + cmd_data['args'].split()[1] + "/" + rp + ".")
+								h.info_success("Saved to " + cmd_data['args'].split()[1] + "/" + rp + "!")
 					else:
 						h.info_error("Local directory: "+cmd_data['args'].split()[1]+": does not exist!")
 				else:
@@ -85,7 +85,7 @@ class command:
 								f = open(os.path.join(prr,rp),'wb')
 								f.write(data)
 								f.close()
-								h.info_info("Saved to "+cmd_data['args'].split()[1]+".")
+								h.info_success("Saved to "+cmd_data['args'].split()[1]+"!")
 						else:
 							h.info_error("Error: "+rp+": not a directory!")
 					else:

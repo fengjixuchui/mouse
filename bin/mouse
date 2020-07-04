@@ -20,6 +20,10 @@
 
 printf '\033]2;Mouse Framework\a'
 
+G="\033[1;34m[*] \033[0m"
+S="\033[1;32m[+] \033[0m"
+E="\033[1;31m[-] \033[0m"
+
 if [[ -d ~/mouse ]]
 then
 {
@@ -257,6 +261,11 @@ mv core/payloads/macos_app_payload.py core/payloads
 cp etc/.disabled/macos_app_payload.py etc/core/payloads
 rm -rf etc/.disabled
 } &> /dev/null
+if [[ ! -d ~/mouse ]]
+then
+   echo -e ""$E"Execution failed!"
+   exit
+fi
 chmod +x mouse
 ./mouse
 {
@@ -338,8 +347,7 @@ rm -rf etc/.disabled
 fi
 } &> /dev/null
 else
-cd ~
-sleep 1
+echo -e ""$E"Execution failed!"
 exit
 fi
 fi

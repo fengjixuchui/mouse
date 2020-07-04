@@ -52,11 +52,11 @@ class command:
 				if dest[-1] == "/":
 					h.info_general("Saving to "+dest+"screenshot.jpg...")
 					time.sleep(1)
-					h.info_info("Saved to "+dest+"screenshot.jpg.")
+					h.info_success("Saved to "+dest+"screenshot.jpg!")
 				else:
 					h.info_general("Saving to "+dest+"/screenshot.jpg...")
 					time.sleep(1)
-					h.info_info("Saved to "+dest+"/screenshot.jpg.")
+					h.info_success("Saved to "+dest+"/screenshot.jpg!")
 			else:
 				h.info_error("Local directory: "+dest+": does not exist!")
 		else:
@@ -82,7 +82,7 @@ class command:
 						f.close()
 					h.info_general("Saving to "+dest+"...")
 					time.sleep(1)
-					h.info_info("Saved to "+dest+".")
+					h.info_success("Saved to "+dest+"!")
 				else:
 					h.info_error("Error: "+rp+": not a directory!")
 			else:
